@@ -152,6 +152,26 @@
       border: 4px solid #fff;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
+    /* Cookie Consent Banner */
+    #cookie-banner {
+      position: fixed; bottom: 0; left: 0; right: 0; z-index: 9999;
+      background: #0a2a43; color: #fff;
+      padding: 1rem 1.5rem;
+      display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 1rem;
+      font-size: 0.875rem; line-height: 1.5;
+      box-shadow: 0 -4px 20px rgba(0,0,0,0.3);
+      transform: translateY(100%); transition: transform 0.4s ease;
+    }
+    #cookie-banner.show { transform: translateY(0); }
+    #cookie-banner p { margin: 0; max-width: 700px; text-align: center; }
+    #cookie-banner a { color: #f1b32d; text-decoration: underline; }
+    .cookie-btn {
+      padding: 0.5rem 1.5rem; border-radius: 9999px; font-weight: 700; font-size: 0.875rem;
+      border: none; cursor: pointer; transition: transform 0.2s;
+    }
+    .cookie-btn:hover { transform: scale(1.05); }
+    .cookie-btn-accept { background: #f1b32d; color: #0a2a43; }
+    .cookie-btn-decline { background: transparent; color: #fff; border: 1px solid rgba(255,255,255,0.3); }
   </style>
 </head>
 <body class="text-slate-900 bg-white">
@@ -197,8 +217,8 @@
             <div class="lang-option" data-lang="zh" onclick="switchLanguage('zh')">
               <span>🇨🇳</span> 中文
             </div>
-            <div class="lang-option" data-lang="fr" onclick="switchLanguage('fr')">
-              <span>🇫🇷</span> Français
+            <div class="lang-option" data-lang="sw" onclick="switchLanguage('sw')">
+              <span>🇰🇪</span> Kiswahili
             </div>
           </div>
         </div>
@@ -226,7 +246,7 @@
         <span class="text-sm font-semibold text-slate-500">Language:</span>
         <button onclick="switchLanguage('en'); closeMobileMenu();" class="mobile-lang-btn text-sm font-bold px-3 py-1.5 rounded-full bg-brand-navy text-white" data-mlang="en">🇬🇧 EN</button>
         <button onclick="switchLanguage('zh'); closeMobileMenu();" class="mobile-lang-btn text-sm font-bold px-3 py-1.5 rounded-full bg-slate-100 text-brand-navy" data-mlang="zh">🇨🇳 中文</button>
-        <button onclick="switchLanguage('fr'); closeMobileMenu();" class="mobile-lang-btn text-sm font-bold px-3 py-1.5 rounded-full bg-slate-100 text-brand-navy" data-mlang="fr">🇫🇷 FR</button>
+        <button onclick="switchLanguage('sw'); closeMobileMenu();" class="mobile-lang-btn text-sm font-bold px-3 py-1.5 rounded-full bg-slate-100 text-brand-navy" data-mlang="sw">🇰🇪 SW</button>
       </div>
     </div>
   </header>
@@ -245,9 +265,9 @@
           <!-- YouTube Background Video (on top of images) -->
           <iframe
             id="heroVideo"
-            src="https://www.youtube.com/embed/wQMx7wc4jh8?autoplay=1&mute=1&loop=1&playlist=wQMx7wc4jh8&controls=0&showinfo=0&modestbranding=1&rel=0&playsinline=1&enablejsapi=1&iv_load_policy=3&disablekb=1"
+            src="https://www.youtube.com/embed/wQMx7wc4jh8?autoplay=1&mute=1&loop=1&playlist=wQMx7wc4jh8&controls=0&showinfo=0&modestbranding=1&rel=0&playsinline=1&enablejsapi=1&iv_load_policy=3&disablekb=1&start=2"
             class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none"
-            style="width: 177.78vh; height: 100vh; min-width: 100vw; min-height: 56.25vw; border: 0; z-index: 1;"
+            style="width: 177.78vh; height: 100vh; min-width: 100vw; min-height: 56.25vw; border: 0; z-index: 1; opacity: 0; transition: opacity 0.5s ease;"
             allow="autoplay; encrypted-media"
             allowfullscreen
           ></iframe>
@@ -307,26 +327,26 @@
           </div>
           <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6 lg:gap-6 stagger-children reveal">
             <!-- Step 1 -->
-            <div class="relative bg-white p-8 rounded-2xl shadow-lg border-t-4 border-brand-yellow step-card" data-step="1">
-              <i data-lucide="file-text" class="w-12 h-12 text-brand-yellow mb-4"></i>
+            <div class="relative bg-white p-8 rounded-2xl shadow-lg border-t-4 border-brand-yellow step-card text-center" data-step="1">
+              <i data-lucide="file-text" class="w-12 h-12 text-brand-yellow mb-4 mx-auto"></i>
               <h3 class="text-xl font-black text-brand-navy mb-2" data-i18n="step1.title">Request a Quote</h3>
               <p class="text-slate-600 text-sm" data-i18n="step1.desc">Tell us your shipment details, and we provide a clear, competitive quote fast.</p>
             </div>
             <!-- Step 2 -->
-            <div class="relative bg-white p-8 rounded-2xl shadow-lg border-t-4 border-brand-yellow step-card" data-step="2">
-              <i data-lucide="warehouse" class="w-12 h-12 text-brand-yellow mb-4"></i>
+            <div class="relative bg-white p-8 rounded-2xl shadow-lg border-t-4 border-brand-yellow step-card text-center" data-step="2">
+              <i data-lucide="warehouse" class="w-12 h-12 text-brand-yellow mb-4 mx-auto"></i>
               <h3 class="text-xl font-black text-brand-navy mb-2" data-i18n="step2.title">We Receive & Consolidate</h3>
               <p class="text-slate-600 text-sm" data-i18n="step2.desc">Your supplier delivers to our China warehouse. We inspect, label, and consolidate for safe shipment.</p>
             </div>
             <!-- Step 3 -->
-            <div class="relative bg-white p-8 rounded-2xl shadow-lg border-t-4 border-brand-yellow step-card" data-step="3">
-              <i data-lucide="ship" class="w-12 h-12 text-brand-yellow mb-4"></i>
+            <div class="relative bg-white p-8 rounded-2xl shadow-lg border-t-4 border-brand-yellow step-card text-center" data-step="3">
+              <i data-lucide="ship" class="w-12 h-12 text-brand-yellow mb-4 mx-auto"></i>
               <h3 class="text-xl font-black text-brand-navy mb-2" data-i18n="step3.title">Shipping & Customs</h3>
               <p class="text-slate-600 text-sm" data-i18n="step3.desc">We handle all freight booking, documentation, and customs clearance for a smooth transit.</p>
             </div>
             <!-- Step 4 -->
-            <div class="relative bg-white p-8 rounded-2xl shadow-lg border-t-4 border-brand-yellow step-card" data-step="4">
-              <i data-lucide="home" class="w-12 h-12 text-brand-yellow mb-4"></i>
+            <div class="relative bg-white p-8 rounded-2xl shadow-lg border-t-4 border-brand-yellow step-card text-center" data-step="4">
+              <i data-lucide="home" class="w-12 h-12 text-brand-yellow mb-4 mx-auto"></i>
               <h3 class="text-xl font-black text-brand-navy mb-2" data-i18n="step4.title">Delivery to Your Doorstep</h3>
               <p class="text-slate-600 text-sm" data-i18n="step4.desc">Once cleared, your cargo is delivered to your designated pickup point or final destination.</p>
             </div>
@@ -341,34 +361,34 @@
             <img src="images/Fork lifter loading container from warehouse.jpeg" alt="Warehouse operations" class="rounded-2xl shadow-2xl w-full h-auto object-cover">
           </div>
           <div class="space-y-8">
-            <h2 class="text-brand-navy text-4xl md:text-5xl font-black">Why Choose Us for Your Logistics Needs?</h2>
+            <h2 class="text-brand-navy text-4xl md:text-5xl font-black" data-i18n="why.title">Why Choose Us for Your Logistics Needs?</h2>
             <div class="space-y-6">
               <div class="flex items-start gap-4">
                 <div class="w-12 h-12 bg-brand-yellow/10 rounded-full flex items-center justify-center shrink-0"><i data-lucide="dollar-sign" class="w-6 h-6 text-brand-yellow"></i></div>
                 <div>
-                  <h4 class="font-bold text-brand-navy text-lg">Cost-Effective Shipping Solutions</h4>
-                  <p class="text-slate-600">We deliver high-quality logistics services at competitive rates, helping your business reduce operational costs while maintaining efficiency. Get in touch today for a customized quote that fits your budget.</p>
+                  <h4 class="font-bold text-brand-navy text-lg" data-i18n="why1.title">Cost-Effective Shipping Solutions</h4>
+                  <p class="text-slate-600" data-i18n="why1.desc">We deliver high-quality logistics services at competitive rates, helping your business reduce operational costs while maintaining efficiency. Get in touch today for a customized quote that fits your budget.</p>
                 </div>
               </div>
               <div class="flex items-start gap-4">
                 <div class="w-12 h-12 bg-brand-yellow/10 rounded-full flex items-center justify-center shrink-0"><i data-lucide="clock" class="w-6 h-6 text-brand-yellow"></i></div>
                 <div>
-                  <h4 class="font-bold text-brand-navy text-lg">Dependable & Timely Delivery</h4>
-                  <p class="text-slate-600">We understand that time is critical. Our streamlined processes and experienced team ensure your goods are delivered safely and on schedule - every time.</p>
+                  <h4 class="font-bold text-brand-navy text-lg" data-i18n="why2.title">Dependable & Timely Delivery</h4>
+                  <p class="text-slate-600" data-i18n="why2.desc">We understand that time is critical. Our streamlined processes and experienced team ensure your goods are delivered safely and on schedule - every time.</p>
                 </div>
               </div>
               <div class="flex items-start gap-4">
                 <div class="w-12 h-12 bg-brand-yellow/10 rounded-full flex items-center justify-center shrink-0"><i data-lucide="smartphone" class="w-6 h-6 text-brand-yellow"></i></div>
                 <div>
-                  <h4 class="font-bold text-brand-navy text-lg">Real-Time Tracking & Full Visibility</h4>
-                  <p class="text-slate-600">With our advanced tracking systems, you stay informed at every stage. Monitor shipments and inventory in real time, giving you complete control and peace of mind.</p>
+                  <h4 class="font-bold text-brand-navy text-lg" data-i18n="why3.title">Real-Time Tracking & Full Visibility</h4>
+                  <p class="text-slate-600" data-i18n="why3.desc">With our advanced tracking systems, you stay informed at every stage. Monitor shipments and inventory in real time, giving you complete control and peace of mind.</p>
                 </div>
               </div>
               <div class="flex items-start gap-4">
                 <div class="w-12 h-12 bg-brand-yellow/10 rounded-full flex items-center justify-center shrink-0"><i data-lucide="users" class="w-6 h-6 text-brand-yellow"></i></div>
                 <div>
-                  <h4 class="font-bold text-brand-navy text-lg">Dedicated 24/7 Customer Support</h4>
-                  <p class="text-slate-600">Our professional support team is available around the clock to assist you. Whether you have a question or need urgent help, we are always ready to respond quickly and effectively.</p>
+                  <h4 class="font-bold text-brand-navy text-lg" data-i18n="why4.title">Dedicated 24/7 Customer Support</h4>
+                  <p class="text-slate-600" data-i18n="why4.desc">Our professional support team is available around the clock to assist you. Whether you have a question or need urgent help, we are always ready to respond quickly and effectively.</p>
                 </div>
               </div>
             </div>
@@ -380,7 +400,7 @@
       <section class="py-24 bg-slate-50">
         <div class="max-w-7xl mx-auto px-6">
           <div class="text-center max-w-3xl mx-auto mb-12">
-            <h2 class="text-brand-navy text-4xl md:text-5xl font-black">What Our Clients Say</h2>
+            <h2 class="text-brand-navy text-4xl md:text-5xl font-black" data-i18n="test.title">What Our Clients Say</h2>
           </div>
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 stagger-children reveal">
             <div class="bg-white p-8 rounded-xl shadow-md">
@@ -392,7 +412,7 @@
                 </div>
               </div>
               <div class="flex gap-1 mb-3 text-brand-yellow"><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i></div>
-              <p class="text-slate-600 italic">"The best shipping company from China to Uganda. Roshe Group handled everything perfectly. My goods arrived on time and in perfect condition. Look no further!"</p>
+              <p class="text-slate-600 italic" data-i18n="test1.quote">"The best shipping company from China to Uganda. Roshe Group handled everything perfectly. My goods arrived on time and in perfect condition. Look no further!"</p>
             </div>
             <div class="bg-white p-8 rounded-xl shadow-md">
               <div class="flex items-center mb-4">
@@ -403,7 +423,7 @@
                 </div>
               </div>
               <div class="flex gap-1 mb-3 text-brand-yellow"><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i></div>
-              <p class="text-slate-600 italic">"Reliable and professional. Their customs clearing service is top-notch. They saved me a lot of time and headache at the Mombasa port."</p>
+              <p class="text-slate-600 italic" data-i18n="test2.quote">"Reliable and professional. Their customs clearing service is top-notch. They saved me a lot of time and headache at the Mombasa port."</p>
             </div>
             <div class="bg-white p-8 rounded-xl shadow-md">
               <div class="flex items-center mb-4">
@@ -414,7 +434,7 @@
                 </div>
               </div>
               <div class="flex gap-1 mb-3 text-brand-yellow"><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i></div>
-              <p class="text-slate-600 italic">"I used their sourcing service to find a new supplier in China. The team was incredibly helpful and found a great manufacturer for me. Highly recommended!"</p>
+              <p class="text-slate-600 italic" data-i18n="test3.quote">"I used their sourcing service to find a new supplier in China. The team was incredibly helpful and found a great manufacturer for me. Highly recommended!"</p>
             </div>
           </div>
         </div>
@@ -431,7 +451,7 @@
             <p class="text-base sm:text-xl text-slate-300 max-w-2xl mx-auto relative z-10" data-i18n="cta.subtitle">Join hundreds of businesses relying on Roshe Group for seamless China-East Africa logistics.</p>
             <div class="flex flex-col sm:flex-row flex-wrap justify-center gap-4 relative z-10">
               <button onclick="navigateTo('quote')" class="bg-brand-yellow text-brand-navy px-8 py-4 sm:px-10 sm:py-5 rounded-full font-bold text-base sm:text-xl shadow-xl hover:scale-105 transition-transform" data-i18n="cta.btn">Get Your Free Quote</button>
-              <button onclick="navigateTo('about')" class="bg-white/10 text-white border border-white/20 px-8 py-4 sm:px-10 sm:py-5 rounded-full font-bold text-base sm:text-xl hover:bg-white/20 transition-colors">Contact Sales</button>
+              <button onclick="navigateTo('about')" class="bg-white/10 text-white border border-white/20 px-8 py-4 sm:px-10 sm:py-5 rounded-full font-bold text-base sm:text-xl hover:bg-white/20 transition-colors" data-i18n="cta.btn2">Contact Sales</button>
             </div>
           </div>
         </div>
@@ -447,8 +467,8 @@
           <div class="absolute inset-0 bg-brand-navy/80"></div>
         </div>
         <div class="relative z-10 max-w-7xl mx-auto px-6 text-center py-16">
-          <h1 class="text-3xl sm:text-5xl md:text-6xl font-black text-white mb-4">About Roshe Group</h1>
-          <p class="text-xl text-slate-300 max-w-2xl mx-auto">Bridging Markets, Building Futures  -  Your Trusted Logistics Partner Between China & East Africa</p>
+          <h1 class="text-3xl sm:text-5xl md:text-6xl font-black text-white mb-4" data-i18n="about.hero.title">About Roshe Group</h1>
+          <p class="text-xl text-slate-300 max-w-2xl mx-auto" data-i18n="about.hero.sub">Bridging Markets, Building Futures  -  Your Trusted Logistics Partner Between China & East Africa</p>
         </div>
       </section>
 
@@ -457,30 +477,30 @@
         <div class="max-w-7xl mx-auto px-6">
           <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div class="space-y-8">
-              <span class="text-brand-navy font-bold uppercase tracking-widest text-sm">The Roshe Story</span>
-              <h2 class="text-4xl font-black text-brand-navy leading-tight">Simplifying Trade Between <br />China & East Africa</h2>
-              <p class="text-slate-600 text-lg leading-relaxed">Founded with a vision to simplify the complex trade routes between China and the East African Community, Roshe Group has grown into a leading logistics powerhouse.</p>
-              <p class="text-slate-600 text-lg leading-relaxed">We understand the nuances of both regions - from the high-speed manufacturing hubs of Guangzhou to the critical transit corridors of East Africa. Our mission is to provide transparent, efficient, and reliable logistics that empower local businesses to thrive.</p>
+              <span class="text-brand-navy font-bold uppercase tracking-widest text-sm" data-i18n="about.tag">The Roshe Story</span>
+              <h2 class="text-4xl font-black text-brand-navy leading-tight" data-i18n="about.title">Simplifying Trade Between <br />China & East Africa</h2>
+              <p class="text-slate-600 text-lg leading-relaxed" data-i18n="about.p1">Founded with a vision to simplify the complex trade routes between China and the East African Community, Roshe Group has grown into a leading logistics powerhouse.</p>
+              <p class="text-slate-600 text-lg leading-relaxed" data-i18n="about.p2">We understand the nuances of both regions - from the high-speed manufacturing hubs of Guangzhou to the critical transit corridors of East Africa. Our mission is to provide transparent, efficient, and reliable logistics that empower local businesses to thrive.</p>
               <div class="grid grid-cols-2 gap-8 pt-8">
                 <div class="space-y-2">
                   <div class="text-4xl font-black text-brand-navy">10+</div>
-                  <div class="text-slate-500 font-bold text-xs uppercase">Years Experience</div>
+                  <div class="text-slate-500 font-bold text-xs uppercase" data-i18n="about.stat1">Years Experience</div>
                 </div>
                 <div class="space-y-2">
-                  <div class="text-4xl font-black text-brand-navy">5k+</div>
-                  <div class="text-slate-500 font-bold text-xs uppercase">Happy Clients</div>
+                  <div class="text-4xl font-black text-brand-navy">1k+</div>
+                  <div class="text-slate-500 font-bold text-xs uppercase" data-i18n="about.stat2">Happy Clients</div>
                 </div>
               </div>
             </div>
             <div class="relative">
               <img src="images/phto grid of the ship.jpeg" alt="Roshe Group Shipping" class="rounded-3xl shadow-2xl" />
               <div class="absolute -bottom-10 -left-10 glass-card p-8 rounded-3xl max-w-xs hidden md:block">
-                <p class="text-brand-navy font-bold italic">"Logistics is not just about moving boxes; it's about moving economies."</p>
+                <p class="text-brand-navy font-bold italic" data-i18n="about.quote">"Logistics is not just about moving boxes; it's about moving economies."</p>
                 <div class="mt-4 flex items-center gap-3">
                   <img src="images/Roshe group Contacts card.jpeg" class="w-10 h-10 bg-slate-200 rounded-full object-cover" alt="Director">
                   <div>
                     <div class="font-bold text-sm">Agbert Matsiko</div>
-                    <div class="text-xs text-slate-500">Director, Roshe Group</div>
+                    <div class="text-xs text-slate-500" data-i18n="about.director">Director, Roshe Group</div>
                   </div>
                 </div>
               </div>
@@ -499,8 +519,8 @@
           <div class="absolute inset-0 bg-brand-navy/80"></div>
         </div>
         <div class="relative z-10 max-w-7xl mx-auto px-6 text-center py-16">
-          <h1 class="text-3xl sm:text-5xl md:text-6xl font-black text-white mb-4">Our Comprehensive Services</h1>
-          <p class="text-xl text-slate-300 max-w-2xl mx-auto">From supplier to your doorstep, we offer a complete suite of logistics services to connect China with East Africa seamlessly.</p>
+          <h1 class="text-3xl sm:text-5xl md:text-6xl font-black text-white mb-4" data-i18n="svc.hero.title">Our Comprehensive Services</h1>
+          <p class="text-xl text-slate-300 max-w-2xl mx-auto" data-i18n="svc.hero.sub">From supplier to your doorstep, we offer a complete suite of logistics services to connect China with East Africa seamlessly.</p>
         </div>
       </section>
 
@@ -510,44 +530,44 @@
 
             <div class="bg-white p-8 rounded-2xl shadow-lg border-t-4 border-brand-yellow flex flex-col gap-4 transition-transform hover:-translate-y-2">
               <i data-lucide="ship" class="w-12 h-12 text-brand-yellow"></i>
-              <h3 class="text-2xl font-bold text-brand-navy">Freight Shipping</h3>
-              <p class="text-slate-600 text-sm flex-grow">Reliable and cost-effective Air & Sea freight solutions tailored for the China-East Africa route.</p>
-              <button onclick="navigateTo('service-freight')" class="mt-4 text-brand-navy font-bold flex items-center gap-2 hover:text-brand-yellow">Learn More <i data-lucide="arrow-right" class="w-4 h-4"></i></button>
+              <h3 class="text-2xl font-bold text-brand-navy" data-i18n="svc.freight.title">Freight Shipping</h3>
+              <p class="text-slate-600 text-sm flex-grow" data-i18n="svc.freight.desc">Reliable and cost-effective Air & Sea freight solutions tailored for the China-East Africa route.</p>
+              <button onclick="navigateTo('service-freight')" class="mt-4 text-brand-navy font-bold flex items-center gap-2 hover:text-brand-yellow" data-i18n="svc.learn">Learn More <i data-lucide="arrow-right" class="w-4 h-4"></i></button>
             </div>
 
             <div class="bg-white p-8 rounded-2xl shadow-lg border-t-4 border-brand-yellow flex flex-col gap-4 transition-transform hover:-translate-y-2">
               <i data-lucide="shield-check" class="w-12 h-12 text-brand-yellow"></i>
-              <h3 class="text-2xl font-bold text-brand-navy">Customs Clearance</h3>
-              <p class="text-slate-600 text-sm flex-grow">Expert handling of all documentation, duties, and taxes for hassle-free clearance at all major ports.</p>
-              <button onclick="navigateTo('service-customs')" class="mt-4 text-brand-navy font-bold flex items-center gap-2 hover:text-brand-yellow">Learn More <i data-lucide="arrow-right" class="w-4 h-4"></i></button>
+              <h3 class="text-2xl font-bold text-brand-navy" data-i18n="svc.customs.title">Customs Clearance</h3>
+              <p class="text-slate-600 text-sm flex-grow" data-i18n="svc.customs.desc">Expert handling of all documentation, duties, and taxes for hassle-free clearance at all major ports.</p>
+              <button onclick="navigateTo('service-customs')" class="mt-4 text-brand-navy font-bold flex items-center gap-2 hover:text-brand-yellow" data-i18n="svc.learn2">Learn More <i data-lucide="arrow-right" class="w-4 h-4"></i></button>
             </div>
 
             <div class="bg-white p-8 rounded-2xl shadow-lg border-t-4 border-brand-yellow flex flex-col gap-4 transition-transform hover:-translate-y-2">
               <i data-lucide="search" class="w-12 h-12 text-brand-yellow"></i>
-              <h3 class="text-2xl font-bold text-brand-navy">Product Sourcing</h3>
-              <p class="text-slate-600 text-sm flex-grow">We help you find and verify trusted suppliers in China, reducing your risk and simplifying procurement.</p>
-              <button onclick="navigateTo('service-sourcing')" class="mt-4 text-brand-navy font-bold flex items-center gap-2 hover:text-brand-yellow">Learn More <i data-lucide="arrow-right" class="w-4 h-4"></i></button>
+              <h3 class="text-2xl font-bold text-brand-navy" data-i18n="svc.sourcing.title">Product Sourcing</h3>
+              <p class="text-slate-600 text-sm flex-grow" data-i18n="svc.sourcing.desc">We help you find and verify trusted suppliers in China, reducing your risk and simplifying procurement.</p>
+              <button onclick="navigateTo('service-sourcing')" class="mt-4 text-brand-navy font-bold flex items-center gap-2 hover:text-brand-yellow" data-i18n="svc.learn3">Learn More <i data-lucide="arrow-right" class="w-4 h-4"></i></button>
             </div>
 
             <div class="bg-white p-8 rounded-2xl shadow-lg border-t-4 border-brand-yellow flex flex-col gap-4 transition-transform hover:-translate-y-2">
               <i data-lucide="warehouse" class="w-12 h-12 text-brand-yellow"></i>
-              <h3 class="text-2xl font-bold text-brand-navy">Warehousing Solutions</h3>
-              <p class="text-slate-600 text-sm flex-grow">Secure storage and consolidation services at our Guangzhou warehouse before export.</p>
-              <button onclick="navigateTo('service-warehousing')" class="mt-4 text-brand-navy font-bold flex items-center gap-2 hover:text-brand-yellow">Learn More <i data-lucide="arrow-right" class="w-4 h-4"></i></button>
+              <h3 class="text-2xl font-bold text-brand-navy" data-i18n="svc.warehouse.title">Warehousing Solutions</h3>
+              <p class="text-slate-600 text-sm flex-grow" data-i18n="svc.warehouse.desc">Secure storage and consolidation services at our Guangzhou warehouse before export.</p>
+              <button onclick="navigateTo('service-warehousing')" class="mt-4 text-brand-navy font-bold flex items-center gap-2 hover:text-brand-yellow" data-i18n="svc.learn4">Learn More <i data-lucide="arrow-right" class="w-4 h-4"></i></button>
             </div>
 
             <div class="bg-white p-8 rounded-2xl shadow-lg border-t-4 border-brand-yellow flex flex-col gap-4 transition-transform hover:-translate-y-2">
               <i data-lucide="sliders-horizontal" class="w-12 h-12 text-brand-yellow"></i>
-              <h3 class="text-2xl font-bold text-brand-navy">Logistics Management</h3>
-              <p class="text-slate-600 text-sm flex-grow">End-to-end oversight of your cargo, ensuring efficiency from pickup to final delivery.</p>
-              <button onclick="navigateTo('service-logistics')" class="mt-4 text-brand-navy font-bold flex items-center gap-2 hover:text-brand-yellow">Learn More <i data-lucide="arrow-right" class="w-4 h-4"></i></button>
+              <h3 class="text-2xl font-bold text-brand-navy" data-i18n="svc.logistics.title">Logistics Management</h3>
+              <p class="text-slate-600 text-sm flex-grow" data-i18n="svc.logistics.desc">End-to-end oversight of your cargo, ensuring efficiency from pickup to final delivery.</p>
+              <button onclick="navigateTo('service-logistics')" class="mt-4 text-brand-navy font-bold flex items-center gap-2 hover:text-brand-yellow" data-i18n="svc.learn5">Learn More <i data-lucide="arrow-right" class="w-4 h-4"></i></button>
             </div>
 
             <div class="bg-white p-8 rounded-2xl shadow-lg border-t-4 border-brand-yellow flex flex-col gap-4 transition-transform hover:-translate-y-2">
               <i data-lucide="lightbulb" class="w-12 h-12 text-brand-yellow"></i>
-              <h3 class="text-2xl font-bold text-brand-navy">Consultation Services</h3>
-              <p class="text-slate-600 text-sm flex-grow">Expert advice on import/export strategy, cost optimization, and market entry for East Africa.</p>
-              <button onclick="navigateTo('service-consultation')" class="mt-4 text-brand-navy font-bold flex items-center gap-2 hover:text-brand-yellow">Learn More <i data-lucide="arrow-right" class="w-4 h-4"></i></button>
+              <h3 class="text-2xl font-bold text-brand-navy" data-i18n="svc.consult.title">Consultation Services</h3>
+              <p class="text-slate-600 text-sm flex-grow" data-i18n="svc.consult.desc">Expert advice on import/export strategy, cost optimization, and market entry for East Africa.</p>
+              <button onclick="navigateTo('service-consultation')" class="mt-4 text-brand-navy font-bold flex items-center gap-2 hover:text-brand-yellow" data-i18n="svc.learn6">Learn More <i data-lucide="arrow-right" class="w-4 h-4"></i></button>
             </div>
 
           </div>
@@ -563,16 +583,16 @@
         <div class="max-w-7xl mx-auto px-6">
           <div class="grid lg:grid-cols-2 gap-16 items-center">
             <div class="space-y-6">
-              <button onclick="navigateTo('services')" class="text-brand-navy font-bold flex items-center gap-2 hover:text-brand-yellow"><i data-lucide="arrow-left" class="w-4 h-4"></i> Back to Services</button>
-              <h2 class="text-5xl font-black text-brand-navy">Freight Shipping</h2>
-              <p class="text-slate-600 text-lg">We specialize in reliable and cost-effective East Africa shipping, including freight from China to Uganda, Tanzania, and South Sudan. With warehouse operations in China and a robust logistics network, we ensure your cargo is transported safely and efficiently.</p>
+              <button onclick="navigateTo('services')" class="text-brand-navy font-bold flex items-center gap-2 hover:text-brand-yellow" data-i18n="svc.back"><i data-lucide="arrow-left" class="w-4 h-4"></i> Back to Services</button>
+              <h2 class="text-5xl font-black text-brand-navy" data-i18n="df.title">Freight Shipping</h2>
+              <p class="text-slate-600 text-lg" data-i18n="df.desc">We specialize in reliable and cost-effective East Africa shipping, including freight from China to Uganda, Tanzania, and South Sudan. With warehouse operations in China and a robust logistics network, we ensure your cargo is transported safely and efficiently.</p>
               <div class="space-y-4 pt-4">
-                <h4 class="font-bold text-xl text-brand-navy">Our Freight Services Include:</h4>
+                <h4 class="font-bold text-xl text-brand-navy" data-i18n="df.sub">Our Freight Services Include:</h4>
                 <ul class="list-disc list-inside text-slate-600 space-y-2">
-                  <li><b>Air Freight:</b> For time-sensitive cargo, offering effective delivery.</li>
-                  <li><b>Ocean Freight:</b> Full Container Load (FCL) and Less-than-Container Load (LCL) options.</li>
-                  <li><b>Inland Transportation:</b> Seamless delivery from ports to your final destination.</li>
-                  <li><b>Real-time Tracking:</b> Monitor your shipment's journey from start to finish.</li>
+                  <li data-i18n="df.l1"><b>Air Freight:</b> For time-sensitive cargo, offering effective delivery.</li>
+                  <li data-i18n="df.l2"><b>Ocean Freight:</b> Full Container Load (FCL) and Less-than-Container Load (LCL) options.</li>
+                  <li data-i18n="df.l3"><b>Inland Transportation:</b> Seamless delivery from ports to your final destination.</li>
+                  <li data-i18n="df.l4"><b>Real-time Tracking:</b> Monitor your shipment's journey from start to finish.</li>
                 </ul>
               </div>
             </div>
@@ -589,16 +609,16 @@
           <div class="grid lg:grid-cols-2 gap-16 items-center">
             <img src="images/RosheGroup two section grid card.jpeg" alt="Customs Clearance" class="rounded-3xl shadow-2xl w-full h-auto object-cover order-last lg:order-first">
             <div class="space-y-6">
-              <button onclick="navigateTo('services')" class="text-brand-navy font-bold flex items-center gap-2 hover:text-brand-yellow"><i data-lucide="arrow-left" class="w-4 h-4"></i> Back to Services</button>
-              <h2 class="text-5xl font-black text-brand-navy">Customs Clearance</h2>
-              <p class="text-slate-600 text-lg">Navigating customs can be complex. Our team of experts simplifies the process, handling all documentation, duties, and taxes to ensure your goods clear customs without delay.</p>
+              <button onclick="navigateTo('services')" class="text-brand-navy font-bold flex items-center gap-2 hover:text-brand-yellow" data-i18n="svc.back2"><i data-lucide="arrow-left" class="w-4 h-4"></i> Back to Services</button>
+              <h2 class="text-5xl font-black text-brand-navy" data-i18n="dc.title">Customs Clearance</h2>
+              <p class="text-slate-600 text-lg" data-i18n="dc.desc">Navigating customs can be complex. Our team of experts simplifies the process, handling all documentation, duties, and taxes to ensure your goods clear customs without delay.</p>
               <div class="space-y-4 pt-4">
-                <h4 class="font-bold text-xl text-brand-navy">Key Clearance Services:</h4>
+                <h4 class="font-bold text-xl text-brand-navy" data-i18n="dc.sub">Key Clearance Services:</h4>
                 <ul class="list-disc list-inside text-slate-600 space-y-2">
-                  <li>Full documentation preparation and submission.</li>
-                  <li>Accurate duty and tax calculation and payment.</li>
-                  <li>Compliance with all East African import regulations.</li>
-                  <li>Fast-track clearance for both air and sea shipments.</li>
+                  <li data-i18n="dc.l1">Full documentation preparation and submission.</li>
+                  <li data-i18n="dc.l2">Accurate duty and tax calculation and payment.</li>
+                  <li data-i18n="dc.l3">Compliance with all East African import regulations.</li>
+                  <li data-i18n="dc.l4">Fast-track clearance for both air and sea shipments.</li>
                 </ul>
               </div>
             </div>
@@ -613,16 +633,16 @@
         <div class="max-w-7xl mx-auto px-6">
           <div class="grid lg:grid-cols-2 gap-16 items-center">
             <div class="space-y-6">
-              <button onclick="navigateTo('services')" class="text-brand-navy font-bold flex items-center gap-2 hover:text-brand-yellow"><i data-lucide="arrow-left" class="w-4 h-4"></i> Back to Services</button>
-              <h2 class="text-5xl font-black text-brand-navy">Reliable Product Sourcing</h2>
-              <p class="text-slate-600 text-lg">In addition to shipping, we support businesses with professional product sourcing in China. We assist clients in identifying verified suppliers, negotiating pricing, and coordinating safe transport to our warehouse.</p>
+              <button onclick="navigateTo('services')" class="text-brand-navy font-bold flex items-center gap-2 hover:text-brand-yellow" data-i18n="svc.back3"><i data-lucide="arrow-left" class="w-4 h-4"></i> Back to Services</button>
+              <h2 class="text-5xl font-black text-brand-navy" data-i18n="ds.title">Reliable Product Sourcing</h2>
+              <p class="text-slate-600 text-lg" data-i18n="ds.desc">In addition to shipping, we support businesses with professional product sourcing in China. We assist clients in identifying verified suppliers, negotiating pricing, and coordinating safe transport to our warehouse.</p>
               <div class="space-y-4 pt-4">
-                <h4 class="font-bold text-xl text-brand-navy">Our Sourcing Support Includes:</h4>
+                <h4 class="font-bold text-xl text-brand-navy" data-i18n="ds.sub">Our Sourcing Support Includes:</h4>
                 <ul class="list-disc list-inside text-slate-600 space-y-2">
-                  <li>Supplier identification and verification.</li>
-                  <li>Price negotiation assistance.</li>
-                  <li>Quality inspection coordination.</li>
-                  <li>Supplier-to-warehouse logistics management.</li>
+                  <li data-i18n="ds.l1">Supplier identification and verification.</li>
+                  <li data-i18n="ds.l2">Price negotiation assistance.</li>
+                  <li data-i18n="ds.l3">Quality inspection coordination.</li>
+                  <li data-i18n="ds.l4">Supplier-to-warehouse logistics management.</li>
                 </ul>
               </div>
             </div>
@@ -639,16 +659,16 @@
                 <div class="grid lg:grid-cols-2 gap-16 items-center">
                     <img src="images/Fork lifter loading container from warehouse.jpeg" alt="Warehousing" class="rounded-3xl shadow-2xl w-full h-auto object-cover order-last lg:order-first">
                     <div class="space-y-6">
-                        <button onclick="navigateTo('services')" class="text-brand-navy font-bold flex items-center gap-2 hover:text-brand-yellow"><i data-lucide="arrow-left" class="w-4 h-4"></i> Back to Services</button>
-                        <h2 class="text-5xl font-black text-brand-navy">Warehousing Solutions</h2>
-                        <p class="text-slate-600 text-lg">Our secure, modern warehouse in Guangzhou serves as the central hub for your goods. We offer flexible storage options and expert consolidation services to optimize your shipments.</p>
+                        <button onclick="navigateTo('services')" class="text-brand-navy font-bold flex items-center gap-2 hover:text-brand-yellow" data-i18n="svc.back4"><i data-lucide="arrow-left" class="w-4 h-4"></i> Back to Services</button>
+                        <h2 class="text-5xl font-black text-brand-navy" data-i18n="dw.title">Warehousing Solutions</h2>
+                        <p class="text-slate-600 text-lg" data-i18n="dw.desc">Our secure, modern warehouse in Guangzhou serves as the central hub for your goods. We offer flexible storage options and expert consolidation services to optimize your shipments.</p>
                         <div class="space-y-4 pt-4">
-                            <h4 class="font-bold text-xl text-brand-navy">Warehouse Services:</h4>
+                            <h4 class="font-bold text-xl text-brand-navy" data-i18n="dw.sub">Warehouse Services:</h4>
                             <ul class="list-disc list-inside text-slate-600 space-y-2">
-                                <li>Short & long-term storage.</li>
-                                <li>Cargo inspection and labeling.</li>
-                                <li>Consolidation of goods from multiple suppliers.</li>
-                                <li>Professional packing and crating for export.</li>
+                                <li data-i18n="dw.l1">Short & long-term storage.</li>
+                                <li data-i18n="dw.l2">Cargo inspection and labeling.</li>
+                                <li data-i18n="dw.l3">Consolidation of goods from multiple suppliers.</li>
+                                <li data-i18n="dw.l4">Professional packing and crating for export.</li>
                             </ul>
                         </div>
                     </div>
@@ -663,16 +683,16 @@
             <div class="max-w-7xl mx-auto px-6">
                 <div class="grid lg:grid-cols-2 gap-16 items-center">
                     <div class="space-y-6">
-                        <button onclick="navigateTo('services')" class="text-brand-navy font-bold flex items-center gap-2 hover:text-brand-yellow"><i data-lucide="arrow-left" class="w-4 h-4"></i> Back to Services</button>
-                        <h2 class="text-5xl font-black text-brand-navy">Logistics Management</h2>
-                        <p class="text-slate-600 text-lg">We provide end-to-end logistics management, acting as your single point of contact for the entire supply chain. Our goal is to make your shipping process as simple and transparent as possible.</p>
+                        <button onclick="navigateTo('services')" class="text-brand-navy font-bold flex items-center gap-2 hover:text-brand-yellow" data-i18n="svc.back5"><i data-lucide="arrow-left" class="w-4 h-4"></i> Back to Services</button>
+                        <h2 class="text-5xl font-black text-brand-navy" data-i18n="dl.title">Logistics Management</h2>
+                        <p class="text-slate-600 text-lg" data-i18n="dl.desc">We provide end-to-end logistics management, acting as your single point of contact for the entire supply chain. Our goal is to make your shipping process as simple and transparent as possible.</p>
                         <div class="space-y-4 pt-4">
-                            <h4 class="font-bold text-xl text-brand-navy">Our Management Covers:</h4>
+                            <h4 class="font-bold text-xl text-brand-navy" data-i18n="dl.sub">Our Management Covers:</h4>
                             <ul class="list-disc list-inside text-slate-600 space-y-2">
-                                <li>Coordination with suppliers in China.</li>
-                                <li>Booking freight and managing transit.</li>
-                                <li>Handling all customs and port formalities.</li>
-                                <li>Organizing final-mile delivery in East Africa.</li>
+                                <li data-i18n="dl.l1">Coordination with suppliers in China.</li>
+                                <li data-i18n="dl.l2">Booking freight and managing transit.</li>
+                                <li data-i18n="dl.l3">Handling all customs and port formalities.</li>
+                                <li data-i18n="dl.l4">Organizing final-mile delivery in East Africa.</li>
                             </ul>
                         </div>
                     </div>
@@ -689,16 +709,16 @@
                 <div class="grid lg:grid-cols-2 gap-16 items-center">
                     <img src="images/Shipping Line near port.jpeg" alt="Consultation" class="rounded-3xl shadow-2xl w-full h-auto object-cover order-last lg:order-first">
                     <div class="space-y-6">
-                        <button onclick="navigateTo('services')" class="text-brand-navy font-bold flex items-center gap-2 hover:text-brand-yellow"><i data-lucide="arrow-left" class="w-4 h-4"></i> Back to Services</button>
-                        <h2 class="text-5xl font-black text-brand-navy">Expert Consultation</h2>
-                        <p class="text-slate-600 text-lg">Leverage our decade of experience in the China-East Africa trade lane. Our consultation services are designed to help you optimize your supply chain, reduce costs, and navigate market complexities.</p>
+                        <button onclick="navigateTo('services')" class="text-brand-navy font-bold flex items-center gap-2 hover:text-brand-yellow" data-i18n="svc.back6"><i data-lucide="arrow-left" class="w-4 h-4"></i> Back to Services</button>
+                        <h2 class="text-5xl font-black text-brand-navy" data-i18n="dcon.title">Expert Consultation</h2>
+                        <p class="text-slate-600 text-lg" data-i18n="dcon.desc">Leverage our decade of experience in the China-East Africa trade lane. Our consultation services are designed to help you optimize your supply chain, reduce costs, and navigate market complexities.</p>
                         <div class="space-y-4 pt-4">
-                            <h4 class="font-bold text-xl text-brand-navy">We Advise On:</h4>
+                            <h4 class="font-bold text-xl text-brand-navy" data-i18n="dcon.sub">We Advise On:</h4>
                             <ul class="list-disc list-inside text-slate-600 space-y-2">
-                                <li>Import/export strategy and compliance.</li>
-                                <li>Cost-saving opportunities in freight and duties.</li>
-                                <li>Market entry analysis for East African countries.</li>
-                                <li>Supplier negotiation and best practices.</li>
+                                <li data-i18n="dcon.l1">Import/export strategy and compliance.</li>
+                                <li data-i18n="dcon.l2">Cost-saving opportunities in freight and duties.</li>
+                                <li data-i18n="dcon.l3">Market entry analysis for East African countries.</li>
+                                <li data-i18n="dcon.l4">Supplier negotiation and best practices.</li>
                             </ul>
                         </div>
                     </div>
@@ -716,8 +736,8 @@
           <div class="absolute inset-0 bg-brand-navy/80"></div>
         </div>
         <div class="relative z-10 max-w-7xl mx-auto px-6 text-center py-16">
-          <h1 class="text-3xl sm:text-5xl md:text-6xl font-black text-white mb-4">Contact Us</h1>
-          <p class="text-xl text-slate-300 max-w-2xl mx-auto">We'd love to hear from you. Reach out to us through any of our offices or send us a message below.</p>
+          <h1 class="text-3xl sm:text-5xl md:text-6xl font-black text-white mb-4" data-i18n="cont.hero.title">Contact Us</h1>
+          <p class="text-xl text-slate-300 max-w-2xl mx-auto" data-i18n="cont.hero.sub">We'd love to hear from you. Reach out to us through any of our offices or send us a message below.</p>
         </div>
       </section>
 
@@ -730,8 +750,8 @@
               <div class="w-16 h-16 bg-brand-yellow/10 rounded-full flex items-center justify-center mx-auto mb-6">
                 <i data-lucide="phone-call" class="w-8 h-8 text-brand-yellow"></i>
               </div>
-              <h3 class="text-xl font-bold text-brand-navy mb-3">Call Us</h3>
-              <p class="text-slate-500 text-sm mb-4">Speak directly with our team</p>
+              <h3 class="text-xl font-bold text-brand-navy mb-3" data-i18n="cont.call.title">Call Us</h3>
+              <p class="text-slate-500 text-sm mb-4" data-i18n="cont.call.desc">Speak directly with our team</p>
               <a href="https://wa.me/8613416137544" class="text-brand-navy font-bold text-lg hover:text-brand-yellow transition-colors block">+86 134 1613 7544</a>
             </div>
             <!-- Email Card -->
@@ -739,8 +759,8 @@
               <div class="w-16 h-16 bg-brand-yellow/10 rounded-full flex items-center justify-center mx-auto mb-6">
                 <i data-lucide="mail" class="w-8 h-8 text-brand-yellow"></i>
               </div>
-              <h3 class="text-xl font-bold text-brand-navy mb-3">Email Us</h3>
-              <p class="text-slate-500 text-sm mb-4">We respond within 24 hours</p>
+              <h3 class="text-xl font-bold text-brand-navy mb-3" data-i18n="cont.email.title">Email Us</h3>
+              <p class="text-slate-500 text-sm mb-4" data-i18n="cont.email.desc">We respond within 24 hours</p>
               <a href="mailto:info@roshegroup.com" class="text-brand-navy font-bold text-lg hover:text-brand-yellow transition-colors block">info@roshegroup.com</a>
             </div>
             <!-- WhatsApp Card -->
@@ -748,28 +768,26 @@
               <div class="w-16 h-16 bg-green-50 rounded-full flex items-center justify-center mx-auto mb-6">
                 <i data-lucide="message-circle" class="w-8 h-8 text-green-500"></i>
               </div>
-              <h3 class="text-xl font-bold text-brand-navy mb-3">WhatsApp</h3>
-              <p class="text-slate-500 text-sm mb-4">Instant support, 24/7</p>
+              <h3 class="text-xl font-bold text-brand-navy mb-3" data-i18n="cont.wa.title">WhatsApp</h3>
+              <p class="text-slate-500 text-sm mb-4" data-i18n="cont.wa.desc">Instant support, 24/7</p>
               <a href="https://wa.me/8613416137544" target="_blank" class="text-brand-navy font-bold text-lg hover:text-brand-yellow transition-colors block">+86 134 1613 7544</a>
             </div>
           </div>
 
           <!-- Office Locations + Form -->
-          <div class="grid lg:grid-cols-2 gap-16 items-start">
+          <h2 class="text-4xl font-black text-brand-navy mb-8" data-i18n="cont.offices">Our Offices</h2>
+          <div class="grid lg:grid-cols-2 gap-10 items-stretch">
             <!-- Left: Office Info -->
-            <div class="space-y-10">
-              <div>
-                <h2 class="text-4xl font-black text-brand-navy mb-8">Our Offices</h2>
-              </div>
+            <div class="flex flex-col gap-6">
               <!-- China Office -->
-              <div class="bg-slate-50 p-8 rounded-2xl border border-slate-100">
+              <div class="bg-slate-50 p-8 rounded-2xl border border-slate-100 flex-1">
                 <div class="flex items-center gap-4 mb-6">
                   <div class="w-12 h-12 bg-brand-yellow rounded-xl flex items-center justify-center">
                     <i data-lucide="building-2" class="w-6 h-6 text-brand-navy"></i>
                   </div>
                   <div>
-                    <h3 class="text-xl font-bold text-brand-navy">China Office (Guangzhou)</h3>
-                    <p class="text-sm text-slate-500">Headquarters & Warehouse</p>
+                    <h3 class="text-xl font-bold text-brand-navy" data-i18n="cont.china.title">China Office (Guangzhou)</h3>
+                    <p class="text-sm text-slate-500" data-i18n="cont.china.sub">Headquarters & Warehouse</p>
                   </div>
                 </div>
                 <div class="space-y-3 text-slate-600">
@@ -779,14 +797,14 @@
                 </div>
               </div>
               <!-- Uganda Office -->
-              <div class="bg-slate-50 p-8 rounded-2xl border border-slate-100">
+              <div class="bg-slate-50 p-8 rounded-2xl border border-slate-100 flex-1">
                 <div class="flex items-center gap-4 mb-6">
                   <div class="w-12 h-12 bg-brand-yellow rounded-xl flex items-center justify-center">
                     <i data-lucide="building-2" class="w-6 h-6 text-brand-navy"></i>
                   </div>
                   <div>
-                    <h3 class="text-xl font-bold text-brand-navy">Uganda Office (Kampala)</h3>
-                    <p class="text-sm text-slate-500">East Africa Operations</p>
+                    <h3 class="text-xl font-bold text-brand-navy" data-i18n="cont.ug.title">Uganda Office (Kampala)</h3>
+                    <p class="text-sm text-slate-500" data-i18n="cont.ug.sub">East Africa Operations</p>
                   </div>
                 </div>
                 <div class="space-y-3 text-slate-600">
@@ -797,32 +815,33 @@
             </div>
 
             <!-- Right: Contact Form -->
-            <div class="bg-white p-10 rounded-3xl shadow-2xl border border-slate-100">
-              <h3 class="text-2xl font-bold text-brand-navy mb-2">Send Us a Message</h3>
-              <p class="text-slate-500 mb-8">Fill in the form below and our team will get back to you promptly.</p>
-              <form id="contact-form" class="space-y-6" onsubmit="return handleFormSubmit(event, 'contact-form')">
+            <div class="bg-white p-6 sm:p-8 rounded-3xl shadow-2xl border border-slate-100">
+              <h3 class="text-xl font-bold text-brand-navy mb-1" data-i18n="cont.form.title">Send Us a Message</h3>
+              <p class="text-slate-500 text-sm mb-5" data-i18n="cont.form.sub">Fill in the form below and our team will get back to you promptly.</p>
+              <form id="contact-form" class="space-y-4" onsubmit="return handleFormSubmit(event, 'contact-form')">
                 <input type="hidden" name="access_key" value="ec5634f7-dcc0-4397-a210-7fdbbf942aab">
-                <input type="hidden" name="subject" value="New Contact Message - Roshe Group">
-                <input type="hidden" name="from_name" value="Roshe Group Website">
+                <input type="hidden" name="subject" value="New Contact Message - Roshe Group Website">
+                <input type="hidden" name="from_name" value="Roshe Group Contact Form">
+                <input type="hidden" name="replyto" value="">
                 <!-- Honeypot anti-spam -->
-                <input type="text" name="botcheck" style="display:none">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div class="space-y-2">
+                <input type="checkbox" name="botcheck" style="display:none!important" tabindex="-1" autocomplete="off">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div class="space-y-1">
                     <label class="text-xs font-bold text-slate-500 uppercase">Full Name</label>
-                    <input name="Name" type="text" placeholder="Your Name" class="w-full p-4 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-brand-navy outline-none" required />
+                    <input name="Name" type="text" placeholder="Your Name" class="w-full px-3 py-2.5 bg-slate-50 border border-slate-200 rounded-lg focus:ring-2 focus:ring-brand-navy outline-none text-sm" required />
                   </div>
-                  <div class="space-y-2">
+                  <div class="space-y-1">
                     <label class="text-xs font-bold text-slate-500 uppercase">Phone Number</label>
-                    <input name="Phone" type="tel" placeholder="+256..." class="w-full p-4 bg-slate-50 border border-slate-200 rounded-xl outline-none" required />
+                    <input name="Phone" type="tel" placeholder="+256..." class="w-full px-3 py-2.5 bg-slate-50 border border-slate-200 rounded-lg outline-none text-sm" required />
                   </div>
                 </div>
-                <div class="space-y-2">
+                <div class="space-y-1">
                   <label class="text-xs font-bold text-slate-500 uppercase">Email Address</label>
-                  <input name="Email" type="email" placeholder="email@example.com" class="w-full p-4 bg-slate-50 border border-slate-200 rounded-xl outline-none" required />
+                  <input name="Email" type="email" placeholder="email@example.com" class="w-full px-3 py-2.5 bg-slate-50 border border-slate-200 rounded-lg outline-none text-sm" required />
                 </div>
-                <div class="space-y-2">
+                <div class="space-y-1">
                   <label class="text-xs font-bold text-slate-500 uppercase">Subject</label>
-                  <select name="Subject" class="w-full p-4 bg-slate-50 border border-slate-200 rounded-xl outline-none">
+                  <select name="Subject" class="w-full px-3 py-2.5 bg-slate-50 border border-slate-200 rounded-lg outline-none text-sm">
                     <option>General Inquiry</option>
                     <option>Freight Shipping Quote</option>
                     <option>Customs Clearance</option>
@@ -832,16 +851,14 @@
                     <option>Other</option>
                   </select>
                 </div>
-                <div class="space-y-2">
+                <div class="space-y-1">
                   <label class="text-xs font-bold text-slate-500 uppercase">Your Message</label>
-                  <textarea name="Message" rows="5" placeholder="How can we help you?" class="w-full p-4 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-brand-navy outline-none" required></textarea>
+                  <textarea name="Message" rows="3" placeholder="How can we help you?" class="w-full px-3 py-2.5 bg-slate-50 border border-slate-200 rounded-lg focus:ring-2 focus:ring-brand-navy outline-none text-sm" required></textarea>
                 </div>
-                <div class="pt-2">
-                  <button type="submit" id="contact-form-btn" class="w-full p-4 bg-brand-yellow text-brand-navy font-bold rounded-xl shadow-lg hover:scale-[1.02] transition-transform flex items-center justify-center gap-2">
-                    <i data-lucide="send" class="w-5 h-5"></i> Send Message
-                  </button>
-                </div>
-                <div id="contact-form-status" class="hidden rounded-xl p-4 text-center font-semibold"></div>
+                <button type="submit" id="contact-form-btn" class="w-full py-3 bg-brand-yellow text-brand-navy font-bold rounded-lg shadow-lg hover:scale-[1.02] transition-transform flex items-center justify-center gap-2 text-sm">
+                  <i data-lucide="send" class="w-4 h-4"></i> Send Message
+                </button>
+                <div id="contact-form-status" class="hidden rounded-lg p-3 text-center font-semibold text-sm"></div>
               </form>
             </div>
           </div>
@@ -854,19 +871,19 @@
           <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div class="bg-white p-8 rounded-2xl shadow-md text-center">
               <i data-lucide="clock" class="w-10 h-10 text-brand-yellow mx-auto mb-4"></i>
-              <h4 class="font-bold text-brand-navy text-lg mb-2">China Office Hours</h4>
+              <h4 class="font-bold text-brand-navy text-lg mb-2" data-i18n="cont.hours.china">China Office Hours</h4>
               <p class="text-slate-600">Mon  -  Sat: 9:00 AM  -  6:00 PM (CST)</p>
               <p class="text-slate-400 text-sm mt-1">Sunday: Closed</p>
             </div>
             <div class="bg-white p-8 rounded-2xl shadow-md text-center">
               <i data-lucide="clock" class="w-10 h-10 text-brand-yellow mx-auto mb-4"></i>
-              <h4 class="font-bold text-brand-navy text-lg mb-2">Uganda Office Hours</h4>
+              <h4 class="font-bold text-brand-navy text-lg mb-2" data-i18n="cont.hours.ug">Uganda Office Hours</h4>
               <p class="text-slate-600">Mon  -  Fri: 8:00 AM  -  5:00 PM (EAT)</p>
               <p class="text-slate-400 text-sm mt-1">Saturday: 9:00 AM  -  1:00 PM</p>
             </div>
             <div class="bg-white p-8 rounded-2xl shadow-md text-center">
               <i data-lucide="headphones" class="w-10 h-10 text-brand-yellow mx-auto mb-4"></i>
-              <h4 class="font-bold text-brand-navy text-lg mb-2">WhatsApp Support</h4>
+              <h4 class="font-bold text-brand-navy text-lg mb-2" data-i18n="cont.hours.wa">WhatsApp Support</h4>
               <p class="text-slate-600">Available 24/7</p>
               <p class="text-slate-400 text-sm mt-1">Instant responses guaranteed</p>
             </div>
@@ -884,8 +901,8 @@
           <div class="absolute inset-0 bg-brand-navy/80"></div>
         </div>
         <div class="relative z-10 max-w-7xl mx-auto px-6 text-center py-16">
-          <h1 class="text-3xl sm:text-5xl md:text-6xl font-black text-white mb-4">Track Your Shipment</h1>
-          <p class="text-xl text-slate-300 max-w-2xl mx-auto">Stay updated on your cargo in real-time through our WhatsApp support line.</p>
+          <h1 class="text-3xl sm:text-5xl md:text-6xl font-black text-white mb-4" data-i18n="track.hero.title">Track Your Shipment</h1>
+          <p class="text-xl text-slate-300 max-w-2xl mx-auto" data-i18n="track.hero.sub">Stay updated on your cargo in real-time through our WhatsApp support line.</p>
         </div>
       </section>
 
@@ -893,10 +910,10 @@
         <div class="max-w-2xl mx-auto px-6 text-center">
                 <div class="bg-white p-12 rounded-3xl shadow-2xl border border-slate-100">
                     <i data-lucide="smartphone-charging" class="w-20 h-20 text-brand-yellow mx-auto mb-6"></i>
-                    <h2 class="text-4xl font-black text-brand-navy mb-4">Track via WhatsApp</h2>
-                    <p class="text-slate-600 text-lg mb-8">For real-time updates, the fastest way to track your shipment is to contact our support team directly on WhatsApp. It's free, instant, and available 24/7.</p>
-                    <p class="text-slate-500 mb-8">Simply send your tracking number (e.g., RG-12345) to our support line.</p>
-                    <a href="https://wa.me/8613416137544?text=Hello%2C%20I'd%20like%20to%20track%20my%20shipment." target="_blank" class="w-full bg-green-500 text-white px-8 py-4 rounded-full font-bold text-lg shadow-lg hover:scale-105 transition-transform flex items-center justify-center gap-3">
+                    <h2 class="text-4xl font-black text-brand-navy mb-4" data-i18n="track.title">Track via WhatsApp</h2>
+                    <p class="text-slate-600 text-lg mb-8" data-i18n="track.desc">For real-time updates, the fastest way to track your shipment is to contact our support team directly on WhatsApp. It's free, instant, and available 24/7.</p>
+                    <p class="text-slate-500 mb-8" data-i18n="track.hint">Simply send your tracking number (e.g., RG-12345) to our support line.</p>
+                    <a href="https://wa.me/8613416137544?text=Hello%2C%20I'd%20like%20to%20track%20my%20shipment." target="_blank" class="w-full bg-green-500 text-white px-8 py-4 rounded-full font-bold text-lg shadow-lg hover:scale-105 transition-transform flex items-center justify-center gap-3" data-i18n="track.btn">
                         <i data-lucide="message-circle" class="w-6 h-6"></i>
                         Track on WhatsApp
                     </a>
@@ -914,8 +931,8 @@
           <div class="absolute inset-0 bg-brand-navy/80"></div>
         </div>
         <div class="relative z-10 max-w-7xl mx-auto px-6 text-center py-16">
-          <h1 class="text-3xl sm:text-5xl md:text-6xl font-black text-white mb-4">Get a Smart Quote</h1>
-          <p class="text-xl text-slate-300 max-w-2xl mx-auto">Fast, transparent, and accurate pricing for your logistics needs.</p>
+          <h1 class="text-3xl sm:text-5xl md:text-6xl font-black text-white mb-4" data-i18n="quote.hero.title">Get a Smart Quote</h1>
+          <p class="text-xl text-slate-300 max-w-2xl mx-auto" data-i18n="quote.hero.sub">Fast, transparent, and accurate pricing for your logistics needs.</p>
         </div>
       </section>
 
@@ -923,70 +940,98 @@
         <div class="max-w-7xl mx-auto px-6">
 
           <div id="quote-form-container" class="max-w-2xl mx-auto bg-white rounded-3xl shadow-2xl overflow-hidden border border-slate-100">
-            <div class="bg-brand-navy p-8 text-white">
-              <h3 class="text-2xl font-bold">Smart Quote Center</h3>
+            <!-- Navy Header -->
+            <div class="bg-brand-navy px-6 pt-6 pb-0 text-white">
+              <div class="flex items-center justify-between mb-3">
+                <h3 class="text-xl font-bold" data-i18n="quote.header">Smart Quote Center</h3>
+                <span id="step-badge" class="bg-brand-yellow text-brand-navy text-xs font-black px-3 py-1 rounded-full">Step 1 of 3</span>
+              </div>
+              <!-- Progress Bar -->
+              <div class="w-full bg-white/20 rounded-full h-1.5">
+                <div id="step-progress" class="bg-brand-yellow h-1.5 rounded-full transition-all duration-500" style="width: 33.33%"></div>
+              </div>
             </div>
 
-            <form id="quote-form" class="p-8 space-y-6" onsubmit="return handleFormSubmit(event, 'quote-form')">
+            <form id="quote-form" class="p-6" onsubmit="return handleFormSubmit(event, 'quote-form')">
               <input type="hidden" name="access_key" value="ec5634f7-dcc0-4397-a210-7fdbbf942aab">
               <input type="hidden" name="subject" value="New Quote Request - Roshe Group">
               <input type="hidden" name="from_name" value="Roshe Group Website">
-              <!-- Honeypot anti-spam -->
               <input type="text" name="botcheck" style="display:none">
-              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="space-y-2">
-                  <label class="text-xs font-bold text-slate-500 uppercase">Full Name</label>
-                  <input name="Name" type="text" placeholder="Your Name" class="w-full p-4 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-brand-navy outline-none" required />
+
+              <!-- Step 1: Origin & Destination -->
+              <div id="quote-step-1" class="quote-step space-y-4">
+                <h4 class="font-bold text-brand-navy text-base" data-i18n="quote.s1.title">Origin & Destination</h4>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div class="space-y-1">
+                    <label class="text-xs font-bold text-slate-400 uppercase tracking-wider" data-i18n="quote.s1.origin">Pickup City in China</label>
+                    <input name="Origin" type="text" placeholder="e.g. Guangzhou, Shenzhen" class="w-full p-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-brand-navy outline-none text-sm" required />
+                  </div>
+                  <div class="space-y-1">
+                    <label class="text-xs font-bold text-slate-400 uppercase tracking-wider" data-i18n="quote.s1.dest">Destination Country</label>
+                    <select name="Destination" class="w-full p-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-brand-navy outline-none text-sm appearance-none" style="background-image:url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2212%22 height=%2212%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%23666%22 stroke-width=%222%22><polyline points=%226 9 12 15 18 9%22/></svg>');background-repeat:no-repeat;background-position:right 1rem center;">
+                      <option>Uganda</option><option>Kenya</option><option>Tanzania</option><option>Rwanda</option><option>Burundi</option><option>South Sudan</option>
+                    </select>
+                  </div>
                 </div>
-                <div class="space-y-2">
-                  <label class="text-xs font-bold text-slate-500 uppercase">WhatsApp Number</label>
-                  <input name="WhatsApp" type="tel" placeholder="+256..." class="w-full p-4 bg-slate-50 border border-slate-200 rounded-xl outline-none" required />
-                </div>
+                <button type="button" onclick="quoteNextStep(2)" class="w-full p-3 bg-brand-navy text-white font-bold rounded-xl shadow-lg hover:scale-[1.02] transition-transform text-sm mt-1" data-i18n="quote.next">Next Step</button>
               </div>
-              <div class="space-y-2">
-                <label class="text-xs font-bold text-slate-500 uppercase">Email Address</label>
-                <input name="Email" type="email" placeholder="email@example.com" class="w-full p-4 bg-slate-50 border border-slate-200 rounded-xl outline-none" required />
-              </div>
-              <hr class="my-6 border-slate-200"/>
-              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="space-y-2">
-                  <label class="text-xs font-bold text-slate-500 uppercase">Pickup City in China</label>
-                  <input name="Origin" type="text" placeholder="e.g. Guangzhou" class="w-full p-4 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-brand-navy outline-none" required />
+
+              <!-- Step 2: Cargo Details -->
+              <div id="quote-step-2" class="quote-step space-y-4 hidden">
+                <h4 class="font-bold text-brand-navy text-base" data-i18n="quote.s2.title">Cargo Details</h4>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div class="space-y-1">
+                    <label class="text-xs font-bold text-slate-400 uppercase tracking-wider" data-i18n="quote.s2.goods">Type of Goods</label>
+                    <input name="Cargo_Type" type="text" placeholder="e.g. Electronics, Textiles" class="w-full p-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-brand-navy outline-none text-sm" required />
+                  </div>
+                  <div class="space-y-1">
+                    <label class="text-xs font-bold text-slate-400 uppercase tracking-wider" data-i18n="quote.s2.weight">Estimated Weight (kg)</label>
+                    <input name="Weight_KG" type="number" placeholder="0" class="w-full p-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-brand-navy outline-none text-sm" required />
+                  </div>
                 </div>
-                <div class="space-y-2">
-                  <label class="text-xs font-bold text-slate-500 uppercase">Destination Country</label>
-                  <select name="Destination" class="w-full p-4 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-brand-navy outline-none">
-                    <option>Uganda</option><option>Kenya</option><option>Tanzania</option><option>Rwanda</option><option>Burundi</option><option>South Sudan</option>
-                  </select>
-                </div>
-              </div>
-              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="space-y-2">
-                  <label class="text-xs font-bold text-slate-500 uppercase">Type of Goods</label>
-                  <input name="Cargo_Type" type="text" placeholder="e.g. Electronics" class="w-full p-4 bg-slate-50 border border-slate-200 rounded-xl outline-none" required />
-                </div>
-                <div class="space-y-2">
-                  <label class="text-xs font-bold text-slate-500 uppercase">Weight (kg)</label>
-                  <input name="Weight_KG" type="number" placeholder="0" class="w-full p-4 bg-slate-50 border border-slate-200 rounded-xl outline-none" required />
-                </div>
-              </div>
-               <div class="space-y-2">
-                  <label class="text-xs font-bold text-slate-500 uppercase">Shipping Mode</label>
-                  <div class="grid grid-cols-2 gap-4">
-                    <label class="p-4 rounded-xl border-2 font-bold transition-all has-[:checked]:border-brand-navy has-[:checked]:bg-brand-navy has-[:checked]:text-white border-slate-200 text-slate-500">
+                <div class="space-y-1">
+                  <label class="text-xs font-bold text-slate-400 uppercase tracking-wider" data-i18n="quote.s2.mode">Shipping Mode</label>
+                  <div class="grid grid-cols-2 gap-3">
+                    <label class="p-3 rounded-xl border-2 font-bold text-sm text-center cursor-pointer transition-all has-[:checked]:border-brand-navy has-[:checked]:bg-brand-navy has-[:checked]:text-white border-slate-200 text-slate-500">
                       <input type="radio" name="Shipping_Mode" value="Air" class="sr-only" checked>
-                      <i data-lucide="plane" class="inline w-4 h-4 mr-2"></i> Air Freight
+                      <i data-lucide="plane" class="inline w-4 h-4 mr-1"></i> Air Freight
                     </label>
-                     <label class="p-4 rounded-xl border-2 font-bold transition-all has-[:checked]:border-brand-navy has-[:checked]:bg-brand-navy has-[:checked]:text-white border-slate-200 text-slate-500">
+                    <label class="p-3 rounded-xl border-2 font-bold text-sm text-center cursor-pointer transition-all has-[:checked]:border-brand-navy has-[:checked]:bg-brand-navy has-[:checked]:text-white border-slate-200 text-slate-500">
                       <input type="radio" name="Shipping_Mode" value="Sea" class="sr-only">
-                      <i data-lucide="ship" class="inline w-4 h-4 mr-2"></i> Sea Freight
+                      <i data-lucide="ship" class="inline w-4 h-4 mr-1"></i> Sea Freight
                     </label>
                   </div>
                 </div>
-              <div class="pt-4">
-                <button type="submit" id="quote-form-btn" class="w-full p-4 bg-brand-yellow text-brand-navy font-bold rounded-xl shadow-lg hover:scale-[1.02] transition-transform">Submit Quote Request</button>
+                <div class="flex gap-3 mt-1">
+                  <button type="button" onclick="quotePrevStep(1)" class="w-1/3 p-3 bg-slate-100 text-brand-navy font-bold rounded-xl hover:bg-slate-200 transition-colors text-sm">Back</button>
+                  <button type="button" onclick="quoteNextStep(3)" class="w-2/3 p-3 bg-brand-navy text-white font-bold rounded-xl shadow-lg hover:scale-[1.02] transition-transform text-sm">Next Step</button>
+                </div>
               </div>
-              <div id="quote-form-status" class="hidden rounded-xl p-4 text-center font-semibold"></div>
+
+              <!-- Step 3: Your Information -->
+              <div id="quote-step-3" class="quote-step space-y-4 hidden">
+                <h4 class="font-bold text-brand-navy text-base" data-i18n="quote.s3.title">Your Information</h4>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div class="space-y-1">
+                    <label class="text-xs font-bold text-slate-400 uppercase tracking-wider">Full Name</label>
+                    <input name="Name" type="text" placeholder="Your Name" class="w-full p-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-brand-navy outline-none text-sm" required />
+                  </div>
+                  <div class="space-y-1">
+                    <label class="text-xs font-bold text-slate-400 uppercase tracking-wider">WhatsApp Number</label>
+                    <input name="WhatsApp" type="tel" placeholder="+256..." class="w-full p-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-brand-navy outline-none text-sm" required />
+                  </div>
+                </div>
+                <div class="space-y-1">
+                  <label class="text-xs font-bold text-slate-400 uppercase tracking-wider">Email Address</label>
+                  <input name="Email" type="email" placeholder="email@example.com" class="w-full p-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-brand-navy outline-none text-sm" required />
+                </div>
+                <div class="flex gap-3 mt-1">
+                  <button type="button" onclick="quotePrevStep(2)" class="w-1/3 p-3 bg-slate-100 text-brand-navy font-bold rounded-xl hover:bg-slate-200 transition-colors text-sm">Back</button>
+                  <button type="submit" id="quote-form-btn" class="w-2/3 p-3 bg-brand-yellow text-brand-navy font-bold rounded-xl shadow-lg hover:scale-[1.02] transition-transform text-sm">Submit Quote</button>
+                </div>
+              </div>
+
+              <div id="quote-form-status" class="hidden rounded-xl p-4 text-center font-semibold mt-4"></div>
             </form>
           </div>
         </div>
@@ -1002,8 +1047,8 @@
           <div class="absolute inset-0 bg-brand-navy/80"></div>
         </div>
         <div class="relative z-10 max-w-7xl mx-auto px-6 text-center py-16">
-          <h1 class="text-3xl sm:text-5xl md:text-6xl font-black text-white mb-4">Frequently Asked Questions</h1>
-          <p class="text-xl text-slate-300 max-w-2xl mx-auto">Everything you need to know about shipping with Roshe Group.</p>
+          <h1 class="text-3xl sm:text-5xl md:text-6xl font-black text-white mb-4" data-i18n="faq.hero.title">Frequently Asked Questions</h1>
+          <p class="text-xl text-slate-300 max-w-2xl mx-auto" data-i18n="faq.hero.sub">Everything you need to know about shipping with Roshe Group.</p>
         </div>
       </section>
 
@@ -1013,20 +1058,20 @@
 
           <div class="faq-item border border-slate-200 rounded-2xl overflow-hidden">
             <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between p-6 text-left hover:bg-slate-50 transition-colors">
-              <span class="font-bold text-brand-navy text-lg">What routes does Roshe Group cover?</span>
+              <span class="font-bold text-brand-navy text-lg" data-i18n="faq.q1">What routes does Roshe Group cover?</span>
               <i data-lucide="chevron-down" class="w-5 h-5 text-brand-yellow shrink-0 transition-transform"></i>
             </button>
-            <div class="faq-answer hidden px-6 pb-6 text-slate-600 leading-relaxed">
+            <div class="faq-answer hidden px-6 pb-6 text-slate-600 leading-relaxed" data-i18n="faq.a1">
               We specialize in the China - East Africa trade lane, shipping from Guangzhou (and other major Chinese cities) to Uganda, Kenya, Tanzania, Rwanda, Burundi, and South Sudan. We handle both air and sea freight.
             </div>
           </div>
 
           <div class="faq-item border border-slate-200 rounded-2xl overflow-hidden">
             <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between p-6 text-left hover:bg-slate-50 transition-colors">
-              <span class="font-bold text-brand-navy text-lg">How long does shipping from China to Uganda take?</span>
+              <span class="font-bold text-brand-navy text-lg" data-i18n="faq.q2">How long does shipping from China to Uganda take?</span>
               <i data-lucide="chevron-down" class="w-5 h-5 text-brand-yellow shrink-0 transition-transform"></i>
             </button>
-            <div class="faq-answer hidden px-6 pb-6 text-slate-600 leading-relaxed">
+            <div class="faq-answer hidden px-6 pb-6 text-slate-600 leading-relaxed" data-i18n="faq.a2">
               <b>Sea freight:</b> Typically 25 - 35 days depending on the port and cargo type.<br>
               <b>Air freight:</b> Usually 5 - 7 working days for normal delivery.
             </div>
@@ -1034,70 +1079,70 @@
 
           <div class="faq-item border border-slate-200 rounded-2xl overflow-hidden">
             <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between p-6 text-left hover:bg-slate-50 transition-colors">
-              <span class="font-bold text-brand-navy text-lg">Do you offer both full container and groupage shipping?</span>
+              <span class="font-bold text-brand-navy text-lg" data-i18n="faq.q3">Do you offer both full container and groupage shipping?</span>
               <i data-lucide="chevron-down" class="w-5 h-5 text-brand-yellow shrink-0 transition-transform"></i>
             </button>
-            <div class="faq-answer hidden px-6 pb-6 text-slate-600 leading-relaxed">
+            <div class="faq-answer hidden px-6 pb-6 text-slate-600 leading-relaxed" data-i18n="faq.a3">
               Yes! We offer Full Container Load (FCL) for large shipments and Less-than-Container Load (LCL/Groupage) for smaller cargo. Groupage is ideal if you don't have enough goods to fill an entire container.
             </div>
           </div>
 
           <div class="faq-item border border-slate-200 rounded-2xl overflow-hidden">
             <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between p-6 text-left hover:bg-slate-50 transition-colors">
-              <span class="font-bold text-brand-navy text-lg">How can I track my shipment?</span>
+              <span class="font-bold text-brand-navy text-lg" data-i18n="faq.q4">How can I track my shipment?</span>
               <i data-lucide="chevron-down" class="w-5 h-5 text-brand-yellow shrink-0 transition-transform"></i>
             </button>
-            <div class="faq-answer hidden px-6 pb-6 text-slate-600 leading-relaxed">
+            <div class="faq-answer hidden px-6 pb-6 text-slate-600 leading-relaxed" data-i18n="faq.a4">
               Simply send your tracking number (e.g., RG-12345) to our WhatsApp support line at <a href="https://wa.me/8613416137544" class="text-brand-yellow font-bold hover:underline">+86 134 1613 7544</a>. You'll receive real-time updates on your cargo's status 24/7.
             </div>
           </div>
 
           <div class="faq-item border border-slate-200 rounded-2xl overflow-hidden">
             <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between p-6 text-left hover:bg-slate-50 transition-colors">
-              <span class="font-bold text-brand-navy text-lg">Do you handle customs clearance?</span>
+              <span class="font-bold text-brand-navy text-lg" data-i18n="faq.q5">Do you handle customs clearance?</span>
               <i data-lucide="chevron-down" class="w-5 h-5 text-brand-yellow shrink-0 transition-transform"></i>
             </button>
-            <div class="faq-answer hidden px-6 pb-6 text-slate-600 leading-relaxed">
+            <div class="faq-answer hidden px-6 pb-6 text-slate-600 leading-relaxed" data-i18n="faq.a5">
               Absolutely. We handle all customs documentation, duties, and tax calculations for both China export and East Africa import. Our team ensures hassle-free clearance at all major ports.
             </div>
           </div>
 
           <div class="faq-item border border-slate-200 rounded-2xl overflow-hidden">
             <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between p-6 text-left hover:bg-slate-50 transition-colors">
-              <span class="font-bold text-brand-navy text-lg">Can you help me find suppliers in China?</span>
+              <span class="font-bold text-brand-navy text-lg" data-i18n="faq.q6">Can you help me find suppliers in China?</span>
               <i data-lucide="chevron-down" class="w-5 h-5 text-brand-yellow shrink-0 transition-transform"></i>
             </button>
-            <div class="faq-answer hidden px-6 pb-6 text-slate-600 leading-relaxed">
+            <div class="faq-answer hidden px-6 pb-6 text-slate-600 leading-relaxed" data-i18n="faq.a6">
               Yes. Our product sourcing service helps you identify and verify trusted suppliers in China. We assist with price negotiation, quality inspection, and coordinating transport from the supplier to our warehouse.
             </div>
           </div>
 
           <div class="faq-item border border-slate-200 rounded-2xl overflow-hidden">
             <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between p-6 text-left hover:bg-slate-50 transition-colors">
-              <span class="font-bold text-brand-navy text-lg">Do you have a warehouse in China?</span>
+              <span class="font-bold text-brand-navy text-lg" data-i18n="faq.q7">Do you have a warehouse in China?</span>
               <i data-lucide="chevron-down" class="w-5 h-5 text-brand-yellow shrink-0 transition-transform"></i>
             </button>
-            <div class="faq-answer hidden px-6 pb-6 text-slate-600 leading-relaxed">
+            <div class="faq-answer hidden px-6 pb-6 text-slate-600 leading-relaxed" data-i18n="faq.a7">
               Yes. We operate a secure warehouse in Guangzhou where we receive, inspect, consolidate, and store your goods before shipping. This allows us to combine cargo from multiple suppliers into one shipment, saving you costs.
             </div>
           </div>
 
           <div class="faq-item border border-slate-200 rounded-2xl overflow-hidden">
             <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between p-6 text-left hover:bg-slate-50 transition-colors">
-              <span class="font-bold text-brand-navy text-lg">How do I get a quote?</span>
+              <span class="font-bold text-brand-navy text-lg" data-i18n="faq.q8">How do I get a quote?</span>
               <i data-lucide="chevron-down" class="w-5 h-5 text-brand-yellow shrink-0 transition-transform"></i>
             </button>
-            <div class="faq-answer hidden px-6 pb-6 text-slate-600 leading-relaxed">
+            <div class="faq-answer hidden px-6 pb-6 text-slate-600 leading-relaxed" data-i18n="faq.a8">
               You can <button onclick="navigateTo('quote')" class="text-brand-yellow font-bold hover:underline">request a quote online</button>, email us at <a href="mailto:info@roshegroup.com" class="text-brand-yellow font-bold hover:underline">info@roshegroup.com</a>, or reach out on WhatsApp. Just provide your cargo details (type, weight, origin, destination) and we'll respond with transparent pricing.
             </div>
           </div>
 
           <div class="faq-item border border-slate-200 rounded-2xl overflow-hidden">
             <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between p-6 text-left hover:bg-slate-50 transition-colors">
-              <span class="font-bold text-brand-navy text-lg">Where are your offices located?</span>
+              <span class="font-bold text-brand-navy text-lg" data-i18n="faq.q9">Where are your offices located?</span>
               <i data-lucide="chevron-down" class="w-5 h-5 text-brand-yellow shrink-0 transition-transform"></i>
             </button>
-            <div class="faq-answer hidden px-6 pb-6 text-slate-600 leading-relaxed">
+            <div class="faq-answer hidden px-6 pb-6 text-slate-600 leading-relaxed" data-i18n="faq.a9">
               <b>China Office:</b> Room 906, Eastern Building No. 301, Huanshi Middle Road, Yuexiu District, Guangzhou, China<br>
               <b>Uganda Office:</b> Plot 13 Mukwano Courts, Buganda Road, Floor 4, Room 201-202, Kampala, Uganda
             </div>
@@ -1109,8 +1154,8 @@
       <!-- CTA -->
       <section class="py-16 bg-brand-navy text-center">
         <div class="max-w-3xl mx-auto px-6">
-          <h3 class="text-3xl font-black text-white mb-4">Still have questions?</h3>
-          <p class="text-slate-300 mb-8">Our team is ready to help. Reach out on WhatsApp or send us a message.</p>
+          <h3 class="text-3xl font-black text-white mb-4" data-i18n="faq.cta.title">Still have questions?</h3>
+          <p class="text-slate-300 mb-8" data-i18n="faq.cta.sub">Our team is ready to help. Reach out on WhatsApp or send us a message.</p>
           <div class="flex flex-col sm:flex-row gap-4 justify-center">
             <a href="https://wa.me/8613416137544?text=Hello%20Roshe%20Group%2C%20I%20have%20a%20question." target="_blank" class="bg-green-500 text-white px-8 py-4 rounded-full font-bold text-lg shadow-lg hover:scale-105 transition-transform flex items-center justify-center gap-3">
               <i data-lucide="message-circle" class="w-5 h-5"></i> Chat on WhatsApp
@@ -1130,8 +1175,8 @@
         <img src="images/Containers on the loading line.jpeg" alt="Regional Hubs" class="absolute inset-0 w-full h-full object-cover">
         <div class="absolute inset-0 bg-brand-navy/60"></div>
         <div class="relative z-10 px-6">
-          <h1 class="text-3xl sm:text-5xl md:text-6xl font-extrabold mb-4">Regional Hubs</h1>
-          <p class="text-xl text-slate-200 max-w-2xl mx-auto">Strategic presence in key East African markets to ensure your cargo moves without friction.</p>
+          <h1 class="text-3xl sm:text-5xl md:text-6xl font-extrabold mb-4" data-i18n="hubs.hero.title">Regional Hubs</h1>
+          <p class="text-xl text-slate-200 max-w-2xl mx-auto" data-i18n="hubs.hero.sub">Strategic presence in key East African markets to ensure your cargo moves without friction.</p>
         </div>
       </section>
 
@@ -1145,10 +1190,10 @@
               <div class="reveal bg-white rounded-2xl border border-slate-200 p-8 hover:shadow-xl transition-shadow">
                 <div class="flex items-center justify-between mb-4">
                   <span class="text-3xl font-bold text-slate-300">KE</span>
-                  <span class="bg-brand-navy/10 text-brand-navy text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Port Clearing (Mombasa)</span>
+                  <span class="bg-brand-navy/10 text-brand-navy text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider" data-i18n="hubs.ke.tag">Port Clearing (Mombasa)</span>
                 </div>
-                <h3 class="text-2xl font-bold text-brand-navy mb-3">Kenya</h3>
-                <p class="text-slate-600 mb-6 leading-relaxed">Our Mombasa team handles direct port exits and transit to the hinterland.</p>
+                <h3 class="text-2xl font-bold text-brand-navy mb-3" data-i18n="hubs.ke.name">Kenya</h3>
+                <p class="text-slate-600 mb-6 leading-relaxed" data-i18n="hubs.ke.desc">Our Mombasa team handles direct port exits and transit to the hinterland.</p>
                 <div class="flex items-center gap-2 text-brand-yellow font-bold text-sm">
                   <i data-lucide="clock" class="w-4 h-4"></i>
                   <span>TRANSIT: 4-7 DAYS</span>
@@ -1159,10 +1204,10 @@
               <div class="reveal bg-white rounded-2xl border border-slate-200 p-8 hover:shadow-xl transition-shadow">
                 <div class="flex items-center justify-between mb-4">
                   <span class="text-3xl font-bold text-slate-300">UG</span>
-                  <span class="bg-brand-navy/10 text-brand-navy text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Inland Distribution</span>
+                  <span class="bg-brand-navy/10 text-brand-navy text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider" data-i18n="hubs.ug.tag">Inland Distribution</span>
                 </div>
-                <h3 class="text-2xl font-bold text-brand-navy mb-3">Uganda</h3>
-                <p class="text-slate-600 mb-6 leading-relaxed">Our Kampala hub serves as the primary consolidation point for the region.</p>
+                <h3 class="text-2xl font-bold text-brand-navy mb-3" data-i18n="hubs.ug.name">Uganda</h3>
+                <p class="text-slate-600 mb-6 leading-relaxed" data-i18n="hubs.ug.desc">Our Kampala hub serves as the primary consolidation point for the region.</p>
                 <div class="flex items-center gap-2 text-brand-yellow font-bold text-sm">
                   <i data-lucide="clock" class="w-4 h-4"></i>
                   <span>TRANSIT: 4-7 DAYS</span>
@@ -1173,10 +1218,10 @@
               <div class="reveal bg-white rounded-2xl border border-slate-200 p-8 hover:shadow-xl transition-shadow">
                 <div class="flex items-center justify-between mb-4">
                   <span class="text-3xl font-bold text-slate-300">RW</span>
-                  <span class="bg-brand-navy/10 text-brand-navy text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Cross-Border Logistics</span>
+                  <span class="bg-brand-navy/10 text-brand-navy text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider" data-i18n="hubs.rw.tag">Cross-Border Logistics</span>
                 </div>
-                <h3 class="text-2xl font-bold text-brand-navy mb-3">Rwanda</h3>
-                <p class="text-slate-600 mb-6 leading-relaxed">Fast-track clearing for the Kigali market via both corridors.</p>
+                <h3 class="text-2xl font-bold text-brand-navy mb-3" data-i18n="hubs.rw.name">Rwanda</h3>
+                <p class="text-slate-600 mb-6 leading-relaxed" data-i18n="hubs.rw.desc">Fast-track clearing for the Kigali market via both corridors.</p>
                 <div class="flex items-center gap-2 text-brand-yellow font-bold text-sm">
                   <i data-lucide="clock" class="w-4 h-4"></i>
                   <span>TRANSIT: 4-7 DAYS</span>
@@ -1187,10 +1232,10 @@
               <div class="reveal bg-white rounded-2xl border border-slate-200 p-8 hover:shadow-xl transition-shadow">
                 <div class="flex items-center justify-between mb-4">
                   <span class="text-3xl font-bold text-slate-300">SS</span>
-                  <span class="bg-brand-navy/10 text-brand-navy text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Specialized Logistics</span>
+                  <span class="bg-brand-navy/10 text-brand-navy text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider" data-i18n="hubs.ss.tag">Specialized Logistics</span>
                 </div>
-                <h3 class="text-2xl font-bold text-brand-navy mb-3">South Sudan</h3>
-                <p class="text-slate-600 mb-6 leading-relaxed">Secure cross-border clearing and delivery to Juba and beyond.</p>
+                <h3 class="text-2xl font-bold text-brand-navy mb-3" data-i18n="hubs.ss.name">South Sudan</h3>
+                <p class="text-slate-600 mb-6 leading-relaxed" data-i18n="hubs.ss.desc">Secure cross-border clearing and delivery to Juba and beyond.</p>
                 <div class="flex items-center gap-2 text-brand-yellow font-bold text-sm">
                   <i data-lucide="clock" class="w-4 h-4"></i>
                   <span>TRANSIT: 4-7 DAYS</span>
@@ -1203,10 +1248,12 @@
       </section>
 
       <!-- CTA -->
-      <section class="py-16 navy-gradient text-white text-center">
-        <div class="max-w-3xl mx-auto px-6">
-          <h2 class="text-3xl font-bold mb-4">Need Shipping to East Africa?</h2>
-          <p class="text-slate-300 mb-8">Get in touch and let us plan the best route for your cargo across our regional network.</p>
+      <section class="py-24 text-white text-center relative overflow-hidden">
+        <img src="images/roshe%20black%20and%20whte%20container.PNG" alt="" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+        <div class="absolute inset-0 bg-brand-navy/80"></div>
+        <div class="max-w-3xl mx-auto px-6 relative z-10">
+          <h2 class="text-3xl font-bold mb-4" data-i18n="hubs.cta.title">Need Shipping to East Africa?</h2>
+          <p class="text-slate-300 mb-8" data-i18n="hubs.cta.sub">Get in touch and let us plan the best route for your cargo across our regional network.</p>
           <div class="flex flex-wrap justify-center gap-4">
             <button onclick="navigateTo('quote')" class="bg-brand-yellow text-brand-navy px-8 py-4 rounded-full font-bold text-lg shadow-lg hover:scale-105 transition-transform">Request a Quote</button>
             <button onclick="navigateTo('contact')" class="border-2 border-white text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white hover:text-brand-navy transition-colors">Contact Us</button>
@@ -1217,44 +1264,46 @@
 
   </main>
 
+  <div class="h-16 bg-gray-100"></div>
+
   <!-- ===== FOOTER ===== -->
   <footer class="bg-brand-navy text-white pt-16 pb-8">
     <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10">
       <div class="space-y-4 sm:col-span-2 lg:col-span-1">
         <img src="images/logo.png" alt="Roshe Group Logo" class="h-10 w-auto max-w-[160px] object-contain" />
-        <p class="text-slate-400 text-sm leading-relaxed text-justify">Your premier logistics partner bridging the gap between China's manufacturing hubs and East Africa's growing markets.</p>
-        <p class="text-slate-400 text-sm leading-relaxed text-justify">Founded with a vision to simplify complex trade routes between China and the East African Community, we understand the nuances of both regions  -  from Guangzhou's manufacturing hubs to East Africa's critical transit corridors.</p>
+        <p class="text-slate-400 text-sm leading-relaxed text-justify" data-i18n="ft.desc1">Your premier logistics partner bridging the gap between China's manufacturing hubs and East Africa's growing markets.</p>
+        <p class="text-slate-400 text-sm leading-relaxed text-justify" data-i18n="ft.desc2">Founded with a vision to simplify complex trade routes between China and the East African Community, we understand the nuances of both regions  -  from Guangzhou's manufacturing hubs to East Africa's critical transit corridors.</p>
       </div>
       <div>
-        <h4 class="font-bold text-lg mb-6">Quick Links</h4>
+        <h4 class="font-bold text-lg mb-6" data-i18n="ft.links">Quick Links</h4>
         <ul class="space-y-4 text-slate-400 text-sm">
-          <li class="hover:text-brand-yellow cursor-pointer" onclick="navigateTo('about')">About Us</li>
-          <li class="hover:text-brand-yellow cursor-pointer" onclick="navigateTo('services')">Services</li>
-          <li class="hover:text-brand-yellow cursor-pointer" onclick="navigateTo('tracking')">Track Shipment</li>
-          <li class="hover:text-brand-yellow cursor-pointer" onclick="navigateTo('contact')">Contact Us</li>
-          <li class="hover:text-brand-yellow cursor-pointer" onclick="navigateTo('regional-hubs')">Regional Hubs</li>
-          <li class="hover:text-brand-yellow cursor-pointer" onclick="navigateTo('quote')">Request a Quote</li>
+          <li class="hover:text-brand-yellow cursor-pointer" onclick="navigateTo('about')" data-i18n="ft.about">About Us</li>
+          <li class="hover:text-brand-yellow cursor-pointer" onclick="navigateTo('services')" data-i18n="ft.services">Services</li>
+          <li class="hover:text-brand-yellow cursor-pointer" onclick="navigateTo('tracking')" data-i18n="ft.track">Track Shipment</li>
+          <li class="hover:text-brand-yellow cursor-pointer" onclick="navigateTo('contact')" data-i18n="ft.contact">Contact Us</li>
+          <li class="hover:text-brand-yellow cursor-pointer" onclick="navigateTo('regional-hubs')" data-i18n="ft.hubs">Regional Hubs</li>
+          <li class="hover:text-brand-yellow cursor-pointer" onclick="navigateTo('quote')" data-i18n="ft.quote">Request a Quote</li>
         </ul>
       </div>
       <div>
-        <h4 class="font-bold text-lg mb-6">Our Services</h4>
+        <h4 class="font-bold text-lg mb-6" data-i18n="ft.svc">Our Services</h4>
         <ul class="space-y-4 text-slate-400 text-sm">
-          <li class="hover:text-brand-yellow cursor-pointer" onclick="navigateTo('service-freight')">Freight Shipping</li>
-          <li class="hover:text-brand-yellow cursor-pointer" onclick="navigateTo('service-customs')">Customs Clearance</li>
-          <li class="hover:text-brand-yellow cursor-pointer" onclick="navigateTo('service-sourcing')">Product Sourcing</li>
-          <li class="hover:text-brand-yellow cursor-pointer" onclick="navigateTo('service-warehousing')">Warehousing</li>
-          <li class="hover:text-brand-yellow cursor-pointer" onclick="navigateTo('service-logistics')">Logistics Management</li>
-          <li class="hover:text-brand-yellow cursor-pointer" onclick="navigateTo('service-consultation')">Consultation</li>
+          <li class="hover:text-brand-yellow cursor-pointer" onclick="navigateTo('service-freight')" data-i18n="ft.freight">Freight Shipping</li>
+          <li class="hover:text-brand-yellow cursor-pointer" onclick="navigateTo('service-customs')" data-i18n="ft.customs">Customs Clearance</li>
+          <li class="hover:text-brand-yellow cursor-pointer" onclick="navigateTo('service-sourcing')" data-i18n="ft.sourcing">Product Sourcing</li>
+          <li class="hover:text-brand-yellow cursor-pointer" onclick="navigateTo('service-warehousing')" data-i18n="ft.warehousing">Warehousing</li>
+          <li class="hover:text-brand-yellow cursor-pointer" onclick="navigateTo('service-logistics')" data-i18n="ft.logistics">Logistics Management</li>
+          <li class="hover:text-brand-yellow cursor-pointer" onclick="navigateTo('service-consultation')" data-i18n="ft.consult">Consultation</li>
         </ul>
       </div>
       <div>
-        <h4 class="font-bold text-lg mb-4">China Office</h4>
+        <h4 class="font-bold text-lg mb-4" data-i18n="ft.china">China Office</h4>
         <ul class="space-y-3 text-slate-400 text-sm mb-6">
           <li class="flex items-start gap-3"><i data-lucide="map-pin" class="text-brand-yellow w-4 h-4 shrink-0 mt-0.5"></i><span>Guangzhou, China</span></li>
           <li class="flex items-center gap-3"><i data-lucide="message-circle" class="text-green-500 w-4 h-4 shrink-0"></i><a href="https://wa.me/8613416137544" class="hover:text-brand-yellow">+86 134 1613 7544</a></li>
           <li class="flex items-center gap-3"><i data-lucide="message-circle" class="text-green-500 w-4 h-4 shrink-0"></i><a href="https://wa.me/8613710777175" class="hover:text-brand-yellow">+86 137 1077 7175</a></li>
         </ul>
-        <h4 class="font-bold text-lg mb-4">Uganda Office</h4>
+        <h4 class="font-bold text-lg mb-4" data-i18n="ft.uganda">Uganda Office</h4>
         <ul class="space-y-3 text-slate-400 text-sm mb-6">
           <li class="flex items-start gap-3"><i data-lucide="map-pin" class="text-brand-yellow w-4 h-4 shrink-0 mt-0.5"></i><span>Kampala, Uganda</span></li>
           <li class="flex items-center gap-3"><i data-lucide="message-circle" class="text-green-500 w-4 h-4 shrink-0"></i><a href="https://wa.me/8613416137544" class="hover:text-brand-yellow">+86 134 1613 7544</a></li>
@@ -1265,7 +1314,7 @@
       </div>
        <div class="sm:col-span-2 lg:col-span-4">
         <div class="flex items-center gap-4 flex-wrap">
-          <h4 class="font-bold text-lg">Follow Us</h4>
+          <h4 class="font-bold text-lg" data-i18n="ft.follow">Follow Us</h4>
           <a href="https://www.facebook.com/roshegroup" target="_blank" class="social-icon w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#1877F2] hover:text-white cursor-pointer">
             <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
           </a>
@@ -1427,6 +1476,29 @@
       setTimeout(initRevealAnimations, 50);
     };
 
+    // ===== QUOTE WIZARD STEP NAVIGATION =====
+    var quoteCurrentStep = 1;
+    function quoteNextStep(step) {
+      // Validate current step fields before advancing
+      var currentFields = document.querySelectorAll('#quote-step-' + quoteCurrentStep + ' [required]');
+      for (var i = 0; i < currentFields.length; i++) {
+        if (!currentFields[i].reportValidity()) return;
+      }
+      quoteCurrentStep = step;
+      updateQuoteStep();
+    }
+    function quotePrevStep(step) {
+      quoteCurrentStep = step;
+      updateQuoteStep();
+    }
+    function updateQuoteStep() {
+      document.querySelectorAll('.quote-step').forEach(function(el) { el.classList.add('hidden'); });
+      document.getElementById('quote-step-' + quoteCurrentStep).classList.remove('hidden');
+      document.getElementById('step-badge').textContent = 'Step ' + quoteCurrentStep + ' of 3';
+      document.getElementById('step-progress').style.width = (quoteCurrentStep * 33.33) + '%';
+      if (typeof lucide !== 'undefined') lucide.createIcons();
+    }
+
     // ===== FORM SUBMISSION HANDLER =====
     async function handleFormSubmit(event, formId) {
       event.preventDefault();
@@ -1442,7 +1514,7 @@
         var response = await fetch('https://api.web3forms.com/submit', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(Object.fromEntries(new FormData(form)))
+          body: JSON.stringify(Object.assign(Object.fromEntries(new FormData(form)), { replyto: new FormData(form).get('Email') || '' }))
         });
         var data = await response.json();
         if (data.success) {
@@ -1481,8 +1553,85 @@
         'step2.title': 'We Receive & Consolidate', 'step2.desc': 'Your supplier delivers to our China warehouse. We inspect, label, and consolidate for safe shipment.',
         'step3.title': 'Shipping & Customs', 'step3.desc': 'We handle all freight booking, documentation, and customs clearance for a smooth transit.',
         'step4.title': 'Delivery to Your Doorstep', 'step4.desc': 'Once cleared, your cargo is delivered to your designated pickup point or final destination.',
+        'why.title': 'Why Choose Us for Your Logistics Needs?',
+        'why1.title': 'Cost-Effective Shipping Solutions', 'why1.desc': 'We deliver high-quality logistics services at competitive rates, helping your business reduce operational costs while maintaining efficiency. Get in touch today for a customized quote that fits your budget.',
+        'why2.title': 'Dependable & Timely Delivery', 'why2.desc': 'We understand that time is critical. Our streamlined processes and experienced team ensure your goods are delivered safely and on schedule - every time.',
+        'why3.title': 'Real-Time Tracking & Full Visibility', 'why3.desc': 'With our advanced tracking systems, you stay informed at every stage. Monitor shipments and inventory in real time, giving you complete control and peace of mind.',
+        'why4.title': 'Dedicated 24/7 Customer Support', 'why4.desc': 'Our professional support team is available around the clock to assist you. Whether you have a question or need urgent help, we are always ready to respond quickly and effectively.',
+        'test.title': 'What Our Clients Say',
+        'test1.quote': '"The best shipping company from China to Uganda. Roshe Group handled everything perfectly. My goods arrived on time and in perfect condition. Look no further!"',
+        'test2.quote': '"Reliable and professional. Their customs clearing service is top-notch. They saved me a lot of time and headache at the Mombasa port."',
+        'test3.quote': '"I used their sourcing service to find a new supplier in China. The team was incredibly helpful and found a great manufacturer for me. Highly recommended!"',
         'cta.title': 'Ready to Scale Your Trade?', 'cta.subtitle': 'Join hundreds of businesses relying on Roshe Group for seamless China-East Africa logistics.',
-        'cta.btn': 'Get Your Free Quote',
+        'cta.btn': 'Get Your Free Quote', 'cta.btn2': 'Contact Sales',
+        'about.hero.title': 'About Roshe Group', 'about.hero.sub': 'Bridging Markets, Building Futures  -  Your Trusted Logistics Partner Between China & East Africa',
+        'about.tag': 'The Roshe Story', 'about.title': 'Simplifying Trade Between <br />China & East Africa',
+        'about.p1': 'Founded with a vision to simplify the complex trade routes between China and the East African Community, Roshe Group has grown into a leading logistics powerhouse.',
+        'about.p2': 'We understand the nuances of both regions - from the high-speed manufacturing hubs of Guangzhou to the critical transit corridors of East Africa. Our mission is to provide transparent, efficient, and reliable logistics that empower local businesses to thrive.',
+        'about.stat1': 'Years Experience', 'about.stat2': 'Happy Clients',
+        'about.quote': '"Logistics is not just about moving boxes; it\'s about moving economies."',
+        'about.director': 'Director, Roshe Group',
+        'svc.hero.title': 'Our Comprehensive Services', 'svc.hero.sub': 'From supplier to your doorstep, we offer a complete suite of logistics services to connect China with East Africa seamlessly.',
+        'svc.freight.title': 'Freight Shipping', 'svc.freight.desc': 'Reliable and cost-effective Air & Sea freight solutions tailored for the China-East Africa route.',
+        'svc.customs.title': 'Customs Clearance', 'svc.customs.desc': 'Expert handling of all documentation, duties, and taxes for hassle-free clearance at all major ports.',
+        'svc.sourcing.title': 'Product Sourcing', 'svc.sourcing.desc': 'We help you find and verify trusted suppliers in China, reducing your risk and simplifying procurement.',
+        'svc.warehouse.title': 'Warehousing Solutions', 'svc.warehouse.desc': 'Secure storage and consolidation services at our Guangzhou warehouse before export.',
+        'svc.logistics.title': 'Logistics Management', 'svc.logistics.desc': 'End-to-end oversight of your cargo, ensuring efficiency from pickup to final delivery.',
+        'svc.consult.title': 'Consultation Services', 'svc.consult.desc': 'Expert advice on import/export strategy, cost optimization, and market entry for East Africa.',
+        'svc.learn': 'Learn More', 'svc.learn2': 'Learn More', 'svc.learn3': 'Learn More', 'svc.learn4': 'Learn More', 'svc.learn5': 'Learn More', 'svc.learn6': 'Learn More',
+        'svc.back': 'Back to Services', 'svc.back2': 'Back to Services', 'svc.back3': 'Back to Services', 'svc.back4': 'Back to Services', 'svc.back5': 'Back to Services', 'svc.back6': 'Back to Services',
+        'df.title': 'Freight Shipping', 'df.desc': 'We specialize in reliable and cost-effective East Africa shipping, including freight from China to Uganda, Tanzania, and South Sudan. With warehouse operations in China and a robust logistics network, we ensure your cargo is transported safely and efficiently.',
+        'df.sub': 'Our Freight Services Include:', 'df.l1': '<b>Air Freight:</b> For time-sensitive cargo, offering effective delivery.', 'df.l2': '<b>Ocean Freight:</b> Full Container Load (FCL) and Less-than-Container Load (LCL) options.', 'df.l3': '<b>Inland Transportation:</b> Seamless delivery from ports to your final destination.', 'df.l4': '<b>Real-time Tracking:</b> Monitor your shipment\'s journey from start to finish.',
+        'dc.title': 'Customs Clearance', 'dc.desc': 'Navigating customs can be complex. Our team of experts simplifies the process, handling all documentation, duties, and taxes to ensure your goods clear customs without delay.',
+        'dc.sub': 'Key Clearance Services:', 'dc.l1': 'Full documentation preparation and submission.', 'dc.l2': 'Accurate duty and tax calculation and payment.', 'dc.l3': 'Compliance with all East African import regulations.', 'dc.l4': 'Fast-track clearance for both air and sea shipments.',
+        'ds.title': 'Reliable Product Sourcing', 'ds.desc': 'In addition to shipping, we support businesses with professional product sourcing in China. We assist clients in identifying verified suppliers, negotiating pricing, and coordinating safe transport to our warehouse.',
+        'ds.sub': 'Our Sourcing Support Includes:', 'ds.l1': 'Supplier identification and verification.', 'ds.l2': 'Price negotiation assistance.', 'ds.l3': 'Quality inspection coordination.', 'ds.l4': 'Supplier-to-warehouse logistics management.',
+        'dw.title': 'Warehousing Solutions', 'dw.desc': 'Our secure, modern warehouse in Guangzhou serves as the central hub for your goods. We offer flexible storage options and expert consolidation services to optimize your shipments.',
+        'dw.sub': 'Warehouse Services:', 'dw.l1': 'Short & long-term storage.', 'dw.l2': 'Cargo inspection and labeling.', 'dw.l3': 'Consolidation of goods from multiple suppliers.', 'dw.l4': 'Professional packing and crating for export.',
+        'dl.title': 'Logistics Management', 'dl.desc': 'We provide end-to-end logistics management, acting as your single point of contact for the entire supply chain. Our goal is to make your shipping process as simple and transparent as possible.',
+        'dl.sub': 'Our Management Covers:', 'dl.l1': 'Coordination with suppliers in China.', 'dl.l2': 'Booking freight and managing transit.', 'dl.l3': 'Handling all customs and port formalities.', 'dl.l4': 'Organizing final-mile delivery in East Africa.',
+        'dcon.title': 'Expert Consultation', 'dcon.desc': 'Leverage our decade of experience in the China-East Africa trade lane. Our consultation services are designed to help you optimize your supply chain, reduce costs, and navigate market complexities.',
+        'dcon.sub': 'We Advise On:', 'dcon.l1': 'Import/export strategy and compliance.', 'dcon.l2': 'Cost-saving opportunities in freight and duties.', 'dcon.l3': 'Market entry analysis for East African countries.', 'dcon.l4': 'Supplier negotiation and best practices.',
+        'cont.hero.title': 'Contact Us', 'cont.hero.sub': 'We\'d love to hear from you. Reach out to us through any of our offices or send us a message below.',
+        'cont.call.title': 'Call Us', 'cont.call.desc': 'Speak directly with our team',
+        'cont.email.title': 'Email Us', 'cont.email.desc': 'We respond within 24 hours',
+        'cont.wa.title': 'WhatsApp', 'cont.wa.desc': 'Instant support, 24/7',
+        'cont.offices': 'Our Offices',
+        'cont.china.title': 'China Office (Guangzhou)', 'cont.china.sub': 'Headquarters & Warehouse',
+        'cont.ug.title': 'Uganda Office (Kampala)', 'cont.ug.sub': 'East Africa Operations',
+        'cont.form.title': 'Send Us a Message', 'cont.form.sub': 'Fill in the form below and our team will get back to you promptly.',
+        'cont.hours.china': 'China Office Hours', 'cont.hours.ug': 'Uganda Office Hours', 'cont.hours.wa': 'WhatsApp Support',
+        'track.hero.title': 'Track Your Shipment', 'track.hero.sub': 'Stay updated on your cargo in real-time through our WhatsApp support line.',
+        'track.title': 'Track via WhatsApp', 'track.desc': 'For real-time updates, the fastest way to track your shipment is to contact our support team directly on WhatsApp. It\'s free, instant, and available 24/7.',
+        'track.hint': 'Simply send your tracking number (e.g., RG-12345) to our support line.', 'track.btn': 'Track on WhatsApp',
+        'quote.hero.title': 'Get a Smart Quote', 'quote.hero.sub': 'Fast, transparent, and accurate pricing for your logistics needs.',
+        'quote.header': 'Smart Quote Center', 'quote.next': 'Next Step',
+        'quote.s1.title': 'Origin & Destination', 'quote.s1.origin': 'Pickup City in China', 'quote.s1.dest': 'Destination Country',
+        'quote.s2.title': 'Cargo Details', 'quote.s2.goods': 'Type of Goods', 'quote.s2.weight': 'Estimated Weight (kg)', 'quote.s2.mode': 'Shipping Mode',
+        'quote.s3.title': 'Your Information',
+        'faq.hero.title': 'Frequently Asked Questions', 'faq.hero.sub': 'Everything you need to know about shipping with Roshe Group.',
+        'faq.q1': 'What routes does Roshe Group cover?', 'faq.a1': 'We specialize in the China - East Africa trade lane, shipping from Guangzhou (and other major Chinese cities) to Uganda, Kenya, Tanzania, Rwanda, Burundi, and South Sudan. We handle both air and sea freight.',
+        'faq.q2': 'How long does shipping from China to Uganda take?', 'faq.a2': '<b>Sea freight:</b> Typically 25 - 35 days depending on the port and cargo type.<br><b>Air freight:</b> Usually 5 - 7 working days for normal delivery.',
+        'faq.q3': 'Do you offer both full container and groupage shipping?', 'faq.a3': 'Yes! We offer Full Container Load (FCL) for large shipments and Less-than-Container Load (LCL/Groupage) for smaller cargo. Groupage is ideal if you don\'t have enough goods to fill an entire container.',
+        'faq.q4': 'How can I track my shipment?', 'faq.a4': 'Simply send your tracking number (e.g., RG-12345) to our WhatsApp support line at <a href="https://wa.me/8613416137544" class="text-brand-yellow font-bold hover:underline">+86 134 1613 7544</a>. You\'ll receive real-time updates on your cargo\'s status 24/7.',
+        'faq.q5': 'Do you handle customs clearance?', 'faq.a5': 'Absolutely. We handle all customs documentation, duties, and tax calculations for both China export and East Africa import. Our team ensures hassle-free clearance at all major ports.',
+        'faq.q6': 'Can you help me find suppliers in China?', 'faq.a6': 'Yes. Our product sourcing service helps you identify and verify trusted suppliers in China. We assist with price negotiation, quality inspection, and coordinating transport from the supplier to our warehouse.',
+        'faq.q7': 'Do you have a warehouse in China?', 'faq.a7': 'Yes. We operate a secure warehouse in Guangzhou where we receive, inspect, consolidate, and store your goods before shipping. This allows us to combine cargo from multiple suppliers into one shipment, saving you costs.',
+        'faq.q8': 'How do I get a quote?', 'faq.a8': 'You can request a quote online, email us at info@roshegroup.com, or reach out on WhatsApp. Just provide your cargo details (type, weight, origin, destination) and we\'ll respond with transparent pricing.',
+        'faq.q9': 'Where are your offices located?', 'faq.a9': '<b>China Office:</b> Room 906, Eastern Building No. 301, Huanshi Middle Road, Yuexiu District, Guangzhou, China<br><b>Uganda Office:</b> Plot 13 Mukwano Courts, Buganda Road, Floor 4, Room 201-202, Kampala, Uganda',
+        'faq.cta.title': 'Still have questions?', 'faq.cta.sub': 'Our team is ready to help. Reach out on WhatsApp or send us a message.',
+        'hubs.hero.title': 'Regional Hubs', 'hubs.hero.sub': 'Strategic presence in key East African markets to ensure your cargo moves without friction.',
+        'hubs.ke.tag': 'Port Clearing (Mombasa)', 'hubs.ke.name': 'Kenya', 'hubs.ke.desc': 'Our Mombasa team handles direct port exits and transit to the hinterland.',
+        'hubs.ug.tag': 'Inland Distribution', 'hubs.ug.name': 'Uganda', 'hubs.ug.desc': 'Our Kampala hub serves as the primary consolidation point for the region.',
+        'hubs.rw.tag': 'Cross-Border Logistics', 'hubs.rw.name': 'Rwanda', 'hubs.rw.desc': 'Fast-track clearing for the Kigali market via both corridors.',
+        'hubs.ss.tag': 'Specialized Logistics', 'hubs.ss.name': 'South Sudan', 'hubs.ss.desc': 'Secure cross-border clearing and delivery to Juba and beyond.',
+        'hubs.cta.title': 'Need Shipping to East Africa?', 'hubs.cta.sub': 'Get in touch and let us plan the best route for your cargo across our regional network.',
+        'ft.desc1': 'Your premier logistics partner bridging the gap between China\'s manufacturing hubs and East Africa\'s growing markets.',
+        'ft.desc2': 'Founded with a vision to simplify complex trade routes between China and the East African Community, we understand the nuances of both regions  -  from Guangzhou\'s manufacturing hubs to East Africa\'s critical transit corridors.',
+        'ft.links': 'Quick Links', 'ft.about': 'About Us', 'ft.services': 'Services', 'ft.track': 'Track Shipment', 'ft.contact': 'Contact Us', 'ft.hubs': 'Regional Hubs', 'ft.quote': 'Request a Quote',
+        'ft.svc': 'Our Services', 'ft.freight': 'Freight Shipping', 'ft.customs': 'Customs Clearance', 'ft.sourcing': 'Product Sourcing', 'ft.warehousing': 'Warehousing', 'ft.logistics': 'Logistics Management', 'ft.consult': 'Consultation',
+        'ft.china': 'China Office', 'ft.uganda': 'Uganda Office', 'ft.follow': 'Follow Us',
+        'cookie.text': 'We use cookies to enhance your experience. By continuing to visit this site you agree to our use of cookies.', 'cookie.accept': 'Accept', 'cookie.decline': 'Decline',
       },
       zh: {
         'nav.home': '首页', 'nav.about': '关于我们', 'nav.services': '服务',
@@ -1500,33 +1649,187 @@
         'step2.title': '接收与整合', 'step2.desc': '您的供应商将货物送到我们的中国仓库。我们进行检查、标记和整合以确保安全运输。',
         'step3.title': '运输与清关', 'step3.desc': '我们处理所有货运预订、文件和清关手续，确保顺利运输。',
         'step4.title': '送货上门', 'step4.desc': '清关后，您的货物将被送到指定的取货点或最终目的地。',
-        'cta.title': '准备好扩大您的贸易了吗？', 'cta.subtitle': '今天就获取有竞争力的报价，让我们处理物流，助您拓展业务。',
-        'cta.btn': '获取免费报价',
+        'why.title': '为什么选择我们的物流服务？',
+        'why1.title': '经济实惠的运输方案', 'why1.desc': '我们以极具竞争力的价格提供高质量的物流服务，帮助您的企业降低运营成本，同时保持高效运转。',
+        'why2.title': '可靠准时的交付', 'why2.desc': '我们深知时间的重要性。我们的精简流程和经验丰富的团队确保您的货物安全准时送达。',
+        'why3.title': '实时追踪与全程可见', 'why3.desc': '通过我们先进的追踪系统，您可以在每个阶段了解货物状态，实时监控运输和库存。',
+        'why4.title': '全天候专属客服', 'why4.desc': '我们的专业客服团队全天候为您服务。无论您有任何疑问或需要紧急帮助，我们随时准备快速、有效地响应。',
+        'test.title': '客户评价',
+        'test1.quote': '"从中国到乌干达最好的物流公司。Roshe Group完美处理了一切。我的货物准时且完好无损地送达。强烈推荐！"',
+        'test2.quote': '"可靠且专业。他们的清关服务一流。在蒙巴萨港为我节省了大量时间和精力。"',
+        'test3.quote': '"我使用了他们的采购服务在中国找到了新的供应商。团队非常贴心，为我找到了优秀的制造商。强烈推荐！"',
+        'cta.title': '准备好扩大您的贸易了吗？', 'cta.subtitle': '加入数百家依赖Roshe Group实现中国-东非无缝物流的企业。',
+        'cta.btn': '获取免费报价', 'cta.btn2': '联系销售',
+        'about.hero.title': '关于Roshe Group', 'about.hero.sub': '连接市场，创造未来 - 您值得信赖的中国与东非物流伙伴',
+        'about.tag': 'Roshe的故事', 'about.title': '简化<br />中国与东非之间的贸易',
+        'about.p1': 'Roshe Group怀着简化中国与东非共同体之间复杂贸易路线的愿景而创立，现已发展成为领先的物流公司。',
+        'about.p2': '我们深谙两个地区的特点——从广州的高速制造中心到东非的关键运输走廊。我们的使命是提供透明、高效、可靠的物流服务，助力当地企业蓬勃发展。',
+        'about.stat1': '年经验', 'about.stat2': '满意客户',
+        'about.quote': '"物流不仅仅是搬运箱子，更是推动经济发展。"',
+        'about.director': '总监，Roshe Group',
+        'svc.hero.title': '我们的综合服务', 'svc.hero.sub': '从供应商到您的门口，我们提供全套物流服务，无缝连接中国与东非。',
+        'svc.freight.title': '货运服务', 'svc.freight.desc': '为中国-东非航线量身定制的可靠且经济的空运和海运解决方案。',
+        'svc.customs.title': '清关服务', 'svc.customs.desc': '专业处理所有文件、关税和税费，确保在各主要港口顺利通关。',
+        'svc.sourcing.title': '产品采购', 'svc.sourcing.desc': '我们帮助您在中国找到并验证可信赖的供应商，降低风险，简化采购流程。',
+        'svc.warehouse.title': '仓储服务', 'svc.warehouse.desc': '在我们广州仓库提供安全的存储和集运服务。',
+        'svc.logistics.title': '物流管理', 'svc.logistics.desc': '对您的货物进行端到端管理，确保从取货到最终交付的高效运作。',
+        'svc.consult.title': '咨询服务', 'svc.consult.desc': '关于进出口策略、成本优化和东非市场准入的专业建议。',
+        'svc.learn': '了解更多', 'svc.learn2': '了解更多', 'svc.learn3': '了解更多', 'svc.learn4': '了解更多', 'svc.learn5': '了解更多', 'svc.learn6': '了解更多',
+        'svc.back': '返回服务', 'svc.back2': '返回服务', 'svc.back3': '返回服务', 'svc.back4': '返回服务', 'svc.back5': '返回服务', 'svc.back6': '返回服务',
+        'df.title': '货运服务', 'df.desc': '我们专注于可靠且经济的东非货运，包括从中国到乌干达、坦桑尼亚和南苏丹的货物运输。凭借中国的仓储运营和强大的物流网络，我们确保您的货物安全高效地运输。',
+        'df.sub': '我们的货运服务包括：', 'df.l1': '<b>空运：</b>适用于时效性强的货物，提供高效配送。', 'df.l2': '<b>海运：</b>整柜(FCL)和拼柜(LCL)两种选择。', 'df.l3': '<b>内陆运输：</b>从港口到最终目的地的无缝配送。', 'df.l4': '<b>实时追踪：</b>从始至终监控您的货物行程。',
+        'dc.title': '清关服务', 'dc.desc': '通关手续可能很复杂。我们的专家团队简化流程，处理所有文件、关税和税费，确保您的货物顺利通关。',
+        'dc.sub': '关键清关服务：', 'dc.l1': '完整的文件准备和提交。', 'dc.l2': '准确的关税和税费计算与支付。', 'dc.l3': '符合所有东非进口法规。', 'dc.l4': '空运和海运的快速通关。',
+        'ds.title': '可靠的产品采购', 'ds.desc': '除了运输，我们还为企业提供在中国的专业产品采购支持。我们协助客户识别经过验证的供应商、议价，并协调安全运输至我们的仓库。',
+        'ds.sub': '我们的采购支持包括：', 'ds.l1': '供应商识别与验证。', 'ds.l2': '价格谈判协助。', 'ds.l3': '质量检验协调。', 'ds.l4': '供应商到仓库的物流管理。',
+        'dw.title': '仓储服务', 'dw.desc': '我们在广州的安全、现代化仓库是您货物的中心枢纽。我们提供灵活的存储选项和专业的集运服务来优化您的货运。',
+        'dw.sub': '仓储服务：', 'dw.l1': '短期和长期存储。', 'dw.l2': '货物检验和标签。', 'dw.l3': '多个供应商货物的整合。', 'dw.l4': '专业的出口包装和装箱。',
+        'dl.title': '物流管理', 'dl.desc': '我们提供端到端的物流管理，作为您整个供应链的单一联络点。我们的目标是使您的运输过程尽可能简单和透明。',
+        'dl.sub': '我们的管理涵盖：', 'dl.l1': '与中国供应商的协调。', 'dl.l2': '货运预订和运输管理。', 'dl.l3': '处理所有海关和港口手续。', 'dl.l4': '组织东非的最后一英里配送。',
+        'dcon.title': '专业咨询', 'dcon.desc': '利用我们在中国-东非贸易航线上十年的经验。我们的咨询服务旨在帮助您优化供应链、降低成本和应对市场复杂性。',
+        'dcon.sub': '我们提供以下建议：', 'dcon.l1': '进出口策略与合规。', 'dcon.l2': '货运和关税的节省机会。', 'dcon.l3': '东非国家的市场准入分析。', 'dcon.l4': '供应商谈判和最佳实践。',
+        'cont.hero.title': '联系我们', 'cont.hero.sub': '我们期待您的来信。通过我们的办公室或发送消息与我们联系。',
+        'cont.call.title': '致电我们', 'cont.call.desc': '直接与我们团队沟通',
+        'cont.email.title': '发送邮件', 'cont.email.desc': '24小时内回复',
+        'cont.wa.title': 'WhatsApp', 'cont.wa.desc': '全天候即时支持',
+        'cont.offices': '我们的办公室',
+        'cont.china.title': '中国办事处（广州）', 'cont.china.sub': '总部和仓库',
+        'cont.ug.title': '乌干达办事处（坎帕拉）', 'cont.ug.sub': '东非运营中心',
+        'cont.form.title': '给我们留言', 'cont.form.sub': '填写以下表单，我们的团队将尽快回复您。',
+        'cont.hours.china': '中国办公时间', 'cont.hours.ug': '乌干达办公时间', 'cont.hours.wa': 'WhatsApp客服',
+        'track.hero.title': '追踪您的货物', 'track.hero.sub': '通过我们的WhatsApp客服实时了解您的货物状态。',
+        'track.title': '通过WhatsApp追踪', 'track.desc': '获取实时更新最快的方式是直接通过WhatsApp联系我们的客服团队。免费、即时，全天候服务。',
+        'track.hint': '只需将您的追踪号码（例如RG-12345）发送到我们的客服热线。', 'track.btn': '在WhatsApp上追踪',
+        'quote.hero.title': '获取智能报价', 'quote.hero.sub': '快速、透明、准确的物流报价。',
+        'quote.header': '智能报价中心', 'quote.next': '下一步',
+        'quote.s1.title': '起运地与目的地', 'quote.s1.origin': '中国取货城市', 'quote.s1.dest': '目的国家',
+        'quote.s2.title': '货物详情', 'quote.s2.goods': '货物类型', 'quote.s2.weight': '预估重量（公斤）', 'quote.s2.mode': '运输方式',
+        'quote.s3.title': '您的信息',
+        'faq.hero.title': '常见问题', 'faq.hero.sub': '关于与Roshe Group合作运输您需要了解的一切。',
+        'faq.q1': 'Roshe Group覆盖哪些路线？', 'faq.a1': '我们专注于中国-东非贸易航线，从广州（及其他中国主要城市）运往乌干达、肯尼亚、坦桑尼亚、卢旺达、布隆迪和南苏丹。我们提供空运和海运服务。',
+        'faq.q2': '从中国运到乌干达需要多长时间？', 'faq.a2': '<b>海运：</b>通常25-35天，视港口和货物类型而定。<br><b>空运：</b>普通配送通常5-7个工作日。',
+        'faq.q3': '你们提供整柜和拼柜运输吗？', 'faq.a3': '是的！我们提供整柜(FCL)适用于大型货物，拼柜(LCL)适用于较小货物。如果您没有足够的货物装满整个集装箱，拼柜是理想选择。',
+        'faq.q4': '如何追踪我的货物？', 'faq.a4': '只需将您的追踪号码（例如RG-12345）发送到我们的WhatsApp客服热线 <a href="https://wa.me/8613416137544" class="text-brand-yellow font-bold hover:underline">+86 134 1613 7544</a>。您将24/7实时获取货物状态更新。',
+        'faq.q5': '你们处理清关吗？', 'faq.a5': '当然。我们处理中国出口和东非进口的所有海关文件、关税和税费计算。我们的团队确保在所有主要港口顺利通关。',
+        'faq.q6': '你们能帮我在中国找供应商吗？', 'faq.a6': '可以。我们的产品采购服务帮助您在中国识别和验证可信赖的供应商。我们协助价格谈判、质量检验，并协调从供应商到我们仓库的运输。',
+        'faq.q7': '你们在中国有仓库吗？', 'faq.a7': '有。我们在广州运营安全的仓库，在运输前接收、检查、整合和存储您的货物。这使我们可以将多个供应商的货物合并为一次运输，为您节省成本。',
+        'faq.q8': '如何获取报价？', 'faq.a8': '您可以在线申请报价、发邮件至info@roshegroup.com或通过WhatsApp联系我们。只需提供您的货物详情（类型、重量、起运地、目的地），我们将提供透明的报价。',
+        'faq.q9': '你们的办公室在哪里？', 'faq.a9': '<b>中国办事处：</b>中国广州越秀区环市中路301号东方大楼906室<br><b>乌干达办事处：</b>乌干达坎帕拉布干达路13号Mukwano Courts，4楼201-202室',
+        'faq.cta.title': '还有问题？', 'faq.cta.sub': '我们的团队随时准备帮助您。通过WhatsApp联系我们或发送消息。',
+        'hubs.hero.title': '区域枢纽', 'hubs.hero.sub': '在东非主要市场的战略布局，确保您的货物畅通无阻。',
+        'hubs.ke.tag': '港口清关（蒙巴萨）', 'hubs.ke.name': '肯尼亚', 'hubs.ke.desc': '我们的蒙巴萨团队处理港口直接出货和内陆转运。',
+        'hubs.ug.tag': '内陆配送', 'hubs.ug.name': '乌干达', 'hubs.ug.desc': '我们的坎帕拉枢纽是该地区的主要集散中心。',
+        'hubs.rw.tag': '跨境物流', 'hubs.rw.name': '卢旺达', 'hubs.rw.desc': '通过两条通道为基加利市场提供快速通关。',
+        'hubs.ss.tag': '专业物流', 'hubs.ss.name': '南苏丹', 'hubs.ss.desc': '安全的跨境清关和朱巴及更远地区的配送。',
+        'hubs.cta.title': '需要运送到东非？', 'hubs.cta.sub': '联系我们，让我们为您的货物规划跨区域网络的最佳路线。',
+        'ft.desc1': '您的首选物流合作伙伴，连接中国制造业中心与东非新兴市场。',
+        'ft.desc2': '怀着简化中国与东非共同体之间复杂贸易路线的愿景而创立，我们深谙两个地区的特点——从广州的制造业中心到东非的关键运输走廊。',
+        'ft.links': '快速链接', 'ft.about': '关于我们', 'ft.services': '服务', 'ft.track': '追踪货物', 'ft.contact': '联系我们', 'ft.hubs': '区域枢纽', 'ft.quote': '获取报价',
+        'ft.svc': '我们的服务', 'ft.freight': '货运服务', 'ft.customs': '清关服务', 'ft.sourcing': '产品采购', 'ft.warehousing': '仓储', 'ft.logistics': '物流管理', 'ft.consult': '咨询',
+        'ft.china': '中国办事处', 'ft.uganda': '乌干达办事处', 'ft.follow': '关注我们',
+        'cookie.text': '我们使用cookies来增强您的体验。继续访问本网站即表示您同意我们使用cookies。', 'cookie.accept': '接受', 'cookie.decline': '拒绝',
       },
-      fr: {
-        'nav.home': 'Accueil', 'nav.about': 'À Propos', 'nav.services': 'Services',
-        'nav.tracking': 'Suivi', 'nav.contact': 'Contact', 'nav.faq': 'FAQ',
-        'nav.hubs': 'Centres Régionaux', 'nav.quote': 'Demander un Devis',
-        'hero.title': 'Votre Pont de Confiance de la <span class="text-brand-yellow">Chine</span> vers l\'Afrique de l\'Est',
-        'hero.subtitle': 'Solutions logistiques fluides, fiables et rentables. Nous gérons tout, de l\'approvisionnement à la livraison.',
-        'hero.cta1': 'Devis Gratuit', 'hero.cta2': 'Explorer les Services',
-        'who.tag': 'Qui Sommes-Nous', 'who.title': 'Votre Partenaire Fiable dans le Commerce <span class="text-brand-yellow">Chine-Afrique de l\'Est</span>',
-        'who.desc': 'Roshe Group est une entreprise logistique complète spécialisée dans le transport de marchandises, le dédouanement, l\'approvisionnement et l\'entreposage entre la Chine et l\'Afrique de l\'Est. Nous simplifions le commerce international pour que vous puissiez vous concentrer sur votre activité.',
-        'who.cta': 'En Savoir Plus',
-        'steps.title': 'Expédition Simple en 4 Étapes',
-        'steps.subtitle': 'Nous avons simplifié le processus pour rendre l\'expédition depuis la Chine sans effort.',
-        'step1.title': 'Demander un Devis', 'step1.desc': 'Communiquez les détails de votre envoi et recevez un devis clair et compétitif rapidement.',
-        'step2.title': 'Réception & Consolidation', 'step2.desc': 'Votre fournisseur livre à notre entrepôt en Chine. Nous inspectons, étiquetons et consolidons pour un envoi sûr.',
-        'step3.title': 'Expédition & Douanes', 'step3.desc': 'Nous gérons toutes les réservations de fret, la documentation et le dédouanement.',
-        'step4.title': 'Livraison à Domicile', 'step4.desc': 'Une fois dédouané, votre cargo est livré à votre point de retrait ou destination finale.',
-        'cta.title': 'Prêt à Développer Votre Commerce?', 'cta.subtitle': 'Obtenez un devis compétitif aujourd\'hui et laissez-nous gérer la logistique.',
-        'cta.btn': 'Obtenir un Devis Gratuit',
+      sw: {
+        'nav.home': 'Nyumbani', 'nav.about': 'Kuhusu Sisi', 'nav.services': 'Huduma',
+        'nav.tracking': 'Fuatilia Mizigo', 'nav.contact': 'Wasiliana Nasi', 'nav.faq': 'Maswali',
+        'nav.hubs': 'Vituo vya Kanda', 'nav.quote': 'Omba Bei',
+        'hero.title': 'Daraja Lako la Kuaminika kutoka <span class="text-brand-yellow">China</span> hadi Afrika Mashariki',
+        'hero.subtitle': 'Huduma za usafirishaji zenye ufanisi, za kuaminika na za bei nafuu. Tunashughulikia kila kitu kutoka kwa vyanzo hadi mlangoni kwako.',
+        'hero.cta1': 'Pata Bei Bure', 'hero.cta2': 'Gundua Huduma',
+        'who.tag': 'Sisi Ni Nani', 'who.title': 'Mshirika Wako wa Kuaminika katika Biashara ya <span class="text-brand-yellow">China-Afrika Mashariki</span>',
+        'who.desc': 'Roshe Group ni kampuni kamili ya usafirishaji inayobobea katika usafirishaji wa mizigo, utoaji forodha, ununuzi wa bidhaa, na uhifadhi kati ya China na Afrika Mashariki. Tunasimplisha biashara ya kimataifa ili uweze kuzingatia kukuza biashara yako.',
+        'who.cta': 'Gundua Zaidi',
+        'steps.title': 'Usafirishaji Rahisi kwa Hatua 4',
+        'steps.subtitle': 'Tumeboresha mchakato wote ili kusafirisha kutoka China kuwe rahisi kwako.',
+        'step1.title': 'Omba Bei', 'step1.desc': 'Tuambie maelezo ya mizigo yako, nasi tutakupa bei wazi na ya ushindani haraka.',
+        'step2.title': 'Tunapokea na Kuunganisha', 'step2.desc': 'Msambazaji wako analeta kwenye ghala letu nchini China. Tunakagua, kuweka lebo, na kuunganisha kwa usafirishaji salama.',
+        'step3.title': 'Usafirishaji na Forodha', 'step3.desc': 'Tunashughulikia uhifadhi wote wa mizigo, nyaraka, na utoaji forodha kwa usafiri laini.',
+        'step4.title': 'Uwasilishaji Mlangoni', 'step4.desc': 'Baada ya kutolewa forodhani, mizigo yako inawasilishwa kwenye sehemu yako ya kuchukua au mahali pa mwisho.',
+        'why.title': 'Kwa Nini Utuchague kwa Mahitaji Yako ya Usafirishaji?',
+        'why1.title': 'Suluhisho za Usafirishaji za Bei Nafuu', 'why1.desc': 'Tunatoa huduma za usafirishaji za hali ya juu kwa bei shindani, kusaidia biashara yako kupunguza gharama za uendeshaji huku ukidumisha ufanisi.',
+        'why2.title': 'Utoaji wa Kuaminika na wa Wakati', 'why2.desc': 'Tunaelewa kuwa muda ni muhimu. Michakato yetu iliyoboreshwa na timu yenye uzoefu inahakikisha bidhaa zako zinawasilishwa kwa usalama na kwa wakati.',
+        'why3.title': 'Ufuatiliaji wa Papo kwa Papo na Uwazi Kamili', 'why3.desc': 'Kwa mifumo yetu ya kisasa ya ufuatiliaji, unajulishwa katika kila hatua. Fuatilia mizigo na hifadhi kwa wakati halisi.',
+        'why4.title': 'Msaada wa Wateja 24/7', 'why4.desc': 'Timu yetu ya kitaalamu ya msaada inapatikana saa 24 kukusaidia. Iwe una swali au unahitaji msaada wa haraka, sisi tuko tayari kujibu haraka.',
+        'test.title': 'Wateja Wetu Wanasema Nini',
+        'test1.quote': '"Kampuni bora zaidi ya usafirishaji kutoka China hadi Uganda. Roshe Group walifanya kila kitu vizuri. Bidhaa zangu zilifika kwa wakati na katika hali nzuri. Usitafute zaidi!"',
+        'test2.quote': '"Waaminifu na wataalamu. Huduma yao ya utoaji forodha ni bora sana. Walinisaidia kuokoa muda mwingi katika bandari ya Mombasa."',
+        'test3.quote': '"Nilitumia huduma yao ya ununuzi kupata msambazaji mpya nchini China. Timu ilikuwa na msaada mkubwa na kupata mtengenezaji mzuri kwangu. Ninapendekeza sana!"',
+        'cta.title': 'Uko Tayari Kupanua Biashara Yako?', 'cta.subtitle': 'Jiunge na mamia ya biashara zinazotegemea Roshe Group kwa usafirishaji bora wa China-Afrika Mashariki.',
+        'cta.btn': 'Pata Bei Yako Bure', 'cta.btn2': 'Wasiliana na Mauzo',
+        'about.hero.title': 'Kuhusu Roshe Group', 'about.hero.sub': 'Kuunganisha Masoko, Kujenga Mustakabali - Mshirika Wako wa Kuaminika wa Usafirishaji Kati ya China na Afrika Mashariki',
+        'about.tag': 'Hadithi ya Roshe', 'about.title': 'Kurahisisha Biashara Kati ya <br />China na Afrika Mashariki',
+        'about.p1': 'Ilianzishwa na maono ya kurahisisha njia changamano za biashara kati ya China na Jumuiya ya Afrika Mashariki, Roshe Group imeongezeka kuwa kampuni inayoongoza katika usafirishaji.',
+        'about.p2': 'Tunaelewa sifa za pande zote mbili - kutoka vituo vya utengenezaji wa kasi ya juu vya Guangzhou hadi njia muhimu za usafirishaji za Afrika Mashariki. Dhamira yetu ni kutoa usafirishaji wazi, wenye ufanisi na wa kuaminika.',
+        'about.stat1': 'Miaka ya Uzoefu', 'about.stat2': 'Wateja Wenye Furaha',
+        'about.quote': '"Usafirishaji si tu kuhamisha masanduku; ni kuendesha uchumi."',
+        'about.director': 'Mkurugenzi, Roshe Group',
+        'svc.hero.title': 'Huduma Zetu Kamili', 'svc.hero.sub': 'Kutoka kwa msambazaji hadi mlangoni mwako, tunatoa huduma kamili za usafirishaji kuunganisha China na Afrika Mashariki.',
+        'svc.freight.title': 'Usafirishaji wa Mizigo', 'svc.freight.desc': 'Suluhisho za usafirishaji wa anga na bahari za kuaminika na za bei nafuu kwa njia ya China-Afrika Mashariki.',
+        'svc.customs.title': 'Utoaji Forodha', 'svc.customs.desc': 'Kushughulikia kwa utaalamu nyaraka zote, ushuru na kodi kwa utoaji forodha usio na shida.',
+        'svc.sourcing.title': 'Ununuzi wa Bidhaa', 'svc.sourcing.desc': 'Tunakusaidia kupata na kuthibitisha wasambazaji waaminifu nchini China, kupunguza hatari yako.',
+        'svc.warehouse.title': 'Huduma za Uhifadhi', 'svc.warehouse.desc': 'Huduma salama za kuhifadhi na kuunganisha katika ghala letu la Guangzhou.',
+        'svc.logistics.title': 'Usimamizi wa Usafirishaji', 'svc.logistics.desc': 'Usimamizi kamili wa mizigo yako, kuhakikisha ufanisi kutoka kuchukua hadi kuwasilisha.',
+        'svc.consult.title': 'Huduma za Ushauri', 'svc.consult.desc': 'Ushauri wa kitaalamu kuhusu mkakati wa kuagiza/kuuza nje, uboreshaji wa gharama, na kuingia soko la Afrika Mashariki.',
+        'svc.learn': 'Soma Zaidi', 'svc.learn2': 'Soma Zaidi', 'svc.learn3': 'Soma Zaidi', 'svc.learn4': 'Soma Zaidi', 'svc.learn5': 'Soma Zaidi', 'svc.learn6': 'Soma Zaidi',
+        'svc.back': 'Rudi kwa Huduma', 'svc.back2': 'Rudi kwa Huduma', 'svc.back3': 'Rudi kwa Huduma', 'svc.back4': 'Rudi kwa Huduma', 'svc.back5': 'Rudi kwa Huduma', 'svc.back6': 'Rudi kwa Huduma',
+        'df.title': 'Usafirishaji wa Mizigo', 'df.desc': 'Tunabobea katika usafirishaji wa kuaminika na wa bei nafuu wa Afrika Mashariki, ikiwa ni pamoja na mizigo kutoka China hadi Uganda, Tanzania, na Sudan Kusini.',
+        'df.sub': 'Huduma Zetu za Usafirishaji ni pamoja na:', 'df.l1': '<b>Usafirishaji wa Anga:</b> Kwa mizigo ya haraka, kutoa utoaji bora.', 'df.l2': '<b>Usafirishaji wa Bahari:</b> Kontena kamili (FCL) na kontena pungufu (LCL).', 'df.l3': '<b>Usafirishaji wa Ndani:</b> Utoaji usio na mshono kutoka bandari hadi mahali pako.', 'df.l4': '<b>Ufuatiliaji wa Wakati Halisi:</b> Fuatilia safari ya mizigo yako.',
+        'dc.title': 'Utoaji Forodha', 'dc.desc': 'Kuvuka forodha kunaweza kuwa changamoto. Timu yetu ya wataalamu inarahisisha mchakato, kushughulikia nyaraka zote, ushuru na kodi.',
+        'dc.sub': 'Huduma Muhimu za Utoaji:', 'dc.l1': 'Maandalizi kamili ya nyaraka na uwasilishaji.', 'dc.l2': 'Hesabu sahihi ya ushuru na kodi na malipo.', 'dc.l3': 'Kuzingatia kanuni zote za kuagiza za Afrika Mashariki.', 'dc.l4': 'Utoaji wa haraka kwa mizigo ya anga na bahari.',
+        'ds.title': 'Ununuzi wa Bidhaa Unaotegemeka', 'ds.desc': 'Mbali na usafirishaji, tunasaidia biashara na ununuzi wa kitaalamu wa bidhaa nchini China. Tunasaidia wateja kutambua wasambazaji waliothibitishwa.',
+        'ds.sub': 'Msaada Wetu wa Ununuzi ni pamoja na:', 'ds.l1': 'Utambuzi na uthibitisho wa wasambazaji.', 'ds.l2': 'Msaada wa mazungumzo ya bei.', 'ds.l3': 'Uratibu wa ukaguzi wa ubora.', 'ds.l4': 'Usimamizi wa usafirishaji kutoka msambazaji hadi ghala.',
+        'dw.title': 'Huduma za Uhifadhi', 'dw.desc': 'Ghala letu salama na la kisasa nchini Guangzhou linahudumu kama kituo kuu cha bidhaa zako.',
+        'dw.sub': 'Huduma za Ghala:', 'dw.l1': 'Uhifadhi wa muda mfupi na mrefu.', 'dw.l2': 'Ukaguzi na uwekaji lebo wa mizigo.', 'dw.l3': 'Kuunganisha bidhaa kutoka wasambazaji wengi.', 'dw.l4': 'Ufungaji wa kitaalamu kwa usafirishaji nje.',
+        'dl.title': 'Usimamizi wa Usafirishaji', 'dl.desc': 'Tunatoa usimamizi kamili wa usafirishaji, tukifanya kama sehemu yako moja ya mawasiliano kwa mnyororo wote wa ugavi.',
+        'dl.sub': 'Usimamizi Wetu Unashughulikia:', 'dl.l1': 'Uratibu na wasambazaji nchini China.', 'dl.l2': 'Uhifadhi wa mizigo na usimamizi wa usafiri.', 'dl.l3': 'Kushughulikia forodha zote na taratibu za bandari.', 'dl.l4': 'Kupanga utoaji wa maili ya mwisho Afrika Mashariki.',
+        'dcon.title': 'Ushauri wa Kitaalamu', 'dcon.desc': 'Tumia uzoefu wetu wa miaka kumi katika njia ya biashara ya China-Afrika Mashariki. Huduma zetu za ushauri zimeundwa kukusaidia kuboresha mnyororo wako wa ugavi.',
+        'dcon.sub': 'Tunashauri Kuhusu:', 'dcon.l1': 'Mkakati wa kuagiza/kuuza nje na uzingatiaji.', 'dcon.l2': 'Fursa za kuokoa gharama katika mizigo na ushuru.', 'dcon.l3': 'Uchambuzi wa kuingia soko kwa nchi za Afrika Mashariki.', 'dcon.l4': 'Mazungumzo ya msambazaji na mbinu bora.',
+        'cont.hero.title': 'Wasiliana Nasi', 'cont.hero.sub': 'Tungependa kusikia kutoka kwako. Wasiliana nasi kupitia ofisi zetu au tuma ujumbe hapa chini.',
+        'cont.call.title': 'Tupigie', 'cont.call.desc': 'Zungumza moja kwa moja na timu yetu',
+        'cont.email.title': 'Tuma Barua pepe', 'cont.email.desc': 'Tunajibu ndani ya masaa 24',
+        'cont.wa.title': 'WhatsApp', 'cont.wa.desc': 'Msaada wa papo hapo, 24/7',
+        'cont.offices': 'Ofisi Zetu',
+        'cont.china.title': 'Ofisi ya China (Guangzhou)', 'cont.china.sub': 'Makao Makuu na Ghala',
+        'cont.ug.title': 'Ofisi ya Uganda (Kampala)', 'cont.ug.sub': 'Shughuli za Afrika Mashariki',
+        'cont.form.title': 'Tutumie Ujumbe', 'cont.form.sub': 'Jaza fomu hapa chini na timu yetu itakujibu haraka.',
+        'cont.hours.china': 'Masaa ya Ofisi ya China', 'cont.hours.ug': 'Masaa ya Ofisi ya Uganda', 'cont.hours.wa': 'Msaada wa WhatsApp',
+        'track.hero.title': 'Fuatilia Mizigo Yako', 'track.hero.sub': 'Pata taarifa za wakati halisi kuhusu mizigo yako kupitia WhatsApp.',
+        'track.title': 'Fuatilia kupitia WhatsApp', 'track.desc': 'Kwa masasisho ya wakati halisi, njia ya haraka zaidi ya kufuatilia mizigo yako ni kuwasiliana na timu yetu ya msaada moja kwa moja kupitia WhatsApp. Ni bure, ya papo hapo, na inapatikana 24/7.',
+        'track.hint': 'Tuma tu nambari yako ya kufuatilia (mfano, RG-12345) kwa lini yetu ya msaada.', 'track.btn': 'Fuatilia kwenye WhatsApp',
+        'quote.hero.title': 'Pata Bei ya Kisasa', 'quote.hero.sub': 'Bei ya haraka, wazi na sahihi kwa mahitaji yako ya usafirishaji.',
+        'quote.header': 'Kituo cha Bei ya Kisasa', 'quote.next': 'Hatua Inayofuata',
+        'quote.s1.title': 'Asili na Marudio', 'quote.s1.origin': 'Jiji la Kuchukua nchini China', 'quote.s1.dest': 'Nchi ya Marudio',
+        'quote.s2.title': 'Maelezo ya Mizigo', 'quote.s2.goods': 'Aina ya Bidhaa', 'quote.s2.weight': 'Uzito Unaokadiriwa (kg)', 'quote.s2.mode': 'Njia ya Usafirishaji',
+        'quote.s3.title': 'Taarifa Zako',
+        'faq.hero.title': 'Maswali Yanayoulizwa Mara kwa Mara', 'faq.hero.sub': 'Kila kitu unachohitaji kujua kuhusu kusafirisha na Roshe Group.',
+        'faq.q1': 'Roshe Group inashughulikia njia zipi?', 'faq.a1': 'Tunabobea katika njia ya biashara ya China - Afrika Mashariki, kusafirisha kutoka Guangzhou (na miji mingine mikubwa ya China) hadi Uganda, Kenya, Tanzania, Rwanda, Burundi, na Sudan Kusini.',
+        'faq.q2': 'Inachukua muda gani kusafirisha kutoka China hadi Uganda?', 'faq.a2': '<b>Bahari:</b> Kwa kawaida siku 25-35 kutegemea bandari na aina ya mizigo.<br><b>Anga:</b> Kwa kawaida siku 5-7 za kazi.',
+        'faq.q3': 'Mnatoa usafirishaji wa kontena kamili na pungufu?', 'faq.a3': 'Ndiyo! Tunatoa Kontena Kamili (FCL) kwa mizigo mikubwa na Kontena Pungufu (LCL) kwa mizigo ndogo.',
+        'faq.q4': 'Ninawezaje kufuatilia mizigo yangu?', 'faq.a4': 'Tuma tu nambari yako ya kufuatilia (mfano, RG-12345) kwa lini yetu ya msaada wa WhatsApp <a href="https://wa.me/8613416137544" class="text-brand-yellow font-bold hover:underline">+86 134 1613 7544</a>.',
+        'faq.q5': 'Mnashughulikia utoaji forodha?', 'faq.a5': 'Kabisa. Tunashughulikia nyaraka zote za forodha, ushuru, na hesabu za kodi kwa usafirishaji wa China na uagizaji wa Afrika Mashariki.',
+        'faq.q6': 'Mnaweza kunisaidia kupata wasambazaji nchini China?', 'faq.a6': 'Ndiyo. Huduma yetu ya ununuzi wa bidhaa inakusaidia kutambua na kuthibitisha wasambazaji waaminifu nchini China.',
+        'faq.q7': 'Mna ghala nchini China?', 'faq.a7': 'Ndiyo. Tunaendesha ghala salama nchini Guangzhou ambapo tunapokea, tunakagua, tunaunganisha, na kuhifadhi bidhaa zako kabla ya kusafirishwa.',
+        'faq.q8': 'Ninawezaje kupata bei?', 'faq.a8': 'Unaweza kuomba bei mtandaoni, tuma barua pepe kwa info@roshegroup.com, au wasiliana nasi kupitia WhatsApp. Toa tu maelezo ya mizigo yako.',
+        'faq.q9': 'Ofisi zenu ziko wapi?', 'faq.a9': '<b>Ofisi ya China:</b> Chumba 906, Jengo la Mashariki Na. 301, Barabara ya Huanshi Middle, Yuexiu, Guangzhou, China<br><b>Ofisi ya Uganda:</b> Plot 13 Mukwano Courts, Barabara ya Buganda, Sakafu ya 4, Chumba 201-202, Kampala, Uganda',
+        'faq.cta.title': 'Bado una maswali?', 'faq.cta.sub': 'Timu yetu iko tayari kusaidia. Wasiliana nasi kupitia WhatsApp au tuma ujumbe.',
+        'hubs.hero.title': 'Vituo vya Kanda', 'hubs.hero.sub': 'Uwepo wa kimkakati katika masoko muhimu ya Afrika Mashariki kuhakikisha mizigo yako inasogea bila vikwazo.',
+        'hubs.ke.tag': 'Utoaji wa Bandari (Mombasa)', 'hubs.ke.name': 'Kenya', 'hubs.ke.desc': 'Timu yetu ya Mombasa inashughulikia kutoka bandari moja kwa moja na usafiri wa ndani.',
+        'hubs.ug.tag': 'Usambazaji wa Ndani', 'hubs.ug.name': 'Uganda', 'hubs.ug.desc': 'Kituo chetu cha Kampala kinahudumu kama sehemu kuu ya kukusanya kwa eneo hilo.',
+        'hubs.rw.tag': 'Usafirishaji wa Mpakani', 'hubs.rw.name': 'Rwanda', 'hubs.rw.desc': 'Utoaji wa haraka kwa soko la Kigali kupitia njia zote mbili.',
+        'hubs.ss.tag': 'Usafirishaji Maalum', 'hubs.ss.name': 'Sudan Kusini', 'hubs.ss.desc': 'Utoaji salama wa mpakani na utoaji hadi Juba na zaidi.',
+        'hubs.cta.title': 'Unahitaji Kusafirisha hadi Afrika Mashariki?', 'hubs.cta.sub': 'Wasiliana nasi na tupange njia bora kwa mizigo yako katika mtandao wetu wa kanda.',
+        'ft.desc1': 'Mshirika wako mkuu wa usafirishaji anayeunganisha vituo vya utengenezaji vya China na masoko yanayokua ya Afrika Mashariki.',
+        'ft.desc2': 'Ilianzishwa na maono ya kurahisisha njia changamano za biashara kati ya China na Jumuiya ya Afrika Mashariki, tunaelewa sifa za pande zote mbili.',
+        'ft.links': 'Viungo vya Haraka', 'ft.about': 'Kuhusu Sisi', 'ft.services': 'Huduma', 'ft.track': 'Fuatilia Mizigo', 'ft.contact': 'Wasiliana Nasi', 'ft.hubs': 'Vituo vya Kanda', 'ft.quote': 'Omba Bei',
+        'ft.svc': 'Huduma Zetu', 'ft.freight': 'Usafirishaji wa Mizigo', 'ft.customs': 'Utoaji Forodha', 'ft.sourcing': 'Ununuzi wa Bidhaa', 'ft.warehousing': 'Uhifadhi', 'ft.logistics': 'Usimamizi wa Usafirishaji', 'ft.consult': 'Ushauri',
+        'ft.china': 'Ofisi ya China', 'ft.uganda': 'Ofisi ya Uganda', 'ft.follow': 'Tufuate',
+        'cookie.text': 'Tunatumia cookies kuboresha uzoefu wako. Kuendelea kutembelea tovuti hii unaafiki matumizi yetu ya cookies.', 'cookie.accept': 'Kubali', 'cookie.decline': 'Kataa',
       }
     };
 
     var currentLang = 'en';
-    var langFlags = { en: '🇬🇧', zh: '🇨🇳', fr: '🇫🇷' };
-    var langCodes = { en: 'EN', zh: '中文', fr: 'FR' };
+    var langFlags = { en: '🇬🇧', zh: '🇨🇳', sw: '🇰🇪' };
+    var langCodes = { en: 'EN', zh: '中文', sw: 'SW' };
 
     function toggleLangMenu() {
       document.getElementById('lang-dropdown').classList.toggle('open');
@@ -1584,7 +1887,51 @@
       window.dispatchEvent(new Event('scroll'));
       navigateTo('home');
       setTimeout(initRevealAnimations, 100);
+
+      // Fade in hero video once it starts playing (hides buffering delay)
+      var heroIframe = document.getElementById('heroVideo');
+      if (heroIframe) {
+        var tag = document.createElement('script');
+        tag.src = 'https://www.youtube.com/iframe_api';
+        document.head.appendChild(tag);
+        window.onYouTubeIframeAPIReady = function() {
+          new YT.Player('heroVideo', {
+            events: {
+              onReady: function(e) { e.target.seekTo(2, true); e.target.mute(); },
+              onStateChange: function(e) {
+                if (e.data === YT.PlayerState.PLAYING) {
+                  heroIframe.style.opacity = '1';
+                }
+              }
+            }
+          });
+        };
+      }
     });
+  </script>
+
+  <!-- ===== COOKIE CONSENT BANNER ===== -->
+  <div id="cookie-banner">
+    <p data-i18n="cookie.text">We use cookies to enhance your experience. By continuing to visit this site you agree to our use of cookies. <a href="#" onclick="navigateTo('faq'); acceptCookies(); return false;">Learn more</a></p>
+    <button class="cookie-btn cookie-btn-accept" onclick="acceptCookies()" data-i18n="cookie.accept">Accept</button>
+    <button class="cookie-btn cookie-btn-decline" onclick="declineCookies()" data-i18n="cookie.decline">Decline</button>
+  </div>
+  <script>
+    (function() {
+      if (!localStorage.getItem('cookie-consent')) {
+        setTimeout(function() {
+          document.getElementById('cookie-banner').classList.add('show');
+        }, 1500);
+      }
+    })();
+    function acceptCookies() {
+      localStorage.setItem('cookie-consent', 'accepted');
+      document.getElementById('cookie-banner').classList.remove('show');
+    }
+    function declineCookies() {
+      localStorage.setItem('cookie-consent', 'declined');
+      document.getElementById('cookie-banner').classList.remove('show');
+    }
   </script>
 </body>
 </html>
