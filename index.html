@@ -178,8 +178,8 @@
 <body class="text-slate-900 bg-white">
 
   <!-- ===== FLOATING WHATSAPP BUTTON ===== -->
-  <a href="https://wa.me/8613416137544?text=Hello%20Roshe%20Group,%20I'd%20like%20to%20inquire%20about%20shipping." target="_blank" class="fixed bottom-6 right-6 z-50 bg-green-500 text-white w-14 h-14 md:w-16 md:h-16 rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform">
-    <i data-lucide="message-circle" class="w-7 h-7 md:w-8 md:h-8"></i>
+  <a href="https://wa.me/8613416137544?text=Hello%20Roshe%20Group,%20I'd%20like%20to%20inquire%20about%20shipping." target="blank" class="fixed bottom-6 right-6 z-50 bg-green-500 text-white w-12 h-12 md:w-14 md:h-14 rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform">
+    <i data-lucide="message-circle" class="w-6 h-6 md:w-7 md:h-7"></i>
   </a>
 
   <!-- ===== HEADER ===== -->
@@ -286,26 +286,36 @@
       </section>
 
       <!-- Who We Are -->
-      <section class="py-20 bg-white overflow-hidden">
-        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <section class="py-24 bg-gradient-to-b from-white to-slate-50 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           <div class="relative reveal reveal-left">
-            <div class="absolute -top-6 -left-6 w-48 h-48 bg-brand-yellow/10 rounded-3xl -z-10"></div>
-            <img src="images/Shipping Line near port.jpeg" alt="Roshe Group logistics operations" class="rounded-3xl shadow-2xl w-full h-[400px] object-cover">
-            <div class="absolute -bottom-4 -right-4 bg-brand-navy text-white px-6 py-3 rounded-2xl shadow-lg">
-              <p class="text-2xl font-black text-brand-yellow">10+</p>
-              <p class="text-xs font-semibold uppercase tracking-wider">Years of Trust</p>
+            <!-- Decorative elements -->
+            <div class="absolute -top-8 -left-8 w-64 h-64 bg-brand-yellow/10 rounded-3xl -z-10"></div>
+            <div class="absolute -bottom-8 -right-8 w-40 h-40 bg-brand-navy/5 rounded-3xl -z-10"></div>
+            <!-- Main image -->
+            <div class="relative rounded-3xl overflow-hidden shadow-2xl">
+              <img src="images/Shipping Line near port.jpeg" alt="Roshe Group logistics operations" class="w-full h-[450px] object-cover hover:scale-105 transition-transform duration-700">
+              <!-- Gradient overlay at bottom for badge readability -->
+              <div class="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-brand-navy/60 to-transparent"></div>
             </div>
+            <!-- Stats badge -->
+            <div class="absolute -bottom-6 right-6 bg-brand-navy text-white px-8 py-4 rounded-2xl shadow-xl border-2 border-brand-yellow/30">
+              <p class="text-3xl font-black text-brand-yellow leading-none">10+</p>
+              <p class="text-xs font-semibold uppercase tracking-wider mt-1">Years of Trust</p>
+            </div>
+
           </div>
-          <div class="reveal reveal-right space-y-6">
+          <div class="reveal reveal-right space-y-7 text-center">
             <span class="inline-block bg-brand-yellow/15 text-brand-yellow font-bold text-sm px-4 py-1.5 rounded-full uppercase tracking-wider" data-i18n="who.tag">Who We Are</span>
-            <h2 class="text-brand-navy text-3xl md:text-4xl font-black leading-tight" data-i18n="who.title">Your Reliable Partner in <span class="text-brand-yellow">China-East Africa</span> Trade</h2>
+            <h2 class="text-brand-navy text-xl md:text-2xl lg:text-3xl font-black leading-tight" data-i18n="who.title">Your Trusted Shipping & Logistics Solutions Connecting <span class="text-brand-yellow">China & East Africa</span></h2>
             <p class="text-slate-600 text-lg leading-relaxed" data-i18n="who.desc">Roshe Group is a full-service logistics company specializing in freight forwarding, customs clearance, product sourcing, and warehousing between China and East Africa. We simplify international trade so you can focus on growing your business.</p>
-            <div class="flex flex-wrap gap-4 pt-2">
-              <div class="flex items-center gap-2 text-sm font-semibold text-brand-navy"><i data-lucide="check-circle" class="w-5 h-5 text-green-500"></i> Licensed & Insured</div>
-              <div class="flex items-center gap-2 text-sm font-semibold text-brand-navy"><i data-lucide="check-circle" class="w-5 h-5 text-green-500"></i> End-to-End Service</div>
-              <div class="flex items-center gap-2 text-sm font-semibold text-brand-navy"><i data-lucide="check-circle" class="w-5 h-5 text-green-500"></i> Competitive Rates</div>
+            <!-- Trust badges inline -->
+            <div class="flex flex-wrap gap-x-6 gap-y-2 pt-2 justify-center lg:justify-start text-sm font-semibold text-brand-navy">
+              <span class="flex items-center gap-1.5"><i data-lucide="check-circle" class="w-4 h-4 text-green-500"></i> <span data-i18n="who.badge1">Licensed & Insured</span></span>
+              <span class="flex items-center gap-1.5"><i data-lucide="check-circle" class="w-4 h-4 text-green-500"></i> <span data-i18n="who.badge2">End-to-End Service</span></span>
+              <span class="flex items-center gap-1.5"><i data-lucide="check-circle" class="w-4 h-4 text-green-500"></i> <span data-i18n="who.badge3">Competitive Rates</span></span>
             </div>
-            <a onclick="navigateTo('about')" class="inline-flex items-center gap-2 bg-brand-navy text-white px-8 py-4 rounded-full font-bold text-lg shadow-lg hover:scale-105 transition-transform cursor-pointer group" data-i18n="who.cta">
+            <a onclick="navigateTo('about')" class="inline-flex items-center gap-1.5 text-brand-navy font-bold text-lg hover:text-brand-yellow transition-colors cursor-pointer group mx-auto lg:mx-0" data-i18n="who.cta">
               Discover More <i data-lucide="arrow-right" class="w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
             </a>
           </div>
@@ -355,7 +365,7 @@
             <img src="images/Fork lifter loading container from warehouse.jpeg" alt="Warehouse operations" class="rounded-2xl shadow-2xl w-full h-auto object-cover">
           </div>
           <div class="space-y-8">
-            <h2 class="text-brand-navy text-4xl md:text-5xl font-black" data-i18n="why.title">Why Choose Us for Your Logistics Needs?</h2>
+            <h2 class="text-brand-navy text-4xl md:text-5xl font-black text-center lg:text-left" data-i18n="why.title">Why Choose Us for Your Logistics Needs?</h2>
             <div class="space-y-6">
               <div class="flex items-start gap-4">
                 <div class="w-12 h-12 bg-brand-yellow/10 rounded-full flex items-center justify-center shrink-0"><i data-lucide="dollar-sign" class="w-6 h-6 text-brand-yellow"></i></div>
@@ -445,7 +455,7 @@
             <p class="text-base sm:text-xl text-slate-300 max-w-2xl mx-auto relative z-10" data-i18n="cta.subtitle">Join hundreds of businesses relying on Roshe Group for seamless China-East Africa logistics.</p>
             <div class="flex flex-col sm:flex-row flex-wrap justify-center gap-4 relative z-10">
               <button onclick="navigateTo('quote')" class="bg-brand-yellow text-brand-navy px-8 py-4 sm:px-10 sm:py-5 rounded-full font-bold text-base sm:text-xl shadow-xl hover:scale-105 transition-transform" data-i18n="cta.btn">Get Your Free Quote</button>
-              <button onclick="navigateTo('about')" class="bg-white/10 text-white border border-white/20 px-8 py-4 sm:px-10 sm:py-5 rounded-full font-bold text-base sm:text-xl hover:bg-white/20 transition-colors" data-i18n="cta.btn2">Contact Sales</button>
+              <button onclick="openContactModal()" class="bg-white/10 text-white border border-white/20 px-8 py-4 sm:px-10 sm:py-5 rounded-full font-bold text-base sm:text-xl hover:bg-white/20 transition-colors" data-i18n="cta.btn2">Contact Sales</button>
             </div>
           </div>
         </div>
@@ -803,6 +813,7 @@
                 </div>
                 <div class="space-y-3 text-slate-600">
                   <p class="flex items-start gap-3"><i data-lucide="map-pin" class="w-5 h-5 text-brand-yellow shrink-0 mt-0.5"></i> Plot 13 Mukwano Courts, Buganda Road, Floor 4, Room 201-202, Kampala, Uganda</p>
+                  <p class="flex items-center gap-3"><i data-lucide="phone" class="w-5 h-5 text-brand-yellow shrink-0"></i> <a href="tel:+256788239000" class="hover:text-brand-yellow">+256 788 239 000</a></p>
                   <p class="flex items-center gap-3"><i data-lucide="message-circle" class="w-5 h-5 text-green-500 shrink-0"></i> <a href="https://wa.me/8613416137544" class="hover:text-brand-yellow">+86 134 1613 7544</a></p>
                 </div>
               </div>
@@ -1139,7 +1150,7 @@
             </button>
             <div class="faq-answer hidden px-6 pb-6 text-slate-600 leading-relaxed" data-i18n="faq.a9">
               <b>China Office:</b> Room 906, Eastern Building No. 301, Huanshi Middle Road, Yuexiu District, Guangzhou, China<br>
-              <b>Uganda Office:</b> Plot 13 Mukwano Courts, Buganda Road, Floor 4, Room 201-202, Kampala, Uganda
+              <b>Uganda Office:</b> Plot 13 Mukwano Courts, Buganda Road, Floor 4, Room 201-202, Kampala, Uganda | Tel: +256 788 239 000
             </div>
           </div>
 
@@ -1257,17 +1268,126 @@
       </section>
     </div>
 
+    <!-- ========== TERMS & CONDITIONS PAGE ========== -->
+    <div id="page-terms" class="page-section">
+      <section class="relative pt-32 pb-16 overflow-hidden">
+        <div class="absolute inset-0 z-0"><div class="w-full h-full bg-brand-navy"></div></div>
+        <div class="relative z-10 max-w-7xl mx-auto px-6 text-center py-16">
+          <h1 class="text-3xl sm:text-5xl md:text-6xl font-black text-white mb-4" data-i18n="terms.hero.title">Terms & Conditions</h1>
+          <p class="text-xl text-slate-300 max-w-2xl mx-auto" data-i18n="terms.hero.sub">Please read these terms carefully before using our services.</p>
+        </div>
+      </section>
+      <section class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-6 prose prose-slate prose-lg">
+          <p class="text-slate-500 text-sm mb-8" data-i18n="terms.updated">Last updated: April 2026</p>
+
+          <h2 class="text-2xl font-bold text-brand-navy mt-10 mb-4" data-i18n="terms.s1.title">1. Acceptance of Terms</h2>
+          <p class="text-slate-600 leading-relaxed" data-i18n="terms.s1.p">By accessing or using the services provided by Roshe Group ("Company," "we," "us," or "our"), you agree to be bound by these Terms and Conditions. If you do not agree to all the terms, you may not access or use our services. These terms apply to all users, clients, shippers, consignees, and any party engaging with Roshe Group for logistics, freight forwarding, customs clearance, product sourcing, or warehousing services between China and East Africa.</p>
+
+          <h2 class="text-2xl font-bold text-brand-navy mt-10 mb-4" data-i18n="terms.s2.title">2. Services Provided</h2>
+          <p class="text-slate-600 leading-relaxed" data-i18n="terms.s2.p">Roshe Group provides international freight forwarding (sea, air, and land), customs clearance and brokerage, product sourcing and procurement, warehousing and consolidation in China, and last-mile delivery in East Africa. All services are subject to applicable international shipping conventions, including the Hague-Visby Rules, the Hamburg Rules, and the United Nations Convention on the Carriage of Goods by Sea, as well as the laws of the People's Republic of China and relevant East African Community (EAC) regulations.</p>
+
+          <h2 class="text-2xl font-bold text-brand-navy mt-10 mb-4" data-i18n="terms.s3.title">3. Quotations & Pricing</h2>
+          <p class="text-slate-600 leading-relaxed" data-i18n="terms.s3.p">All quotations are valid for 7 days unless otherwise stated. Prices are subject to change based on carrier rate adjustments, fuel surcharges, exchange rate fluctuations, or changes in customs duties and tariffs. Final pricing is confirmed upon booking. Additional charges may apply for special handling, hazardous goods, oversized cargo, demurrage, detention, or storage fees beyond the agreed free period.</p>
+
+          <h2 class="text-2xl font-bold text-brand-navy mt-10 mb-4" data-i18n="terms.s4.title">4. Booking & Shipment Terms</h2>
+          <p class="text-slate-600 leading-relaxed" data-i18n="terms.s4.p">Bookings are confirmed upon receipt of full shipping instructions and any required advance payment. The client is responsible for providing accurate cargo descriptions, including weight, dimensions, value, and Harmonized System (HS) codes. Roshe Group reserves the right to refuse shipment of prohibited, restricted, or undeclared goods under Chinese export regulations, EAC import regulations, and international conventions including IMDG Code for dangerous goods.</p>
+
+          <h2 class="text-2xl font-bold text-brand-navy mt-10 mb-4" data-i18n="terms.s5.title">5. Customs Clearance & Documentation</h2>
+          <p class="text-slate-600 leading-relaxed" data-i18n="terms.s5.p">Roshe Group acts as a licensed customs broker on behalf of clients. Clients must provide complete and accurate commercial invoices, packing lists, certificates of origin, and any required permits. The client bears full responsibility for the accuracy of all customs declarations. Roshe Group shall not be held liable for delays, fines, seizures, or penalties arising from inaccurate, incomplete, or fraudulent documentation. All customs procedures comply with the Customs Law of the People's Republic of China, the East African Community Customs Management Act, and the Revised Kyoto Convention on simplification and harmonization of customs procedures.</p>
+
+          <h2 class="text-2xl font-bold text-brand-navy mt-10 mb-4" data-i18n="terms.s6.title">6. Liability & Limitation</h2>
+          <p class="text-slate-600 leading-relaxed" data-i18n="terms.s6.p">Roshe Group's liability for loss or damage to goods during transit is limited in accordance with applicable international conventions. For sea freight, liability is limited to 2 SDR per kilogram of gross weight of the goods lost or damaged, as per the Hague-Visby Rules. For air freight, liability is governed by the Montreal Convention and limited to 22 SDR per kilogram. Roshe Group shall not be liable for indirect, consequential, or special damages, including lost profits, business interruption, or loss of market. The Company is not liable for delays, loss, or damage caused by force majeure events, including but not limited to natural disasters, wars, strikes, pandemics, government actions, port congestion, or carrier insolvency.</p>
+
+          <h2 class="text-2xl font-bold text-brand-navy mt-10 mb-4" data-i18n="terms.s7.title">7. Insurance</h2>
+          <p class="text-slate-600 leading-relaxed" data-i18n="terms.s7.p">Roshe Group strongly recommends that clients obtain adequate cargo insurance for all shipments. Unless specifically requested and confirmed in writing, Roshe Group does not automatically insure goods. If insurance is arranged through Roshe Group, coverage is subject to the terms of the issuing insurance company and standard Institute Cargo Clauses (ICC). Claims must be filed within the time limits specified by the insurance policy.</p>
+
+          <h2 class="text-2xl font-bold text-brand-navy mt-10 mb-4" data-i18n="terms.s8.title">8. Payment Terms</h2>
+          <p class="text-slate-600 leading-relaxed" data-i18n="terms.s8.p">Payment is due upon receipt of invoice unless otherwise agreed in writing. Roshe Group accepts payment via bank transfer, mobile money, and other approved methods. Late payments are subject to interest at 1.5% per month on the outstanding balance. Roshe Group retains a general lien on all goods in its possession or control for any unpaid amounts, and may exercise the right to sell such goods after providing 30 days' written notice to recover outstanding debts.</p>
+
+          <h2 class="text-2xl font-bold text-brand-navy mt-10 mb-4" data-i18n="terms.s9.title">9. Prohibited & Restricted Goods</h2>
+          <p class="text-slate-600 leading-relaxed" data-i18n="terms.s9.p">Clients shall not tender for shipment any goods prohibited by Chinese export law, EAC import regulations, or international law, including narcotics, weapons, counterfeit goods, hazardous materials (unless properly declared and approved), endangered species products under CITES, and sanctioned goods. The client indemnifies Roshe Group against all claims, losses, and penalties arising from the shipment of prohibited or undeclared goods.</p>
+
+          <h2 class="text-2xl font-bold text-brand-navy mt-10 mb-4" data-i18n="terms.s10.title">10. Claims & Disputes</h2>
+          <p class="text-slate-600 leading-relaxed" data-i18n="terms.s10.p">Claims for loss or damage must be submitted in writing within 14 days of delivery (or expected delivery date for non-delivery). Claims not filed within this period shall be deemed waived. Any disputes arising from these terms shall first be resolved through good-faith negotiation. If negotiation fails, disputes shall be submitted to arbitration under the rules of the China International Economic and Trade Arbitration Commission (CIETAC) in Guangzhou, or alternatively through the relevant courts in the jurisdiction of the destination country within the East African Community.</p>
+
+          <h2 class="text-2xl font-bold text-brand-navy mt-10 mb-4" data-i18n="terms.s11.title">11. Governing Law</h2>
+          <p class="text-slate-600 leading-relaxed" data-i18n="terms.s11.p">These Terms and Conditions are governed by the laws of the People's Republic of China for services originating in China, and by the laws of the relevant East African Community member state for services delivered in East Africa. Where international conventions apply (Hague-Visby Rules, Montreal Convention, CMR Convention), those conventions shall prevail to the extent of any conflict with local law.</p>
+
+          <h2 class="text-2xl font-bold text-brand-navy mt-10 mb-4" data-i18n="terms.s12.title">12. Amendments</h2>
+          <p class="text-slate-600 leading-relaxed" data-i18n="terms.s12.p">Roshe Group reserves the right to modify these Terms and Conditions at any time. Changes take effect upon publication on this website. Continued use of our services after changes constitutes acceptance of the updated terms. Clients with active shipments at the time of any change will be governed by the terms in effect at the time of booking.</p>
+
+          <h2 class="text-2xl font-bold text-brand-navy mt-10 mb-4" data-i18n="terms.s13.title">13. Contact</h2>
+          <p class="text-slate-600 leading-relaxed">For questions about these Terms and Conditions, contact us at <a href="mailto:info@roshegroup.com" class="text-brand-navy font-semibold hover:text-brand-yellow">info@roshegroup.com</a> or <a href="https://wa.me/8613416137544" class="text-brand-navy font-semibold hover:text-brand-yellow">+86 134 1613 7544</a>.</p>
+        </div>
+      </section>
+    </div>
+
+    <!-- ========== PRIVACY POLICY PAGE ========== -->
+    <div id="page-privacy" class="page-section">
+      <section class="relative pt-32 pb-16 overflow-hidden">
+        <div class="absolute inset-0 z-0"><div class="w-full h-full bg-brand-navy"></div></div>
+        <div class="relative z-10 max-w-7xl mx-auto px-6 text-center py-16">
+          <h1 class="text-3xl sm:text-5xl md:text-6xl font-black text-white mb-4" data-i18n="priv.hero.title">Privacy Policy</h1>
+          <p class="text-xl text-slate-300 max-w-2xl mx-auto" data-i18n="priv.hero.sub">How we collect, use, and protect your personal information.</p>
+        </div>
+      </section>
+      <section class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-6 prose prose-slate prose-lg">
+          <p class="text-slate-500 text-sm mb-8" data-i18n="priv.updated">Last updated: April 2026</p>
+
+          <h2 class="text-2xl font-bold text-brand-navy mt-10 mb-4" data-i18n="priv.s1.title">1. Introduction</h2>
+          <p class="text-slate-600 leading-relaxed" data-i18n="priv.s1.p">Roshe Group ("Company," "we," "us," or "our") is committed to protecting the privacy and personal data of our clients, website visitors, and business partners. This Privacy Policy explains how we collect, use, store, and protect your information in compliance with the Personal Information Protection Law (PIPL) of the People's Republic of China, the Data Protection Acts of East African Community member states (including Uganda's Data Protection and Privacy Act 2019, Kenya's Data Protection Act 2019, and Tanzania's Personal Data Protection Act), and international best practices.</p>
+
+          <h2 class="text-2xl font-bold text-brand-navy mt-10 mb-4" data-i18n="priv.s2.title">2. Information We Collect</h2>
+          <p class="text-slate-600 leading-relaxed" data-i18n="priv.s2.p">We collect personal information that you provide directly to us, including your full name, email address, phone number, physical address, company or business name, cargo and shipment details (descriptions, weight, value, HS codes), identification documents required for customs clearance, and payment information. We also automatically collect technical information when you visit our website, including IP address, browser type, device information, pages visited, and cookies.</p>
+
+          <h2 class="text-2xl font-bold text-brand-navy mt-10 mb-4" data-i18n="priv.s3.title">3. How We Use Your Information</h2>
+          <p class="text-slate-600 leading-relaxed" data-i18n="priv.s3.p">We use your personal information to process and manage your shipments and logistics orders, prepare customs declarations and trade documentation, communicate with you about your orders, quotes, and services, comply with legal obligations under Chinese and East African customs, trade, and tax laws, prevent fraud and ensure the security of our operations, improve our services and website experience, and send you service updates and marketing communications (with your consent).</p>
+
+          <h2 class="text-2xl font-bold text-brand-navy mt-10 mb-4" data-i18n="priv.s4.title">4. Legal Basis for Processing</h2>
+          <p class="text-slate-600 leading-relaxed" data-i18n="priv.s4.p">We process your personal data based on contractual necessity (to fulfill our logistics services agreement with you), legal obligations (compliance with customs, tax, and trade laws in China and East Africa), legitimate business interests (improving services, fraud prevention, business analytics), and your explicit consent (for marketing communications and cookies). Under China's PIPL, we process personal information only for clear, reasonable purposes and use the minimum scope of data necessary.</p>
+
+          <h2 class="text-2xl font-bold text-brand-navy mt-10 mb-4" data-i18n="priv.s5.title">5. Data Sharing & Third Parties</h2>
+          <p class="text-slate-600 leading-relaxed" data-i18n="priv.s5.p">We may share your personal information with shipping carriers and freight lines to transport your goods, customs authorities in China and East African countries as required by law, licensed customs brokers and clearing agents acting on our behalf, warehousing and logistics partners involved in fulfilling your order, payment processors for transaction processing, and government agencies when required by law or regulation. We do not sell your personal information to third parties. All third-party service providers are contractually obligated to protect your data and use it only for the purposes specified.</p>
+
+          <h2 class="text-2xl font-bold text-brand-navy mt-10 mb-4" data-i18n="priv.s6.title">6. International Data Transfers</h2>
+          <p class="text-slate-600 leading-relaxed" data-i18n="priv.s6.p">Due to the nature of our China-East Africa logistics services, your personal data may be transferred between China and East African countries. All cross-border data transfers comply with China's PIPL requirements for overseas data transfer, including conducting personal information protection impact assessments where required. We implement appropriate safeguards, including encryption and contractual data protection clauses, to ensure your data is protected during international transfers.</p>
+
+          <h2 class="text-2xl font-bold text-brand-navy mt-10 mb-4" data-i18n="priv.s7.title">7. Data Security</h2>
+          <p class="text-slate-600 leading-relaxed" data-i18n="priv.s7.p">We implement appropriate technical and organizational measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction. These measures include encrypted data transmission (SSL/TLS), secure server infrastructure, access controls limiting data access to authorized personnel only, regular security assessments and monitoring, and secure document handling and storage procedures. While we strive to protect your information, no method of transmission over the Internet is 100% secure, and we cannot guarantee absolute security.</p>
+
+          <h2 class="text-2xl font-bold text-brand-navy mt-10 mb-4" data-i18n="priv.s8.title">8. Data Retention</h2>
+          <p class="text-slate-600 leading-relaxed" data-i18n="priv.s8.p">We retain your personal information for as long as necessary to fulfill the purposes for which it was collected, comply with legal obligations, and resolve disputes. Shipping and customs records are retained for a minimum of 5 years as required by Chinese customs regulations and EAC Customs Management Act provisions. Financial records are retained as required by applicable tax laws. After the retention period expires, data is securely deleted or anonymized.</p>
+
+          <h2 class="text-2xl font-bold text-brand-navy mt-10 mb-4" data-i18n="priv.s9.title">9. Your Rights</h2>
+          <p class="text-slate-600 leading-relaxed" data-i18n="priv.s9.p">Under applicable data protection laws, you have the right to access the personal information we hold about you, request correction of inaccurate or incomplete data, request deletion of your personal data (subject to legal retention requirements), withdraw your consent for marketing communications at any time, request portability of your data in a commonly used format, and lodge a complaint with the relevant data protection authority. To exercise any of these rights, please contact us using the details provided below.</p>
+
+          <h2 class="text-2xl font-bold text-brand-navy mt-10 mb-4" data-i18n="priv.s10.title">10. Cookies</h2>
+          <p class="text-slate-600 leading-relaxed" data-i18n="priv.s10.p">Our website uses cookies to enhance your browsing experience, remember your language preferences, and analyze website traffic. You can manage cookie preferences through your browser settings or our cookie consent banner. Essential cookies required for website functionality are always active. Analytics and preference cookies are only set with your consent.</p>
+
+          <h2 class="text-2xl font-bold text-brand-navy mt-10 mb-4" data-i18n="priv.s11.title">11. Children's Privacy</h2>
+          <p class="text-slate-600 leading-relaxed" data-i18n="priv.s11.p">Our services are not directed to individuals under the age of 18. We do not knowingly collect personal information from minors. In accordance with China's PIPL, processing personal information of minors under 14 requires the consent of the minor's parent or guardian. If we become aware that we have collected data from a minor without appropriate consent, we will take steps to delete such information.</p>
+
+          <h2 class="text-2xl font-bold text-brand-navy mt-10 mb-4" data-i18n="priv.s12.title">12. Changes to This Policy</h2>
+          <p class="text-slate-600 leading-relaxed" data-i18n="priv.s12.p">We may update this Privacy Policy from time to time to reflect changes in our practices, legal requirements, or operational needs. The updated policy will be posted on this page with a revised "Last updated" date. We encourage you to review this policy periodically. Continued use of our services after any changes constitutes acceptance of the updated Privacy Policy.</p>
+
+          <h2 class="text-2xl font-bold text-brand-navy mt-10 mb-4" data-i18n="priv.s13.title">13. Contact Us</h2>
+          <p class="text-slate-600 leading-relaxed">For questions, concerns, or requests regarding this Privacy Policy or your personal data, contact us at <a href="mailto:info@roshegroup.com" class="text-brand-navy font-semibold hover:text-brand-yellow">info@roshegroup.com</a> or <a href="https://wa.me/8613416137544" class="text-brand-navy font-semibold hover:text-brand-yellow">+86 134 1613 7544</a>.</p>
+        </div>
+      </section>
+    </div>
+
   </main>
 
   <div class="h-16 bg-gray-100"></div>
 
   <!-- ===== FOOTER ===== -->
   <footer class="bg-brand-navy text-white pt-16 pb-8">
-    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10">
+    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-8">
       <div class="space-y-4 sm:col-span-2 lg:col-span-1">
         <img src="images/logo.png" alt="Roshe Group Logo" class="h-10 w-auto max-w-[160px] object-contain" />
-        <p class="text-slate-400 text-sm leading-relaxed text-justify" data-i18n="ft.desc1">Your premier logistics partner bridging the gap between China's manufacturing hubs and East Africa's growing markets.</p>
-        <p class="text-slate-400 text-sm leading-relaxed text-justify" data-i18n="ft.desc2">Founded with a vision to simplify complex trade routes between China and the East African Community, we understand the nuances of both regions  -  from Guangzhou's manufacturing hubs to East Africa's critical transit corridors.</p>
+        <p class="text-slate-400 text-sm leading-relaxed" data-i18n="ft.desc1">Your dedicated partner in seamless China–East Africa trade, delivering trusted shipping solutions that connect manufacturers to markets.</p>
       </div>
       <div>
         <h4 class="font-bold text-lg mb-6" data-i18n="ft.links">Quick Links</h4>
@@ -1293,21 +1413,23 @@
       </div>
       <div>
         <h4 class="font-bold text-lg mb-4" data-i18n="ft.china">China Office</h4>
-        <ul class="space-y-3 text-slate-400 text-sm mb-6">
-          <li class="flex items-start gap-3"><i data-lucide="map-pin" class="text-brand-yellow w-4 h-4 shrink-0 mt-0.5"></i><span>Guangzhou, China</span></li>
+        <ul class="space-y-3 text-slate-400 text-sm">
+          <li class="flex items-start gap-3"><i data-lucide="map-pin" class="text-brand-yellow w-4 h-4 shrink-0 mt-0.5"></i><span data-i18n="ft.china.addr">Room 906, Eastern Building No. 301, Huanshi Middle Road, Yuexiu District, Guangzhou, China</span></li>
           <li class="flex items-center gap-3"><i data-lucide="message-circle" class="text-green-500 w-4 h-4 shrink-0"></i><a href="https://wa.me/8613416137544" class="hover:text-brand-yellow">+86 134 1613 7544</a></li>
           <li class="flex items-center gap-3"><i data-lucide="message-circle" class="text-green-500 w-4 h-4 shrink-0"></i><a href="https://wa.me/8613710777175" class="hover:text-brand-yellow">+86 137 1077 7175</a></li>
-        </ul>
-        <h4 class="font-bold text-lg mb-4" data-i18n="ft.uganda">Uganda Office</h4>
-        <ul class="space-y-3 text-slate-400 text-sm mb-6">
-          <li class="flex items-start gap-3"><i data-lucide="map-pin" class="text-brand-yellow w-4 h-4 shrink-0 mt-0.5"></i><span>Kampala, Uganda</span></li>
-          <li class="flex items-center gap-3"><i data-lucide="message-circle" class="text-green-500 w-4 h-4 shrink-0"></i><a href="https://wa.me/8613416137544" class="hover:text-brand-yellow">+86 134 1613 7544</a></li>
-        </ul>
-        <ul class="space-y-3 text-slate-400 text-sm">
           <li class="flex items-center gap-3"><i data-lucide="mail" class="text-brand-yellow w-4 h-4 shrink-0"></i><a href="mailto:info@roshegroup.com" class="hover:text-brand-yellow">info@roshegroup.com</a></li>
         </ul>
       </div>
-       <div class="sm:col-span-2 lg:col-span-4">
+      <div>
+        <h4 class="font-bold text-lg mb-4" data-i18n="ft.uganda">Uganda Office</h4>
+        <ul class="space-y-3 text-slate-400 text-sm">
+          <li class="flex items-start gap-3"><i data-lucide="map-pin" class="text-brand-yellow w-4 h-4 shrink-0 mt-0.5"></i><span data-i18n="ft.ug.addr">Plot 13 Mukwano Courts, Buganda Road, Floor 4, Room 201-202, Kampala, Uganda</span></li>
+          <li class="flex items-center gap-3"><i data-lucide="phone" class="text-brand-yellow w-4 h-4 shrink-0"></i><a href="tel:+256788239000" class="hover:text-brand-yellow">+256 788 239 000</a></li>
+          <li class="flex items-center gap-3"><i data-lucide="message-circle" class="text-green-500 w-4 h-4 shrink-0"></i><a href="https://wa.me/8613416137544" class="hover:text-brand-yellow">+86 134 1613 7544</a></li>
+          <li class="flex items-center gap-3"><i data-lucide="mail" class="text-brand-yellow w-4 h-4 shrink-0"></i><a href="mailto:info@roshegroup.com" class="hover:text-brand-yellow">info@roshegroup.com</a></li>
+        </ul>
+      </div>
+       <div class="sm:col-span-2 lg:col-span-5">
         <div class="flex items-center gap-4 flex-wrap">
           <h4 class="font-bold text-lg" data-i18n="ft.follow">Follow Us</h4>
           <a href="https://www.facebook.com/roshegroup" target="_blank" class="social-icon w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#1877F2] hover:text-white cursor-pointer">
@@ -1332,27 +1454,105 @@
       </div>
     </div>
     <div class="max-w-7xl mx-auto px-6 mt-12 pt-6 border-t border-white/10">
-      <div class="flex items-center justify-center">
-        <p class="text-slate-500 text-xs text-center" id="footer-year"></p>
+      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+        <div class="flex items-center gap-4 text-xs text-slate-400">
+          <a onclick="navigateTo('terms')" class="hover:text-brand-yellow cursor-pointer transition-colors" data-i18n="ft.terms">Terms & Conditions</a>
+          <span class="text-slate-600">|</span>
+          <a onclick="navigateTo('privacy')" class="hover:text-brand-yellow cursor-pointer transition-colors" data-i18n="ft.privacy">Privacy Policy</a>
+        </div>
+        <p class="text-slate-500 text-xs" id="footer-year"></p>
       </div>
     </div>
   </footer>
 
   <!-- Scroll to Top -->
-  <button id="scroll-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" class="fixed bottom-24 right-6 z-50 w-12 h-12 rounded-full bg-brand-yellow text-brand-navy shadow-lg flex items-center justify-center opacity-0 pointer-events-none transition-all duration-300 hover:scale-110" aria-label="Scroll to top">
+  <button id="scroll-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" class="fixed bottom-24 right-6 z-50 w-11 h-11 rounded-lg bg-brand-yellow text-brand-navy shadow-lg flex items-center justify-center opacity-0 pointer-events-none transition-all duration-300 hover:scale-110" aria-label="Scroll to top">
     <i data-lucide="chevron-up" class="w-6 h-6"></i>
   </button>
+
+  <!-- ===== CONTACT MODAL ===== -->
+  <div id="contact-modal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4" style="background:rgba(10,42,67,0.6);backdrop-filter:blur(4px)">
+    <div class="bg-white w-full max-w-lg rounded-3xl shadow-2xl relative animate-fade-in-up max-h-[90vh] overflow-y-auto">
+      <button onclick="closeContactModal()" class="absolute top-4 right-4 w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center hover:bg-slate-200 transition-colors z-10" aria-label="Close">
+        <i data-lucide="x" class="w-4 h-4 text-slate-600"></i>
+      </button>
+      <div class="p-6 sm:p-8">
+        <h3 class="text-xl font-bold text-brand-navy mb-1" data-i18n="cont.form.title">Send Us a Message</h3>
+        <p class="text-slate-500 text-sm mb-5" data-i18n="cont.form.sub">Fill in the form below and our team will get back to you promptly.</p>
+        <form id="modal-contact-form" class="space-y-4" onsubmit="return handleFormSubmit(event, 'modal-contact-form')">
+          <input type="hidden" name="access_key" value="ec5634f7-dcc0-4397-a210-7fdbbf942aab">
+          <input type="hidden" name="subject" value="Website Inquiry from roshegroup.com">
+          <input type="hidden" name="from_name" value="roshegroup.com">
+          <div style="position:absolute;left:-9999px"><input type="text" name="botcheck" tabindex="-1" autocomplete="off"></div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="space-y-1">
+              <label class="text-xs font-bold text-slate-500 uppercase">Full Name</label>
+              <input name="Name" type="text" placeholder="Your Name" class="w-full px-3 py-2.5 bg-slate-50 border border-slate-200 rounded-lg focus:ring-2 focus:ring-brand-navy outline-none text-sm" required />
+            </div>
+            <div class="space-y-1">
+              <label class="text-xs font-bold text-slate-500 uppercase">Phone Number</label>
+              <input name="Phone" type="tel" placeholder="+256..." class="w-full px-3 py-2.5 bg-slate-50 border border-slate-200 rounded-lg outline-none text-sm" required />
+            </div>
+          </div>
+          <div class="space-y-1">
+            <label class="text-xs font-bold text-slate-500 uppercase">Email Address</label>
+            <input name="Email" type="email" placeholder="email@example.com" class="w-full px-3 py-2.5 bg-slate-50 border border-slate-200 rounded-lg outline-none text-sm" required />
+          </div>
+          <div class="space-y-1">
+            <label class="text-xs font-bold text-slate-500 uppercase">Subject</label>
+            <select name="Subject" class="w-full px-3 py-2.5 bg-slate-50 border border-slate-200 rounded-lg outline-none text-sm">
+              <option>General Inquiry</option>
+              <option>Freight Shipping Quote</option>
+              <option>Customs Clearance</option>
+              <option>Product Sourcing</option>
+              <option>Warehousing</option>
+              <option>Partnership Opportunity</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="space-y-1">
+            <label class="text-xs font-bold text-slate-500 uppercase">Your Message</label>
+            <textarea name="Message" rows="3" placeholder="How can we help you?" class="w-full px-3 py-2.5 bg-slate-50 border border-slate-200 rounded-lg focus:ring-2 focus:ring-brand-navy outline-none text-sm" required></textarea>
+          </div>
+          <div class="h-captcha" data-captcha="true"></div>
+          <button type="submit" id="modal-contact-form-btn" class="w-full py-3 bg-brand-yellow text-brand-navy font-bold rounded-lg shadow-lg hover:scale-[1.02] transition-transform flex items-center justify-center gap-2 text-sm">
+            <i data-lucide="send" class="w-4 h-4"></i> Send Message
+          </button>
+          <div id="modal-contact-form-status" class="hidden rounded-lg p-3 text-center font-semibold text-sm"></div>
+        </form>
+      </div>
+    </div>
+  </div>
 
   <!-- ===== JAVASCRIPT ===== -->
   <script>
     let currentPage = 'home';
 
     // Pages that have dark hero backgrounds (need white text when not scrolled)
-    const darkHeroPages = ['home', 'about', 'contact', 'services', 'tracking', 'quote', 'faq', 'regional-hubs'];
+    const darkHeroPages = ['home', 'about', 'contact', 'services', 'tracking', 'quote', 'faq', 'regional-hubs', 'terms', 'privacy'];
 
     function hasDarkHero() {
       return darkHeroPages.includes(currentPage);
     }
+
+    // ===== CONTACT MODAL =====
+    function openContactModal() {
+      var modal = document.getElementById('contact-modal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+      document.body.style.overflow = 'hidden';
+      if (typeof lucide !== 'undefined') lucide.createIcons();
+    }
+    function closeContactModal() {
+      var modal = document.getElementById('contact-modal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+      document.body.style.overflow = '';
+    }
+    // Close modal on backdrop click
+    document.getElementById('contact-modal').addEventListener('click', function(e) {
+      if (e.target === this) closeContactModal();
+    });
 
     function navigateTo(page) {
       document.querySelectorAll('.page-section').forEach(el => el.classList.remove('active'));
@@ -1542,9 +1742,10 @@
         'hero.title': 'Your Trusted Bridge from <span class="text-brand-yellow">China</span> to East Africa',
         'hero.subtitle': 'Seamless, reliable, and cost-effective logistics solutions. We handle everything from sourcing to your doorstep.',
         'hero.cta1': 'Get a Free Quote', 'hero.cta2': 'Explore Services',
-        'who.tag': 'Who We Are', 'who.title': 'Your Reliable Partner in <span class="text-brand-yellow">China-East Africa</span> Trade',
+        'who.tag': 'Who We Are', 'who.title': 'Your Trusted Shipping & Logistics Solutions Connecting, <span class="text-brand-yellow">China & East Africa</span>',
         'who.desc': 'Roshe Group is a full-service logistics company specializing in freight forwarding, customs clearance, product sourcing, and warehousing between China and East Africa. We simplify international trade so you can focus on growing your business.',
         'who.cta': 'Discover More',
+        'who.badge1': 'Licensed & Insured', 'who.badge2': 'End-to-End Service', 'who.badge3': 'Competitive Rates',
         'steps.title': 'Simple Shipping in 4 Steps',
         'steps.subtitle': "We've streamlined the entire process to make shipping from China effortless for you.",
         'step1.title': 'Request a Quote', 'step1.desc': 'Tell us your shipment details, and we provide a clear, competitive quote fast.',
@@ -1624,12 +1825,18 @@
         'hubs.rw.tag': 'Cross-Border Logistics', 'hubs.rw.name': 'Rwanda', 'hubs.rw.desc': 'Fast-track clearing for the Kigali market via both corridors.',
         'hubs.ss.tag': 'Specialized Logistics', 'hubs.ss.name': 'South Sudan', 'hubs.ss.desc': 'Secure cross-border clearing and delivery to Juba and beyond.',
         'hubs.cta.title': 'Need Shipping to East Africa?', 'hubs.cta.sub': 'Get in touch and let us plan the best route for your cargo across our regional network.',
-        'ft.desc1': 'Your premier logistics partner bridging the gap between China\'s manufacturing hubs and East Africa\'s growing markets.',
-        'ft.desc2': 'Founded with a vision to simplify complex trade routes between China and the East African Community, we understand the nuances of both regions  -  from Guangzhou\'s manufacturing hubs to East Africa\'s critical transit corridors.',
+        'ft.desc1': 'Your dedicated partner in seamless China–East Africa trade, delivering trusted shipping solutions that connect manufacturers to markets.',
         'ft.links': 'Quick Links', 'ft.about': 'About Us', 'ft.services': 'Services', 'ft.track': 'Track Shipment', 'ft.contact': 'Contact Us', 'ft.hubs': 'Regional Hubs', 'ft.quote': 'Request a Quote',
         'ft.svc': 'Our Services', 'ft.freight': 'Freight Shipping', 'ft.customs': 'Customs Clearance', 'ft.sourcing': 'Product Sourcing', 'ft.warehousing': 'Warehousing', 'ft.logistics': 'Logistics Management', 'ft.consult': 'Consultation',
         'ft.china': 'China Office', 'ft.uganda': 'Uganda Office', 'ft.follow': 'Follow Us',
+        'ft.china.addr': 'Room 906, Eastern Building No. 301, Huanshi Middle Road, Yuexiu District, Guangzhou, China',
+        'ft.ug.addr': 'Plot 13 Mukwano Courts, Buganda Road, Floor 4, Room 201-202, Kampala, Uganda',
         'cookie.text': 'We use cookies to enhance your experience. By continuing to visit this site you agree to our use of cookies.', 'cookie.accept': 'Accept', 'cookie.decline': 'Decline',
+        'ft.terms': 'Terms & Conditions', 'ft.privacy': 'Privacy Policy',
+        'terms.hero.title': 'Terms & Conditions', 'terms.hero.sub': 'Please read these terms carefully before using our services.', 'terms.updated': 'Last updated: April 2026',
+        'terms.s1.title': '1. Acceptance of Terms', 'terms.s2.title': '2. Services Provided', 'terms.s3.title': '3. Quotations & Pricing', 'terms.s4.title': '4. Booking & Shipment Terms', 'terms.s5.title': '5. Customs Clearance & Documentation', 'terms.s6.title': '6. Liability & Limitation', 'terms.s7.title': '7. Insurance', 'terms.s8.title': '8. Payment Terms', 'terms.s9.title': '9. Prohibited & Restricted Goods', 'terms.s10.title': '10. Claims & Disputes', 'terms.s11.title': '11. Governing Law', 'terms.s12.title': '12. Amendments', 'terms.s13.title': '13. Contact',
+        'priv.hero.title': 'Privacy Policy', 'priv.hero.sub': 'How we collect, use, and protect your personal information.', 'priv.updated': 'Last updated: April 2026',
+        'priv.s1.title': '1. Introduction', 'priv.s2.title': '2. Information We Collect', 'priv.s3.title': '3. How We Use Your Information', 'priv.s4.title': '4. Legal Basis for Processing', 'priv.s5.title': '5. Data Sharing & Third Parties', 'priv.s6.title': '6. International Data Transfers', 'priv.s7.title': '7. Data Security', 'priv.s8.title': '8. Data Retention', 'priv.s9.title': '9. Your Rights', 'priv.s10.title': '10. Cookies', 'priv.s11.title': '11. Children\'s Privacy', 'priv.s12.title': '12. Changes to This Policy', 'priv.s13.title': '13. Contact Us',
       },
       zh: {
         'nav.home': '首页', 'nav.about': '关于我们', 'nav.services': '服务',
@@ -1638,9 +1845,10 @@
         'hero.title': '您值得信赖的<span class="text-brand-yellow">中国</span>至东非桥梁',
         'hero.subtitle': '无缝、可靠且经济的物流解决方案。从采购到送货上门，我们全程为您服务。',
         'hero.cta1': '获取免费报价', 'hero.cta2': '探索服务',
-        'who.tag': '关于我们', 'who.title': '您在<span class="text-brand-yellow">中国-东非</span>贸易中的可靠伙伴',
+        'who.tag': '关于我们', 'who.title': '您值得信赖的航运与物流方案，连接<span class="text-brand-yellow">中国与东非</span>',
         'who.desc': 'Roshe Group是一家全方位物流公司，专业从事中国与东非之间的货运代理、清关、产品采购和仓储服务。我们简化国际贸易，让您专注于业务发展。',
         'who.cta': '了解更多',
+        'who.badge1': '持牌且有保险', 'who.badge2': '端到端服务', 'who.badge3': '价格有竞争力',
         'steps.title': '简单四步发货',
         'steps.subtitle': '我们简化了整个流程，让从中国发货变得轻松简便。',
         'step1.title': '获取报价', 'step1.desc': '告诉我们您的货运详情，我们快速提供清晰有竞争力的报价。',
@@ -1720,12 +1928,18 @@
         'hubs.rw.tag': '跨境物流', 'hubs.rw.name': '卢旺达', 'hubs.rw.desc': '通过两条通道为基加利市场提供快速通关。',
         'hubs.ss.tag': '专业物流', 'hubs.ss.name': '南苏丹', 'hubs.ss.desc': '安全的跨境清关和朱巴及更远地区的配送。',
         'hubs.cta.title': '需要运送到东非？', 'hubs.cta.sub': '联系我们，让我们为您的货物规划跨区域网络的最佳路线。',
-        'ft.desc1': '您的首选物流合作伙伴，连接中国制造业中心与东非新兴市场。',
-        'ft.desc2': '怀着简化中国与东非共同体之间复杂贸易路线的愿景而创立，我们深谙两个地区的特点——从广州的制造业中心到东非的关键运输走廊。',
+        'ft.desc1': '您在中国与东非无缝贸易中的专属合作伙伴，提供值得信赖的航运解决方案，连接制造商与市场。',
         'ft.links': '快速链接', 'ft.about': '关于我们', 'ft.services': '服务', 'ft.track': '追踪货物', 'ft.contact': '联系我们', 'ft.hubs': '区域枢纽', 'ft.quote': '获取报价',
         'ft.svc': '我们的服务', 'ft.freight': '货运服务', 'ft.customs': '清关服务', 'ft.sourcing': '产品采购', 'ft.warehousing': '仓储', 'ft.logistics': '物流管理', 'ft.consult': '咨询',
         'ft.china': '中国办事处', 'ft.uganda': '乌干达办事处', 'ft.follow': '关注我们',
+        'ft.china.addr': '中国广州市越秀区环市中路301号东栋906室',
+        'ft.ug.addr': '乌干达坎帕拉布干达路13号Mukwano Courts大厦4楼201-202室',
         'cookie.text': '我们使用cookies来增强您的体验。继续访问本网站即表示您同意我们使用cookies。', 'cookie.accept': '接受', 'cookie.decline': '拒绝',
+        'ft.terms': '条款和条件', 'ft.privacy': '隐私政策',
+        'terms.hero.title': '条款和条件', 'terms.hero.sub': '使用我们的服务前请仔细阅读这些条款。', 'terms.updated': '最后更新：2026年4月',
+        'terms.s1.title': '1. 条款接受', 'terms.s2.title': '2. 服务内容', 'terms.s3.title': '3. 报价与定价', 'terms.s4.title': '4. 预订与运输条款', 'terms.s5.title': '5. 报关与文件', 'terms.s6.title': '6. 责任与限制', 'terms.s7.title': '7. 保险', 'terms.s8.title': '8. 付款条款', 'terms.s9.title': '9. 禁止与限制物品', 'terms.s10.title': '10. 索赔与争议', 'terms.s11.title': '11. 适用法律', 'terms.s12.title': '12. 修订', 'terms.s13.title': '13. 联系方式',
+        'priv.hero.title': '隐私政策', 'priv.hero.sub': '我们如何收集、使用和保护您的个人信息。', 'priv.updated': '最后更新：2026年4月',
+        'priv.s1.title': '1. 简介', 'priv.s2.title': '2. 我们收集的信息', 'priv.s3.title': '3. 信息使用方式', 'priv.s4.title': '4. 处理的法律依据', 'priv.s5.title': '5. 数据共享与第三方', 'priv.s6.title': '6. 国际数据传输', 'priv.s7.title': '7. 数据安全', 'priv.s8.title': '8. 数据保留', 'priv.s9.title': '9. 您的权利', 'priv.s10.title': '10. Cookies', 'priv.s11.title': '11. 儿童隐私', 'priv.s12.title': '12. 政策变更', 'priv.s13.title': '13. 联系我们',
       },
       sw: {
         'nav.home': 'Nyumbani', 'nav.about': 'Kuhusu Sisi', 'nav.services': 'Huduma',
@@ -1734,9 +1948,10 @@
         'hero.title': 'Daraja Lako la Kuaminika kutoka <span class="text-brand-yellow">China</span> hadi Afrika Mashariki',
         'hero.subtitle': 'Huduma za usafirishaji zenye ufanisi, za kuaminika na za bei nafuu. Tunashughulikia kila kitu kutoka kwa vyanzo hadi mlangoni kwako.',
         'hero.cta1': 'Pata Bei Bure', 'hero.cta2': 'Gundua Huduma',
-        'who.tag': 'Sisi Ni Nani', 'who.title': 'Mshirika Wako wa Kuaminika katika Biashara ya <span class="text-brand-yellow">China-Afrika Mashariki</span>',
+        'who.tag': 'Sisi Ni Nani', 'who.title': 'Suluhisho Zako za Usafirishaji na Vifurushi Zinazounganisha <span class="text-brand-yellow">China na Afrika Mashariki</span>',
         'who.desc': 'Roshe Group ni kampuni kamili ya usafirishaji inayobobea katika usafirishaji wa mizigo, utoaji forodha, ununuzi wa bidhaa, na uhifadhi kati ya China na Afrika Mashariki. Tunasimplisha biashara ya kimataifa ili uweze kuzingatia kukuza biashara yako.',
         'who.cta': 'Gundua Zaidi',
+        'who.badge1': 'Imeidhinishwa na Bima', 'who.badge2': 'Huduma Kamili', 'who.badge3': 'Bei Nafuu',
         'steps.title': 'Usafirishaji Rahisi kwa Hatua 4',
         'steps.subtitle': 'Tumeboresha mchakato wote ili kusafirisha kutoka China kuwe rahisi kwako.',
         'step1.title': 'Omba Bei', 'step1.desc': 'Tuambie maelezo ya mizigo yako, nasi tutakupa bei wazi na ya ushindani haraka.',
@@ -1816,12 +2031,18 @@
         'hubs.rw.tag': 'Usafirishaji wa Mpakani', 'hubs.rw.name': 'Rwanda', 'hubs.rw.desc': 'Utoaji wa haraka kwa soko la Kigali kupitia njia zote mbili.',
         'hubs.ss.tag': 'Usafirishaji Maalum', 'hubs.ss.name': 'Sudan Kusini', 'hubs.ss.desc': 'Utoaji salama wa mpakani na utoaji hadi Juba na zaidi.',
         'hubs.cta.title': 'Unahitaji Kusafirisha hadi Afrika Mashariki?', 'hubs.cta.sub': 'Wasiliana nasi na tupange njia bora kwa mizigo yako katika mtandao wetu wa kanda.',
-        'ft.desc1': 'Mshirika wako mkuu wa usafirishaji anayeunganisha vituo vya utengenezaji vya China na masoko yanayokua ya Afrika Mashariki.',
-        'ft.desc2': 'Ilianzishwa na maono ya kurahisisha njia changamano za biashara kati ya China na Jumuiya ya Afrika Mashariki, tunaelewa sifa za pande zote mbili.',
+        'ft.desc1': 'Mshirika wako katika biashara laini kati ya China na Afrika Mashariki, tukitoa suluhisho za usafirishaji zinazounganisha watengenezaji na masoko.',
         'ft.links': 'Viungo vya Haraka', 'ft.about': 'Kuhusu Sisi', 'ft.services': 'Huduma', 'ft.track': 'Fuatilia Mizigo', 'ft.contact': 'Wasiliana Nasi', 'ft.hubs': 'Vituo vya Kanda', 'ft.quote': 'Omba Bei',
         'ft.svc': 'Huduma Zetu', 'ft.freight': 'Usafirishaji wa Mizigo', 'ft.customs': 'Utoaji Forodha', 'ft.sourcing': 'Ununuzi wa Bidhaa', 'ft.warehousing': 'Uhifadhi', 'ft.logistics': 'Usimamizi wa Usafirishaji', 'ft.consult': 'Ushauri',
         'ft.china': 'Ofisi ya China', 'ft.uganda': 'Ofisi ya Uganda', 'ft.follow': 'Tufuate',
+        'ft.china.addr': 'Chumba 906, Jengo la Mashariki Na. 301, Barabara ya Huanshi Middle, Wilaya ya Yuexiu, Guangzhou, China',
+        'ft.ug.addr': 'Kiwanja 13 Mukwano Courts, Barabara ya Buganda, Ghorofa ya 4, Chumba 201-202, Kampala, Uganda',
         'cookie.text': 'Tunatumia cookies kuboresha uzoefu wako. Kuendelea kutembelea tovuti hii unaafiki matumizi yetu ya cookies.', 'cookie.accept': 'Kubali', 'cookie.decline': 'Kataa',
+        'ft.terms': 'Sheria na Masharti', 'ft.privacy': 'Sera ya Faragha',
+        'terms.hero.title': 'Sheria na Masharti', 'terms.hero.sub': 'Tafadhali soma masharti haya kwa makini kabla ya kutumia huduma zetu.', 'terms.updated': 'Ilisasishwa mwisho: Aprili 2026',
+        'terms.s1.title': '1. Kukubali Masharti', 'terms.s2.title': '2. Huduma Zinazotolewa', 'terms.s3.title': '3. Bei na Makadirio', 'terms.s4.title': '4. Masharti ya Uhifadhi na Usafirishaji', 'terms.s5.title': '5. Forodha na Nyaraka', 'terms.s6.title': '6. Dhima na Vikwazo', 'terms.s7.title': '7. Bima', 'terms.s8.title': '8. Masharti ya Malipo', 'terms.s9.title': '9. Bidhaa Zilizopigwa Marufuku', 'terms.s10.title': '10. Madai na Migogoro', 'terms.s11.title': '11. Sheria Inayotumika', 'terms.s12.title': '12. Marekebisho', 'terms.s13.title': '13. Wasiliana Nasi',
+        'priv.hero.title': 'Sera ya Faragha', 'priv.hero.sub': 'Jinsi tunavyokusanya, kutumia, na kulinda taarifa zako binafsi.', 'priv.updated': 'Ilisasishwa mwisho: Aprili 2026',
+        'priv.s1.title': '1. Utangulizi', 'priv.s2.title': '2. Taarifa Tunazokusanya', 'priv.s3.title': '3. Jinsi Tunavyotumia Taarifa Zako', 'priv.s4.title': '4. Msingi wa Kisheria', 'priv.s5.title': '5. Kushiriki Data na Wahusika', 'priv.s6.title': '6. Uhamisho wa Data Kimataifa', 'priv.s7.title': '7. Usalama wa Data', 'priv.s8.title': '8. Uhifadhi wa Data', 'priv.s9.title': '9. Haki Zako', 'priv.s10.title': '10. Cookies', 'priv.s11.title': '11. Faragha ya Watoto', 'priv.s12.title': '12. Mabadiliko ya Sera', 'priv.s13.title': '13. Wasiliana Nasi',
       }
     };
 
