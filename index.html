@@ -10,6 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://web3forms.com/client/script.js" async defer></script>
   <script>
     tailwind.config = {
       theme: {
@@ -822,9 +823,8 @@
                 <input type="hidden" name="access_key" value="ec5634f7-dcc0-4397-a210-7fdbbf942aab">
                 <input type="hidden" name="subject" value="New Contact Message - Roshe Group Website">
                 <input type="hidden" name="from_name" value="Roshe Group Contact Form">
-                <input type="hidden" name="replyto" value="">
                 <!-- Honeypot anti-spam -->
-                <input type="checkbox" name="botcheck" style="display:none!important" tabindex="-1" autocomplete="off">
+                <div style="position:absolute;left:-9999px"><input type="text" name="botcheck" tabindex="-1" autocomplete="off"></div>
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div class="space-y-1">
                     <label class="text-xs font-bold text-slate-500 uppercase">Full Name</label>
@@ -855,6 +855,7 @@
                   <label class="text-xs font-bold text-slate-500 uppercase">Your Message</label>
                   <textarea name="Message" rows="3" placeholder="How can we help you?" class="w-full px-3 py-2.5 bg-slate-50 border border-slate-200 rounded-lg focus:ring-2 focus:ring-brand-navy outline-none text-sm" required></textarea>
                 </div>
+                <div class="h-captcha" data-captcha="true"></div>
                 <button type="submit" id="contact-form-btn" class="w-full py-3 bg-brand-yellow text-brand-navy font-bold rounded-lg shadow-lg hover:scale-[1.02] transition-transform flex items-center justify-center gap-2 text-sm">
                   <i data-lucide="send" class="w-4 h-4"></i> Send Message
                 </button>
@@ -1025,6 +1026,7 @@
                   <label class="text-xs font-bold text-slate-400 uppercase tracking-wider">Email Address</label>
                   <input name="Email" type="email" placeholder="email@example.com" class="w-full p-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-brand-navy outline-none text-sm" required />
                 </div>
+                <div class="h-captcha" data-captcha="true"></div>
                 <div class="flex gap-3 mt-1">
                   <button type="button" onclick="quotePrevStep(2)" class="w-1/3 p-3 bg-slate-100 text-brand-navy font-bold rounded-xl hover:bg-slate-200 transition-colors text-sm">Back</button>
                   <button type="submit" id="quote-form-btn" class="w-2/3 p-3 bg-brand-yellow text-brand-navy font-bold rounded-xl shadow-lg hover:scale-[1.02] transition-transform text-sm">Submit Quote</button>
@@ -1512,9 +1514,12 @@
 
       try {
         var formData = new FormData(form);
+        var jsonBody = {};
+        formData.forEach(function(value, key) { jsonBody[key] = value; });
         var response = await fetch('https://api.web3forms.com/submit', {
           method: 'POST',
-          body: formData
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify(jsonBody)
         });
         var data = await response.json();
         if (data.success) {
@@ -1523,7 +1528,7 @@
           form.reset();
         } else {
           status.className = 'rounded-xl p-4 text-center font-semibold bg-red-50 text-red-700 border border-red-200';
-          status.textContent = 'Something went wrong. Please try again or contact us via WhatsApp.';
+          status.textContent = (data.message || 'Something went wrong') + '. Please try again or contact us via WhatsApp.';
         }
       } catch (err) {
         status.className = 'rounded-xl p-4 text-center font-semibold bg-red-50 text-red-700 border border-red-200';
