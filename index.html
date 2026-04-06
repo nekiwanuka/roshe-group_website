@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Roshe Group â€” China to East Africa Logistics</title>
+  <title>Roshe Group  -  China to East Africa Logistics</title>
   <meta name="description" content="World-class logistics bridging trade between China and East Africa (Uganda, Kenya, Tanzania, Rwanda, Burundi, and South Sudan)." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -102,8 +102,17 @@
     /* Social icons pulse */
     .social-icon:hover { transform: scale(1.2); }
     .social-icon { transition: transform 0.3s, background 0.3s, color 0.3s; }
+    /* Language switcher */
+    .lang-dropdown { position: relative; display: inline-block; }
+    .lang-dropdown-btn { display: flex; align-items: center; gap: 6px; cursor: pointer; font-size: 0.8rem; font-weight: 600; padding: 4px 10px; border-radius: 9999px; border: 1.5px solid rgba(255,255,255,0.3); transition: all 0.2s; background: transparent; color: white; }
+    .lang-dropdown-btn:hover { border-color: #f1b32d; }
+    .lang-dropdown-menu { position: absolute; top: calc(100% + 6px); right: 0; background: white; border-radius: 12px; box-shadow: 0 10px 40px rgba(0,0,0,0.15); overflow: hidden; opacity: 0; pointer-events: none; transform: translateY(-8px); transition: all 0.2s; min-width: 140px; z-index: 100; }
+    .lang-dropdown.open .lang-dropdown-menu { opacity: 1; pointer-events: auto; transform: translateY(0); }
+    .lang-option { display: flex; align-items: center; gap: 8px; padding: 10px 14px; font-size: 0.82rem; font-weight: 500; color: #0a2a43; cursor: pointer; transition: background 0.15s; }
+    .lang-option:hover { background: #f8fafc; }
+    .lang-option.active { background: #fef9ee; color: #f1b32d; font-weight: 700; }
 
-    /* Content side margin â€” header/footer stay full-width */
+    /* Content side margin  -  header/footer stay full-width */
     main .page-section > section:not(.relative) > div {
       max-width: 75rem;
       margin-left: auto;
@@ -166,14 +175,33 @@
 
       <!-- Desktop Nav -->
       <nav class="hidden lg:flex items-center gap-4 xl:gap-8" id="desktop-nav">
-        <button onclick="navigateTo('home')" data-nav="home" class="text-sm font-medium transition-colors hover:text-brand-yellow text-white">Home</button>
-        <button onclick="navigateTo('about')" data-nav="about" class="text-sm font-medium transition-colors hover:text-brand-yellow text-white">About Us</button>
-        <button onclick="navigateTo('services')" data-nav="services" class="text-sm font-medium transition-colors hover:text-brand-yellow text-white">Services</button>
-        <button onclick="navigateTo('tracking')" data-nav="tracking" class="text-sm font-medium transition-colors hover:text-brand-yellow text-white">Track Shipment</button>
-        <button onclick="navigateTo('contact')" data-nav="contact" class="text-sm font-medium transition-colors hover:text-brand-yellow text-white">Contact Us</button>
-        <button onclick="navigateTo('faq')" data-nav="faq" class="text-sm font-medium transition-colors hover:text-brand-yellow text-white">FAQ</button>
-        <button onclick="navigateTo('regional-hubs')" data-nav="regional-hubs" class="text-sm font-medium transition-colors hover:text-brand-yellow text-white">Regional Hubs</button>
-        <button onclick="navigateTo('quote')" class="bg-brand-yellow text-brand-navy px-6 py-2.5 rounded-full font-bold text-sm hover:scale-105 transition-transform shadow-lg">Request a Quote</button>
+        <button onclick="navigateTo('home')" data-nav="home" data-i18n="nav.home" class="text-sm font-medium transition-colors hover:text-brand-yellow text-white">Home</button>
+        <button onclick="navigateTo('about')" data-nav="about" data-i18n="nav.about" class="text-sm font-medium transition-colors hover:text-brand-yellow text-white">About Us</button>
+        <button onclick="navigateTo('services')" data-nav="services" data-i18n="nav.services" class="text-sm font-medium transition-colors hover:text-brand-yellow text-white">Services</button>
+        <button onclick="navigateTo('tracking')" data-nav="tracking" data-i18n="nav.tracking" class="text-sm font-medium transition-colors hover:text-brand-yellow text-white">Track Shipment</button>
+        <button onclick="navigateTo('contact')" data-nav="contact" data-i18n="nav.contact" class="text-sm font-medium transition-colors hover:text-brand-yellow text-white">Contact Us</button>
+        <button onclick="navigateTo('faq')" data-nav="faq" data-i18n="nav.faq" class="text-sm font-medium transition-colors hover:text-brand-yellow text-white">FAQ</button>
+        <button onclick="navigateTo('regional-hubs')" data-nav="regional-hubs" data-i18n="nav.hubs" class="text-sm font-medium transition-colors hover:text-brand-yellow text-white">Regional Hubs</button>
+        <button onclick="navigateTo('quote')" class="bg-brand-yellow text-brand-navy px-6 py-2.5 rounded-full font-bold text-sm hover:scale-105 transition-transform shadow-lg" data-i18n="nav.quote">Request a Quote</button>
+        <!-- Language Switcher -->
+        <div class="lang-dropdown" id="lang-dropdown">
+          <button class="lang-dropdown-btn" onclick="toggleLangMenu()">
+            <span id="current-lang-flag">🇬🇧</span>
+            <span id="current-lang-code">EN</span>
+            <i data-lucide="chevron-down" class="w-3 h-3"></i>
+          </button>
+          <div class="lang-dropdown-menu">
+            <div class="lang-option active" data-lang="en" onclick="switchLanguage('en')">
+              <span>🇬🇧</span> English
+            </div>
+            <div class="lang-option" data-lang="zh" onclick="switchLanguage('zh')">
+              <span>🇨🇳</span> 中文
+            </div>
+            <div class="lang-option" data-lang="fr" onclick="switchLanguage('fr')">
+              <span>🇫🇷</span> Français
+            </div>
+          </div>
+        </div>
       </nav>
 
       <!-- Mobile Toggle -->
@@ -185,14 +213,21 @@
 
     <!-- Mobile Menu -->
     <div id="mobile-menu" class="hidden absolute top-full left-0 right-0 bg-white shadow-2xl p-6 lg:hidden flex-col gap-4">
-      <button onclick="navigateTo('home'); closeMobileMenu();" data-nav-m="home" class="block w-full text-left text-lg font-semibold text-brand-navy py-2">Home</button>
-      <button onclick="navigateTo('about'); closeMobileMenu();" data-nav-m="about" class="block w-full text-left text-lg font-semibold text-brand-navy py-2">About Us</button>
-      <button onclick="navigateTo('services'); closeMobileMenu();" data-nav-m="services" class="block w-full text-left text-lg font-semibold text-brand-navy py-2">Services</button>
-      <button onclick="navigateTo('tracking'); closeMobileMenu();" data-nav-m="tracking" class="block w-full text-left text-lg font-semibold text-brand-navy py-2">Track Shipment</button>
-      <button onclick="navigateTo('contact'); closeMobileMenu();" data-nav-m="contact" class="block w-full text-left text-lg font-semibold text-brand-navy py-2">Contact Us</button>
-      <button onclick="navigateTo('faq'); closeMobileMenu();" data-nav-m="faq" class="block w-full text-left text-lg font-semibold text-brand-navy py-2">FAQ</button>
-      <button onclick="navigateTo('regional-hubs'); closeMobileMenu();" data-nav-m="regional-hubs" class="block w-full text-left text-lg font-semibold text-brand-navy py-2">Regional Hubs</button>
-      <button onclick="navigateTo('quote'); closeMobileMenu();" class="block w-full bg-brand-yellow text-brand-navy px-6 py-3 rounded-xl font-bold text-center shadow-lg mt-2">Request a Quote</button>
+      <button onclick="navigateTo('home'); closeMobileMenu();" data-nav-m="home" data-i18n="nav.home" class="block w-full text-left text-lg font-semibold text-brand-navy py-2">Home</button>
+      <button onclick="navigateTo('about'); closeMobileMenu();" data-nav-m="about" data-i18n="nav.about" class="block w-full text-left text-lg font-semibold text-brand-navy py-2">About Us</button>
+      <button onclick="navigateTo('services'); closeMobileMenu();" data-nav-m="services" data-i18n="nav.services" class="block w-full text-left text-lg font-semibold text-brand-navy py-2">Services</button>
+      <button onclick="navigateTo('tracking'); closeMobileMenu();" data-nav-m="tracking" data-i18n="nav.tracking" class="block w-full text-left text-lg font-semibold text-brand-navy py-2">Track Shipment</button>
+      <button onclick="navigateTo('contact'); closeMobileMenu();" data-nav-m="contact" data-i18n="nav.contact" class="block w-full text-left text-lg font-semibold text-brand-navy py-2">Contact Us</button>
+      <button onclick="navigateTo('faq'); closeMobileMenu();" data-nav-m="faq" data-i18n="nav.faq" class="block w-full text-left text-lg font-semibold text-brand-navy py-2">FAQ</button>
+      <button onclick="navigateTo('regional-hubs'); closeMobileMenu();" data-nav-m="regional-hubs" data-i18n="nav.hubs" class="block w-full text-left text-lg font-semibold text-brand-navy py-2">Regional Hubs</button>
+      <button onclick="navigateTo('quote'); closeMobileMenu();" class="block w-full bg-brand-yellow text-brand-navy px-6 py-3 rounded-xl font-bold text-center shadow-lg mt-2" data-i18n="nav.quote">Request a Quote</button>
+      <!-- Mobile Language Switcher -->
+      <div class="flex items-center gap-3 mt-4 pt-4 border-t border-slate-200">
+        <span class="text-sm font-semibold text-slate-500">Language:</span>
+        <button onclick="switchLanguage('en'); closeMobileMenu();" class="mobile-lang-btn text-sm font-bold px-3 py-1.5 rounded-full bg-brand-navy text-white" data-mlang="en">🇬🇧 EN</button>
+        <button onclick="switchLanguage('zh'); closeMobileMenu();" class="mobile-lang-btn text-sm font-bold px-3 py-1.5 rounded-full bg-slate-100 text-brand-navy" data-mlang="zh">🇨🇳 中文</button>
+        <button onclick="switchLanguage('fr'); closeMobileMenu();" class="mobile-lang-btn text-sm font-bold px-3 py-1.5 rounded-full bg-slate-100 text-brand-navy" data-mlang="fr">🇫🇷 FR</button>
+      </div>
     </div>
   </header>
 
@@ -219,17 +254,17 @@
           <div class="absolute inset-0 bg-brand-navy/50" style="z-index: 2;"></div>
         </div>
         <div class="relative z-10 px-6 animate-fade-in-up space-y-6">
-          <h1 class="text-2xl sm:text-3xl md:text-5xl font-black text-slate-100 leading-tight tracking-tight drop-shadow-2xl">
+          <h1 class="text-2xl sm:text-3xl md:text-5xl font-black text-slate-100 leading-tight tracking-tight drop-shadow-2xl" data-i18n="hero.title">
             Your Trusted Bridge from <span class="text-brand-yellow">China</span> to East Africa
           </h1>
-          <p class="text-base sm:text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed font-medium">
+          <p class="text-base sm:text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed font-medium" data-i18n="hero.subtitle">
             Seamless, reliable, and cost-effective logistics solutions. We handle everything from sourcing to your doorstep.
           </p>
           <div class="flex flex-wrap justify-center gap-3 sm:gap-4">
-            <button onclick="navigateTo('quote')" class="bg-brand-yellow text-brand-navy px-6 py-3 sm:px-8 sm:py-4 rounded-full font-black text-base sm:text-lg shadow-2xl hover:scale-105 transition-transform flex items-center gap-2">
+            <button onclick="navigateTo('quote')" class="bg-brand-yellow text-brand-navy px-6 py-3 sm:px-8 sm:py-4 rounded-full font-black text-base sm:text-lg shadow-2xl hover:scale-105 transition-transform flex items-center gap-2" data-i18n="hero.cta1">
               Get a Free Quote <i data-lucide="arrow-right" class="w-5 h-5"></i>
             </button>
-            <button onclick="navigateTo('services')" class="bg-transparent text-white border-2 border-white px-6 py-3 sm:px-8 sm:py-4 rounded-full font-black text-base sm:text-lg hover:bg-white hover:text-brand-navy transition-colors shadow-xl">
+            <button onclick="navigateTo('services')" class="bg-transparent text-white border-2 border-white px-6 py-3 sm:px-8 sm:py-4 rounded-full font-black text-base sm:text-lg hover:bg-white hover:text-brand-navy transition-colors shadow-xl" data-i18n="hero.cta2">
               Explore Services
             </button>
           </div>
@@ -248,15 +283,15 @@
             </div>
           </div>
           <div class="reveal reveal-right space-y-6">
-            <span class="inline-block bg-brand-yellow/15 text-brand-yellow font-bold text-sm px-4 py-1.5 rounded-full uppercase tracking-wider">Who We Are</span>
-            <h2 class="text-brand-navy text-3xl md:text-4xl font-black leading-tight">Your Reliable Partner in <span class="text-brand-yellow">China-East Africa</span> Trade</h2>
-            <p class="text-slate-600 text-lg leading-relaxed">Roshe Group is a full-service logistics company specializing in freight forwarding, customs clearance, product sourcing, and warehousing between China and East Africa. We simplify international trade so you can focus on growing your business.</p>
+            <span class="inline-block bg-brand-yellow/15 text-brand-yellow font-bold text-sm px-4 py-1.5 rounded-full uppercase tracking-wider" data-i18n="who.tag">Who We Are</span>
+            <h2 class="text-brand-navy text-3xl md:text-4xl font-black leading-tight" data-i18n="who.title">Your Reliable Partner in <span class="text-brand-yellow">China-East Africa</span> Trade</h2>
+            <p class="text-slate-600 text-lg leading-relaxed" data-i18n="who.desc">Roshe Group is a full-service logistics company specializing in freight forwarding, customs clearance, product sourcing, and warehousing between China and East Africa. We simplify international trade so you can focus on growing your business.</p>
             <div class="flex flex-wrap gap-4 pt-2">
               <div class="flex items-center gap-2 text-sm font-semibold text-brand-navy"><i data-lucide="check-circle" class="w-5 h-5 text-green-500"></i> Licensed & Insured</div>
               <div class="flex items-center gap-2 text-sm font-semibold text-brand-navy"><i data-lucide="check-circle" class="w-5 h-5 text-green-500"></i> End-to-End Service</div>
               <div class="flex items-center gap-2 text-sm font-semibold text-brand-navy"><i data-lucide="check-circle" class="w-5 h-5 text-green-500"></i> Competitive Rates</div>
             </div>
-            <a onclick="navigateTo('about')" class="inline-flex items-center gap-2 bg-brand-navy text-white px-8 py-4 rounded-full font-bold text-lg shadow-lg hover:scale-105 transition-transform cursor-pointer group">
+            <a onclick="navigateTo('about')" class="inline-flex items-center gap-2 bg-brand-navy text-white px-8 py-4 rounded-full font-bold text-lg shadow-lg hover:scale-105 transition-transform cursor-pointer group" data-i18n="who.cta">
               Discover More <i data-lucide="arrow-right" class="w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
             </a>
           </div>
@@ -267,33 +302,33 @@
       <section class="py-24 bg-slate-50">
         <div class="max-w-7xl mx-auto px-6">
           <div class="text-center max-w-3xl mx-auto mb-16 reveal reveal-up">
-            <h2 class="text-brand-navy text-4xl md:text-5xl font-black">Simple Shipping in 4 Steps</h2>
-            <p class="text-slate-600 text-lg mt-4">We've streamlined the entire process to make shipping from China effortless for you.</p>
+            <h2 class="text-brand-navy text-4xl md:text-5xl font-black" data-i18n="steps.title">Simple Shipping in 4 Steps</h2>
+            <p class="text-slate-600 text-lg mt-4" data-i18n="steps.subtitle">We've streamlined the entire process to make shipping from China effortless for you.</p>
           </div>
           <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6 lg:gap-6 stagger-children reveal">
             <!-- Step 1 -->
             <div class="relative bg-white p-8 rounded-2xl shadow-lg border-t-4 border-brand-yellow step-card" data-step="1">
               <i data-lucide="file-text" class="w-12 h-12 text-brand-yellow mb-4"></i>
-              <h3 class="text-xl font-black text-brand-navy mb-2">Request a Quote</h3>
-              <p class="text-slate-600 text-sm">Tell us your shipment details, and we provide a clear, competitive quote fast.</p>
+              <h3 class="text-xl font-black text-brand-navy mb-2" data-i18n="step1.title">Request a Quote</h3>
+              <p class="text-slate-600 text-sm" data-i18n="step1.desc">Tell us your shipment details, and we provide a clear, competitive quote fast.</p>
             </div>
             <!-- Step 2 -->
             <div class="relative bg-white p-8 rounded-2xl shadow-lg border-t-4 border-brand-yellow step-card" data-step="2">
               <i data-lucide="warehouse" class="w-12 h-12 text-brand-yellow mb-4"></i>
-              <h3 class="text-xl font-black text-brand-navy mb-2">We Receive & Consolidate</h3>
-              <p class="text-slate-600 text-sm">Your supplier delivers to our China warehouse. We inspect, label, and consolidate for safe shipment.</p>
+              <h3 class="text-xl font-black text-brand-navy mb-2" data-i18n="step2.title">We Receive & Consolidate</h3>
+              <p class="text-slate-600 text-sm" data-i18n="step2.desc">Your supplier delivers to our China warehouse. We inspect, label, and consolidate for safe shipment.</p>
             </div>
             <!-- Step 3 -->
             <div class="relative bg-white p-8 rounded-2xl shadow-lg border-t-4 border-brand-yellow step-card" data-step="3">
               <i data-lucide="ship" class="w-12 h-12 text-brand-yellow mb-4"></i>
-              <h3 class="text-xl font-black text-brand-navy mb-2">Shipping & Customs</h3>
-              <p class="text-slate-600 text-sm">We handle all freight booking, documentation, and customs clearance for a smooth transit.</p>
+              <h3 class="text-xl font-black text-brand-navy mb-2" data-i18n="step3.title">Shipping & Customs</h3>
+              <p class="text-slate-600 text-sm" data-i18n="step3.desc">We handle all freight booking, documentation, and customs clearance for a smooth transit.</p>
             </div>
             <!-- Step 4 -->
             <div class="relative bg-white p-8 rounded-2xl shadow-lg border-t-4 border-brand-yellow step-card" data-step="4">
               <i data-lucide="home" class="w-12 h-12 text-brand-yellow mb-4"></i>
-              <h3 class="text-xl font-black text-brand-navy mb-2">Delivery to Your Doorstep</h3>
-              <p class="text-slate-600 text-sm">Once cleared, your cargo is delivered to your designated pickup point or final destination.</p>
+              <h3 class="text-xl font-black text-brand-navy mb-2" data-i18n="step4.title">Delivery to Your Doorstep</h3>
+              <p class="text-slate-600 text-sm" data-i18n="step4.desc">Once cleared, your cargo is delivered to your designated pickup point or final destination.</p>
             </div>
           </div>
         </div>
@@ -319,7 +354,7 @@
                 <div class="w-12 h-12 bg-brand-yellow/10 rounded-full flex items-center justify-center shrink-0"><i data-lucide="clock" class="w-6 h-6 text-brand-yellow"></i></div>
                 <div>
                   <h4 class="font-bold text-brand-navy text-lg">Dependable & Timely Delivery</h4>
-                  <p class="text-slate-600">We understand that time is critical. Our streamlined processes and experienced team ensure your goods are delivered safely and on scheduleâ€”every time.</p>
+                  <p class="text-slate-600">We understand that time is critical. Our streamlined processes and experienced team ensure your goods are delivered safely and on schedule - every time.</p>
                 </div>
               </div>
               <div class="flex items-start gap-4">
@@ -392,10 +427,10 @@
             <img src="images/Containers on the loading line.jpeg" alt="Scale Your Trade" class="absolute inset-0 w-full h-full object-cover opacity-20">
             <div class="absolute top-0 right-0 w-64 h-64 bg-brand-yellow/10 rounded-full -mr-32 -mt-32 blur-3xl"></div>
             <div class="absolute bottom-0 left-0 w-64 h-64 bg-brand-yellow/10 rounded-full -ml-32 -mb-32 blur-3xl"></div>
-            <h2 class="text-2xl sm:text-4xl md:text-6xl font-black text-white relative z-10">Ready to Scale Your Trade?</h2>
-            <p class="text-base sm:text-xl text-slate-300 max-w-2xl mx-auto relative z-10">Join hundreds of businesses relying on Roshe Group for seamless China-East Africa logistics.</p>
+            <h2 class="text-2xl sm:text-4xl md:text-6xl font-black text-white relative z-10" data-i18n="cta.title">Ready to Scale Your Trade?</h2>
+            <p class="text-base sm:text-xl text-slate-300 max-w-2xl mx-auto relative z-10" data-i18n="cta.subtitle">Join hundreds of businesses relying on Roshe Group for seamless China-East Africa logistics.</p>
             <div class="flex flex-col sm:flex-row flex-wrap justify-center gap-4 relative z-10">
-              <button onclick="navigateTo('quote')" class="bg-brand-yellow text-brand-navy px-8 py-4 sm:px-10 sm:py-5 rounded-full font-bold text-base sm:text-xl shadow-xl hover:scale-105 transition-transform">Get Your Free Quote</button>
+              <button onclick="navigateTo('quote')" class="bg-brand-yellow text-brand-navy px-8 py-4 sm:px-10 sm:py-5 rounded-full font-bold text-base sm:text-xl shadow-xl hover:scale-105 transition-transform" data-i18n="cta.btn">Get Your Free Quote</button>
               <button onclick="navigateTo('about')" class="bg-white/10 text-white border border-white/20 px-8 py-4 sm:px-10 sm:py-5 rounded-full font-bold text-base sm:text-xl hover:bg-white/20 transition-colors">Contact Sales</button>
             </div>
           </div>
@@ -413,7 +448,7 @@
         </div>
         <div class="relative z-10 max-w-7xl mx-auto px-6 text-center py-16">
           <h1 class="text-3xl sm:text-5xl md:text-6xl font-black text-white mb-4">About Roshe Group</h1>
-          <p class="text-xl text-slate-300 max-w-2xl mx-auto">Bridging Markets, Building Futures â€” Your Trusted Logistics Partner Between China & East Africa</p>
+          <p class="text-xl text-slate-300 max-w-2xl mx-auto">Bridging Markets, Building Futures  -  Your Trusted Logistics Partner Between China & East Africa</p>
         </div>
       </section>
 
@@ -425,7 +460,7 @@
               <span class="text-brand-navy font-bold uppercase tracking-widest text-sm">The Roshe Story</span>
               <h2 class="text-4xl font-black text-brand-navy leading-tight">Simplifying Trade Between <br />China & East Africa</h2>
               <p class="text-slate-600 text-lg leading-relaxed">Founded with a vision to simplify the complex trade routes between China and the East African Community, Roshe Group has grown into a leading logistics powerhouse.</p>
-              <p class="text-slate-600 text-lg leading-relaxed">We understand the nuances of both regionsâ€”from the high-speed manufacturing hubs of Guangzhou to the critical transit corridors of East Africa. Our mission is to provide transparent, efficient, and reliable logistics that empower local businesses to thrive.</p>
+              <p class="text-slate-600 text-lg leading-relaxed">We understand the nuances of both regions - from the high-speed manufacturing hubs of Guangzhou to the critical transit corridors of East Africa. Our mission is to provide transparent, efficient, and reliable logistics that empower local businesses to thrive.</p>
               <div class="grid grid-cols-2 gap-8 pt-8">
                 <div class="space-y-2">
                   <div class="text-4xl font-black text-brand-navy">10+</div>
@@ -820,14 +855,14 @@
             <div class="bg-white p-8 rounded-2xl shadow-md text-center">
               <i data-lucide="clock" class="w-10 h-10 text-brand-yellow mx-auto mb-4"></i>
               <h4 class="font-bold text-brand-navy text-lg mb-2">China Office Hours</h4>
-              <p class="text-slate-600">Mon â€” Sat: 9:00 AM â€” 6:00 PM (CST)</p>
+              <p class="text-slate-600">Mon  -  Sat: 9:00 AM  -  6:00 PM (CST)</p>
               <p class="text-slate-400 text-sm mt-1">Sunday: Closed</p>
             </div>
             <div class="bg-white p-8 rounded-2xl shadow-md text-center">
               <i data-lucide="clock" class="w-10 h-10 text-brand-yellow mx-auto mb-4"></i>
               <h4 class="font-bold text-brand-navy text-lg mb-2">Uganda Office Hours</h4>
-              <p class="text-slate-600">Mon â€” Fri: 8:00 AM â€” 5:00 PM (EAT)</p>
-              <p class="text-slate-400 text-sm mt-1">Saturday: 9:00 AM â€” 1:00 PM</p>
+              <p class="text-slate-600">Mon  -  Fri: 8:00 AM  -  5:00 PM (EAT)</p>
+              <p class="text-slate-400 text-sm mt-1">Saturday: 9:00 AM  -  1:00 PM</p>
             </div>
             <div class="bg-white p-8 rounded-2xl shadow-md text-center">
               <i data-lucide="headphones" class="w-10 h-10 text-brand-yellow mx-auto mb-4"></i>
@@ -982,7 +1017,7 @@
               <i data-lucide="chevron-down" class="w-5 h-5 text-brand-yellow shrink-0 transition-transform"></i>
             </button>
             <div class="faq-answer hidden px-6 pb-6 text-slate-600 leading-relaxed">
-              We specialize in the Chinaâ€“East Africa trade lane, shipping from Guangzhou (and other major Chinese cities) to Uganda, Kenya, Tanzania, Rwanda, Burundi, and South Sudan. We handle both air and sea freight.
+              We specialize in the China - East Africa trade lane, shipping from Guangzhou (and other major Chinese cities) to Uganda, Kenya, Tanzania, Rwanda, Burundi, and South Sudan. We handle both air and sea freight.
             </div>
           </div>
 
@@ -992,8 +1027,8 @@
               <i data-lucide="chevron-down" class="w-5 h-5 text-brand-yellow shrink-0 transition-transform"></i>
             </button>
             <div class="faq-answer hidden px-6 pb-6 text-slate-600 leading-relaxed">
-              <b>Sea freight:</b> Typically 25â€“35 days depending on the port and cargo type.<br>
-              <b>Air freight:</b> Usually 5â€“7 working days for normal delivery.
+              <b>Sea freight:</b> Typically 25 - 35 days depending on the port and cargo type.<br>
+              <b>Air freight:</b> Usually 5 - 7 working days for normal delivery.
             </div>
           </div>
 
@@ -1188,7 +1223,7 @@
       <div class="space-y-4 sm:col-span-2 lg:col-span-1">
         <img src="images/logo.png" alt="Roshe Group Logo" class="h-10 w-auto max-w-[160px] object-contain" />
         <p class="text-slate-400 text-sm leading-relaxed text-justify">Your premier logistics partner bridging the gap between China's manufacturing hubs and East Africa's growing markets.</p>
-        <p class="text-slate-400 text-sm leading-relaxed text-justify">Founded with a vision to simplify complex trade routes between China and the East African Community, we understand the nuances of both regions â€” from Guangzhou's manufacturing hubs to East Africa's critical transit corridors.</p>
+        <p class="text-slate-400 text-sm leading-relaxed text-justify">Founded with a vision to simplify complex trade routes between China and the East African Community, we understand the nuances of both regions  -  from Guangzhou's manufacturing hubs to East Africa's critical transit corridors.</p>
       </div>
       <div>
         <h4 class="font-bold text-lg mb-6">Quick Links</h4>
@@ -1426,6 +1461,122 @@
       btn.innerHTML = originalText;
       btn.disabled = false;
       return false;
+    }
+
+    // ===== LANGUAGE SWITCHER =====
+    var translations = {
+      en: {
+        'nav.home': 'Home', 'nav.about': 'About Us', 'nav.services': 'Services',
+        'nav.tracking': 'Track Shipment', 'nav.contact': 'Contact Us', 'nav.faq': 'FAQ',
+        'nav.hubs': 'Regional Hubs', 'nav.quote': 'Request a Quote',
+        'hero.title': 'Your Trusted Bridge from <span class="text-brand-yellow">China</span> to East Africa',
+        'hero.subtitle': 'Seamless, reliable, and cost-effective logistics solutions. We handle everything from sourcing to your doorstep.',
+        'hero.cta1': 'Get a Free Quote', 'hero.cta2': 'Explore Services',
+        'who.tag': 'Who We Are', 'who.title': 'Your Reliable Partner in <span class="text-brand-yellow">China-East Africa</span> Trade',
+        'who.desc': 'Roshe Group is a full-service logistics company specializing in freight forwarding, customs clearance, product sourcing, and warehousing between China and East Africa. We simplify international trade so you can focus on growing your business.',
+        'who.cta': 'Discover More',
+        'steps.title': 'Simple Shipping in 4 Steps',
+        'steps.subtitle': "We've streamlined the entire process to make shipping from China effortless for you.",
+        'step1.title': 'Request a Quote', 'step1.desc': 'Tell us your shipment details, and we provide a clear, competitive quote fast.',
+        'step2.title': 'We Receive & Consolidate', 'step2.desc': 'Your supplier delivers to our China warehouse. We inspect, label, and consolidate for safe shipment.',
+        'step3.title': 'Shipping & Customs', 'step3.desc': 'We handle all freight booking, documentation, and customs clearance for a smooth transit.',
+        'step4.title': 'Delivery to Your Doorstep', 'step4.desc': 'Once cleared, your cargo is delivered to your designated pickup point or final destination.',
+        'cta.title': 'Ready to Scale Your Trade?', 'cta.subtitle': 'Join hundreds of businesses relying on Roshe Group for seamless China-East Africa logistics.',
+        'cta.btn': 'Get Your Free Quote',
+      },
+      zh: {
+        'nav.home': '首页', 'nav.about': '关于我们', 'nav.services': '服务',
+        'nav.tracking': '货物追踪', 'nav.contact': '联系我们', 'nav.faq': '常见问题',
+        'nav.hubs': '区域枢纽', 'nav.quote': '获取报价',
+        'hero.title': '您值得信赖的<span class="text-brand-yellow">中国</span>至东非桥梁',
+        'hero.subtitle': '无缝、可靠且经济的物流解决方案。从采购到送货上门，我们全程为您服务。',
+        'hero.cta1': '获取免费报价', 'hero.cta2': '探索服务',
+        'who.tag': '关于我们', 'who.title': '您在<span class="text-brand-yellow">中国-东非</span>贸易中的可靠伙伴',
+        'who.desc': 'Roshe Group是一家全方位物流公司，专业从事中国与东非之间的货运代理、清关、产品采购和仓储服务。我们简化国际贸易，让您专注于业务发展。',
+        'who.cta': '了解更多',
+        'steps.title': '简单四步发货',
+        'steps.subtitle': '我们简化了整个流程，让从中国发货变得轻松简便。',
+        'step1.title': '获取报价', 'step1.desc': '告诉我们您的货运详情，我们快速提供清晰有竞争力的报价。',
+        'step2.title': '接收与整合', 'step2.desc': '您的供应商将货物送到我们的中国仓库。我们进行检查、标记和整合以确保安全运输。',
+        'step3.title': '运输与清关', 'step3.desc': '我们处理所有货运预订、文件和清关手续，确保顺利运输。',
+        'step4.title': '送货上门', 'step4.desc': '清关后，您的货物将被送到指定的取货点或最终目的地。',
+        'cta.title': '准备好扩大您的贸易了吗？', 'cta.subtitle': '今天就获取有竞争力的报价，让我们处理物流，助您拓展业务。',
+        'cta.btn': '获取免费报价',
+      },
+      fr: {
+        'nav.home': 'Accueil', 'nav.about': 'À Propos', 'nav.services': 'Services',
+        'nav.tracking': 'Suivi', 'nav.contact': 'Contact', 'nav.faq': 'FAQ',
+        'nav.hubs': 'Centres Régionaux', 'nav.quote': 'Demander un Devis',
+        'hero.title': 'Votre Pont de Confiance de la <span class="text-brand-yellow">Chine</span> vers l\'Afrique de l\'Est',
+        'hero.subtitle': 'Solutions logistiques fluides, fiables et rentables. Nous gérons tout, de l\'approvisionnement à la livraison.',
+        'hero.cta1': 'Devis Gratuit', 'hero.cta2': 'Explorer les Services',
+        'who.tag': 'Qui Sommes-Nous', 'who.title': 'Votre Partenaire Fiable dans le Commerce <span class="text-brand-yellow">Chine-Afrique de l\'Est</span>',
+        'who.desc': 'Roshe Group est une entreprise logistique complète spécialisée dans le transport de marchandises, le dédouanement, l\'approvisionnement et l\'entreposage entre la Chine et l\'Afrique de l\'Est. Nous simplifions le commerce international pour que vous puissiez vous concentrer sur votre activité.',
+        'who.cta': 'En Savoir Plus',
+        'steps.title': 'Expédition Simple en 4 Étapes',
+        'steps.subtitle': 'Nous avons simplifié le processus pour rendre l\'expédition depuis la Chine sans effort.',
+        'step1.title': 'Demander un Devis', 'step1.desc': 'Communiquez les détails de votre envoi et recevez un devis clair et compétitif rapidement.',
+        'step2.title': 'Réception & Consolidation', 'step2.desc': 'Votre fournisseur livre à notre entrepôt en Chine. Nous inspectons, étiquetons et consolidons pour un envoi sûr.',
+        'step3.title': 'Expédition & Douanes', 'step3.desc': 'Nous gérons toutes les réservations de fret, la documentation et le dédouanement.',
+        'step4.title': 'Livraison à Domicile', 'step4.desc': 'Une fois dédouané, votre cargo est livré à votre point de retrait ou destination finale.',
+        'cta.title': 'Prêt à Développer Votre Commerce?', 'cta.subtitle': 'Obtenez un devis compétitif aujourd\'hui et laissez-nous gérer la logistique.',
+        'cta.btn': 'Obtenir un Devis Gratuit',
+      }
+    };
+
+    var currentLang = 'en';
+    var langFlags = { en: '🇬🇧', zh: '🇨🇳', fr: '🇫🇷' };
+    var langCodes = { en: 'EN', zh: '中文', fr: 'FR' };
+
+    function toggleLangMenu() {
+      document.getElementById('lang-dropdown').classList.toggle('open');
+    }
+
+    // Close lang dropdown when clicking outside
+    document.addEventListener('click', function(e) {
+      var dd = document.getElementById('lang-dropdown');
+      if (dd && !dd.contains(e.target)) dd.classList.remove('open');
+    });
+
+    function switchLanguage(lang) {
+      currentLang = lang;
+      document.getElementById('current-lang-flag').textContent = langFlags[lang];
+      document.getElementById('current-lang-code').textContent = langCodes[lang];
+      document.getElementById('lang-dropdown').classList.remove('open');
+
+      // Update desktop dropdown active state
+      document.querySelectorAll('.lang-option').forEach(function(el) {
+        el.classList.toggle('active', el.getAttribute('data-lang') === lang);
+      });
+      // Update mobile buttons
+      document.querySelectorAll('.mobile-lang-btn').forEach(function(el) {
+        if (el.getAttribute('data-mlang') === lang) {
+          el.className = 'mobile-lang-btn text-sm font-bold px-3 py-1.5 rounded-full bg-brand-navy text-white';
+        } else {
+          el.className = 'mobile-lang-btn text-sm font-bold px-3 py-1.5 rounded-full bg-slate-100 text-brand-navy';
+        }
+      });
+
+      // Apply translations
+      var t = translations[lang];
+      document.querySelectorAll('[data-i18n]').forEach(function(el) {
+        var key = el.getAttribute('data-i18n');
+        if (t[key]) {
+          // Preserve child <i> icons (Lucide icons)
+          var icon = el.querySelector('i[data-lucide]');
+          if (key.includes('title') || key.includes('tag')) {
+            el.innerHTML = t[key];
+          } else if (icon) {
+            el.innerHTML = t[key] + ' ';
+            el.appendChild(icon);
+          } else {
+            el.textContent = t[key];
+          }
+        }
+      });
+      // Re-init Lucide icons after translation swap
+      if (typeof lucide !== 'undefined') lucide.createIcons();
+      document.documentElement.lang = lang;
     }
 
     document.addEventListener('DOMContentLoaded', function() {
