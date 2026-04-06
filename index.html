@@ -1511,10 +1511,10 @@
       btn.disabled = true;
 
       try {
+        var formData = new FormData(form);
         var response = await fetch('https://api.web3forms.com/submit', {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(Object.assign(Object.fromEntries(new FormData(form)), { replyto: new FormData(form).get('Email') || '' }))
+          body: formData
         });
         var data = await response.json();
         if (data.success) {
