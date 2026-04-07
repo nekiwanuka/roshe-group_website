@@ -88,12 +88,12 @@
     .testimonial-nav-btn {
       position: absolute; top: 50%; transform: translateY(-50%);
       width: 48px; height: 48px; border-radius: 50%;
-      background: #0a2a43; color: white; border: none;
+      background: #f1b32d; color: #0a2a43; border: none;
       display: flex; align-items: center; justify-content: center;
       cursor: pointer; z-index: 10; box-shadow: 0 4px 12px rgba(0,0,0,0.15);
       transition: all 0.3s;
     }
-    .testimonial-nav-btn:hover { background: #f1b32d; color: #0a2a43; }
+    .testimonial-nav-btn:hover { background: white; color: #0a2a43; }
     .testimonial-nav-btn.prev { left: 0; }
     .testimonial-nav-btn.next { right: 0; }
     .testimonial-dots {
@@ -101,7 +101,7 @@
     }
     .testimonial-dot {
       width: 12px; height: 12px; border-radius: 9999px;
-      background: #cbd5e1; border: none; cursor: pointer; transition: all 0.3s;
+      background: rgba(255,255,255,0.4); border: none; cursor: pointer; transition: all 0.3s;
     }
     .testimonial-dot.active { background: #f1b32d; width: 2rem; }
 
@@ -446,10 +446,10 @@
       </section>
 
       <!-- Testimonials -->
-      <section class="py-24 bg-slate-50">
+      <section class="py-24 bg-brand-navy">
         <div class="max-w-7xl mx-auto px-6">
           <div class="text-center max-w-3xl mx-auto mb-12">
-            <h2 class="text-brand-navy text-4xl md:text-5xl font-black" data-i18n="test.title">What Our Clients Say</h2>
+            <h2 class="text-white text-4xl md:text-5xl font-black" data-i18n="test.title">What Our Clients Say</h2>
           </div>
           <div class="testimonial-slider relative">
             <button class="testimonial-nav-btn prev" onclick="moveTestimonial(-1)" aria-label="Previous testimonial">
