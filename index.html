@@ -300,8 +300,10 @@
       <!-- Hero -->
       <section class="relative min-h-screen flex items-center justify-center text-center overflow-hidden">
         <div class="absolute inset-0 z-0">
-          <!-- YouTube Background Video -->
-          <div id="heroVideoWrap" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none" style="width: 177.78vh; height: 100vh; min-width: 100vw; min-height: 56.25vw; z-index: 1; background: #0a2a43;"></div>
+          <!-- Background Video -->
+          <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover" style="z-index: 1;">
+            <source src="videos/Roshe Hedar Video.mp4" type="video/mp4">
+          </video>
           <div class="absolute inset-0 bg-brand-navy/50" style="z-index: 2;"></div>
         </div>
         <div class="relative z-10 px-6 animate-fade-in-up space-y-6">
@@ -2553,23 +2555,6 @@
         updateTestimonialSlider();
       });
 
-      // Load hero YouTube video immediately
-      var tag = document.createElement('script');
-      tag.src = 'https://www.youtube.com/iframe_api';
-      document.head.appendChild(tag);
-      window.onYouTubeIframeAPIReady = function() {
-        new YT.Player('heroVideoWrap', {
-          videoId: 'wQMx7wc4jh8',
-          playerVars: {
-            autoplay: 1, mute: 1, loop: 1, playlist: 'wQMx7wc4jh8',
-            controls: 0, showinfo: 0, modestbranding: 1, rel: 0,
-            playsinline: 1, iv_load_policy: 3, disablekb: 1, start: 2
-          },
-          events: {
-            onReady: function(e) { e.target.playVideo(); }
-          }
-        });
-      };
     });
   </script>
 
