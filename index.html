@@ -68,6 +68,43 @@
     }
     .slider-dot.active { background: #f1b32d; border-color: #f1b32d; width: 2rem; }
 
+    /* Testimonial Slider */
+    .testimonial-slider { position: relative; overflow: hidden; }
+    .testimonial-track {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+    .testimonial-slide {
+      min-width: 100%;
+      padding: 0 1rem;
+      box-sizing: border-box;
+    }
+    @media (min-width: 768px) {
+      .testimonial-slide { min-width: 50%; }
+    }
+    @media (min-width: 1024px) {
+      .testimonial-slide { min-width: 33.333%; }
+    }
+    .testimonial-nav-btn {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      width: 48px; height: 48px; border-radius: 50%;
+      background: #0a2a43; color: white; border: none;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; z-index: 10; box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      transition: all 0.3s;
+    }
+    .testimonial-nav-btn:hover { background: #f1b32d; color: #0a2a43; }
+    .testimonial-nav-btn.prev { left: 0; }
+    .testimonial-nav-btn.next { right: 0; }
+    .testimonial-dots {
+      display: flex; justify-content: center; gap: 0.5rem; margin-top: 2rem;
+    }
+    .testimonial-dot {
+      width: 12px; height: 12px; border-radius: 9999px;
+      background: #cbd5e1; border: none; cursor: pointer; transition: all 0.3s;
+    }
+    .testimonial-dot.active { background: #f1b32d; width: 2rem; }
+
     /* Scroll Reveal Animations */
     @keyframes fadeInLeft {
       from { opacity: 0; transform: translateX(-40px); }
@@ -414,96 +451,129 @@
           <div class="text-center max-w-3xl mx-auto mb-12">
             <h2 class="text-brand-navy text-4xl md:text-5xl font-black" data-i18n="test.title">What Our Clients Say</h2>
           </div>
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 stagger-children reveal">
-            <div class="bg-white p-8 rounded-xl shadow-md">
-              <div class="flex items-center mb-4">
-                <div class="w-12 h-12 rounded-full mr-4 bg-brand-navy flex items-center justify-center text-white font-black text-lg">JD</div>
-                <div>
-                  <p class="font-bold text-brand-navy">John Ddumba</p>
-                  <p class="text-sm text-slate-500">Kampala, Uganda</p>
+          <div class="testimonial-slider relative">
+            <button class="testimonial-nav-btn prev" onclick="moveTestimonial(-1)" aria-label="Previous testimonial">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            </button>
+            <div class="testimonial-track" id="testimonialTrack">
+              <!-- Slide 1 -->
+              <div class="testimonial-slide">
+                <div class="bg-white p-8 rounded-xl shadow-md h-full">
+                  <div class="flex items-center mb-4">
+                    <div class="w-12 h-12 rounded-full mr-4 bg-brand-navy flex items-center justify-center text-white font-black text-lg">JD</div>
+                    <div>
+                      <p class="font-bold text-brand-navy">John Ddumba</p>
+                      <p class="text-sm text-slate-500">Kampala, Uganda</p>
+                    </div>
+                  </div>
+                  <div class="flex gap-1 mb-3 text-brand-yellow"><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i></div>
+                  <p class="text-slate-600 italic" data-i18n="test1.quote">"The best shipping company from China to Uganda. Roshe Group handled everything perfectly. My goods arrived on time and in perfect condition. Look no further!"</p>
                 </div>
               </div>
-              <div class="flex gap-1 mb-3 text-brand-yellow"><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i></div>
-              <p class="text-slate-600 italic" data-i18n="test1.quote">"The best shipping company from China to Uganda. Roshe Group handled everything perfectly. My goods arrived on time and in perfect condition. Look no further!"</p>
-            </div>
-            <div class="bg-white p-8 rounded-xl shadow-md">
-              <div class="flex items-center mb-4">
-                <div class="w-12 h-12 rounded-full mr-4 bg-brand-yellow flex items-center justify-center text-brand-navy font-black text-lg">GN</div>
-                <div>
-                  <p class="font-bold text-brand-navy">Grace Njeri</p>
-                  <p class="text-sm text-slate-500">Nairobi, Kenya</p>
+              <!-- Slide 2 -->
+              <div class="testimonial-slide">
+                <div class="bg-white p-8 rounded-xl shadow-md h-full">
+                  <div class="flex items-center mb-4">
+                    <div class="w-12 h-12 rounded-full mr-4 bg-brand-yellow flex items-center justify-center text-brand-navy font-black text-lg">GN</div>
+                    <div>
+                      <p class="font-bold text-brand-navy">Grace Njeri</p>
+                      <p class="text-sm text-slate-500">Nairobi, Kenya</p>
+                    </div>
+                  </div>
+                  <div class="flex gap-1 mb-3 text-brand-yellow"><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i></div>
+                  <p class="text-slate-600 italic" data-i18n="test2.quote">"Reliable and professional. Their customs clearing service is top-notch. They saved me a lot of time and headache at the Mombasa port."</p>
                 </div>
               </div>
-              <div class="flex gap-1 mb-3 text-brand-yellow"><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i></div>
-              <p class="text-slate-600 italic" data-i18n="test2.quote">"Reliable and professional. Their customs clearing service is top-notch. They saved me a lot of time and headache at the Mombasa port."</p>
-            </div>
-            <div class="bg-white p-8 rounded-xl shadow-md">
-              <div class="flex items-center mb-4">
-                <div class="w-12 h-12 rounded-full mr-4 bg-teal-600 flex items-center justify-center text-white font-black text-lg">DK</div>
-                <div>
-                  <p class="font-bold text-brand-navy">David Kamau</p>
-                  <p class="text-sm text-slate-500">Dar es Salaam, Tanzania</p>
+              <!-- Slide 3 -->
+              <div class="testimonial-slide">
+                <div class="bg-white p-8 rounded-xl shadow-md h-full">
+                  <div class="flex items-center mb-4">
+                    <div class="w-12 h-12 rounded-full mr-4 bg-teal-600 flex items-center justify-center text-white font-black text-lg">DK</div>
+                    <div>
+                      <p class="font-bold text-brand-navy">David Kamau</p>
+                      <p class="text-sm text-slate-500">Dar es Salaam, Tanzania</p>
+                    </div>
+                  </div>
+                  <div class="flex gap-1 mb-3 text-brand-yellow"><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i></div>
+                  <p class="text-slate-600 italic" data-i18n="test3.quote">"I used their sourcing service to find a new supplier in China. The team was incredibly helpful and found a great manufacturer for me. Highly recommended!"</p>
                 </div>
               </div>
-              <div class="flex gap-1 mb-3 text-brand-yellow"><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i></div>
-              <p class="text-slate-600 italic" data-i18n="test3.quote">"I used their sourcing service to find a new supplier in China. The team was incredibly helpful and found a great manufacturer for me. Highly recommended!"</p>
-            </div>
-            <div class="bg-white p-8 rounded-xl shadow-md">
-              <div class="flex items-center mb-4">
-                <div class="w-12 h-12 rounded-full mr-4 bg-brand-navy flex items-center justify-center text-white font-black text-lg">KP</div>
-                <div>
-                  <p class="font-bold text-brand-navy">Kamukama Phillip</p>
-                  <p class="text-sm text-slate-500">Mbarara, Uganda</p>
+              <!-- Slide 4 -->
+              <div class="testimonial-slide">
+                <div class="bg-white p-8 rounded-xl shadow-md h-full">
+                  <div class="flex items-center mb-4">
+                    <div class="w-12 h-12 rounded-full mr-4 bg-brand-navy flex items-center justify-center text-white font-black text-lg">KP</div>
+                    <div>
+                      <p class="font-bold text-brand-navy">Kamukama Phillip</p>
+                      <p class="text-sm text-slate-500">Mbarara, Uganda</p>
+                    </div>
+                  </div>
+                  <div class="flex gap-1 mb-3 text-brand-yellow"><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i></div>
+                  <p class="text-slate-600 italic" data-i18n="test4.quote">"Roshe Group sourced machinery for my factory and handled everything from purchase to delivery. The equipment arrived in perfect condition and ahead of schedule. Truly dependable!"</p>
                 </div>
               </div>
-              <div class="flex gap-1 mb-3 text-brand-yellow"><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i></div>
-              <p class="text-slate-600 italic" data-i18n="test4.quote">"Roshe Group sourced machinery for my factory and handled everything from purchase to delivery. The equipment arrived in perfect condition and ahead of schedule. Truly dependable!"</p>
-            </div>
-            <div class="bg-white p-8 rounded-xl shadow-md">
-              <div class="flex items-center mb-4">
-                <div class="w-12 h-12 rounded-full mr-4 bg-brand-yellow flex items-center justify-center text-brand-navy font-black text-lg">MR</div>
-                <div>
-                  <p class="font-bold text-brand-navy">Magoola Ruth</p>
-                  <p class="text-sm text-slate-500">Jinja, Uganda</p>
+              <!-- Slide 5 -->
+              <div class="testimonial-slide">
+                <div class="bg-white p-8 rounded-xl shadow-md h-full">
+                  <div class="flex items-center mb-4">
+                    <div class="w-12 h-12 rounded-full mr-4 bg-brand-yellow flex items-center justify-center text-brand-navy font-black text-lg">MR</div>
+                    <div>
+                      <p class="font-bold text-brand-navy">Magoola Ruth</p>
+                      <p class="text-sm text-slate-500">Jinja, Uganda</p>
+                    </div>
+                  </div>
+                  <div class="flex gap-1 mb-3 text-brand-yellow"><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i></div>
+                  <p class="text-slate-600 italic" data-i18n="test5.quote">"I was nervous about importing from China for the first time, but Roshe Group walked me through every step. Their consolidation service saved me so much on shipping costs. I'm a loyal customer now!"</p>
                 </div>
               </div>
-              <div class="flex gap-1 mb-3 text-brand-yellow"><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i></div>
-              <p class="text-slate-600 italic" data-i18n="test5.quote">"I was nervous about importing from China for the first time, but Roshe Group walked me through every step. Their consolidation service saved me so much on shipping costs. I'm a loyal customer now!"</p>
-            </div>
-            <div class="bg-white p-8 rounded-xl shadow-md">
-              <div class="flex items-center mb-4">
-                <div class="w-12 h-12 rounded-full mr-4 bg-teal-600 flex items-center justify-center text-white font-black text-lg">OI</div>
-                <div>
-                  <p class="font-bold text-brand-navy">Okello Innocent</p>
-                  <p class="text-sm text-slate-500">Gulu, Uganda</p>
+              <!-- Slide 6 -->
+              <div class="testimonial-slide">
+                <div class="bg-white p-8 rounded-xl shadow-md h-full">
+                  <div class="flex items-center mb-4">
+                    <div class="w-12 h-12 rounded-full mr-4 bg-teal-600 flex items-center justify-center text-white font-black text-lg">OI</div>
+                    <div>
+                      <p class="font-bold text-brand-navy">Okello Innocent</p>
+                      <p class="text-sm text-slate-500">Gulu, Uganda</p>
+                    </div>
+                  </div>
+                  <div class="flex gap-1 mb-3 text-brand-yellow"><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i></div>
+                  <p class="text-slate-600 italic" data-i18n="test6.quote">"Fast, transparent, and no hidden fees. Roshe Group cleared my goods through customs without a single delay. Their communication throughout the process was excellent. Highly professional team!"</p>
                 </div>
               </div>
-              <div class="flex gap-1 mb-3 text-brand-yellow"><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i></div>
-              <p class="text-slate-600 italic" data-i18n="test6.quote">"Fast, transparent, and no hidden fees. Roshe Group cleared my goods through customs without a single delay. Their communication throughout the process was excellent. Highly professional team!"</p>
-            </div>
-            <div class="bg-white p-8 rounded-xl shadow-md">
-              <div class="flex items-center mb-4">
-                <div class="w-12 h-12 rounded-full mr-4 bg-brand-navy flex items-center justify-center text-white font-black text-lg">NC</div>
-                <div>
-                  <p class="font-bold text-brand-navy">Naagasha Carol Mugisha</p>
-                  <p class="text-sm text-slate-500">Fort Portal, Uganda</p>
+              <!-- Slide 7 -->
+              <div class="testimonial-slide">
+                <div class="bg-white p-8 rounded-xl shadow-md h-full">
+                  <div class="flex items-center mb-4">
+                    <div class="w-12 h-12 rounded-full mr-4 bg-brand-navy flex items-center justify-center text-white font-black text-lg">NC</div>
+                    <div>
+                      <p class="font-bold text-brand-navy">Naagasha Carol Mugisha</p>
+                      <p class="text-sm text-slate-500">Fort Portal, Uganda</p>
+                    </div>
+                  </div>
+                  <div class="flex gap-1 mb-3 text-brand-yellow"><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i></div>
+                  <p class="text-slate-600 italic" data-i18n="test7.quote">"I import medical supplies and building materials regularly. Roshe Group handles my shipments with care and precision every single time. Their warehouse in China is well-organized and my goods are always properly inspected."</p>
                 </div>
               </div>
-              <div class="flex gap-1 mb-3 text-brand-yellow"><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i></div>
-              <p class="text-slate-600 italic" data-i18n="test7.quote">"I import medical supplies and building materials regularly. Roshe Group handles my shipments with care and precision every single time. Their warehouse in China is well-organized and my goods are always properly inspected."</p>
-            </div>
-            <div class="bg-white p-8 rounded-xl shadow-md">
-              <div class="flex items-center mb-4">
-                <div class="w-12 h-12 rounded-full mr-4 bg-brand-yellow flex items-center justify-center text-brand-navy font-black text-lg">KE</div>
-                <div>
-                  <p class="font-bold text-brand-navy">Kiwanuka Edgar</p>
-                  <p class="text-sm text-slate-500">Kampala, Uganda</p>
+              <!-- Slide 8 -->
+              <div class="testimonial-slide">
+                <div class="bg-white p-8 rounded-xl shadow-md h-full">
+                  <div class="flex items-center mb-4">
+                    <div class="w-12 h-12 rounded-full mr-4 bg-brand-yellow flex items-center justify-center text-brand-navy font-black text-lg">KE</div>
+                    <div>
+                      <p class="font-bold text-brand-navy">Kiwanuka Edgar</p>
+                      <p class="text-sm text-slate-500">Kampala, Uganda</p>
+                    </div>
+                  </div>
+                  <div class="flex gap-1 mb-3 text-brand-yellow"><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i></div>
+                  <p class="text-slate-600 italic" data-i18n="test8.quote">"From sourcing electronics to doorstep delivery, Roshe Group does it all. I've been using them for over two years and they've never disappointed. The best logistics partner for anyone trading with China!"</p>
                 </div>
               </div>
-              <div class="flex gap-1 mb-3 text-brand-yellow"><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i></div>
-              <p class="text-slate-600 italic" data-i18n="test8.quote">"From sourcing electronics to doorstep delivery, Roshe Group does it all. I've been using them for over two years and they've never disappointed. The best logistics partner for anyone trading with China!"</p>
             </div>
+            <button class="testimonial-nav-btn next" onclick="moveTestimonial(1)" aria-label="Next testimonial">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
           </div>
+          <div class="testimonial-dots" id="testimonialDots"></div>
         </div>
       </section>
 
@@ -2417,11 +2487,73 @@
       document.documentElement.lang = lang;
     }
 
+    // Testimonial Slider
+    let testimonialIndex = 0;
+    let testimonialAutoplay;
+    function getTestimonialVisibleCount() {
+      if (window.innerWidth >= 1024) return 3;
+      if (window.innerWidth >= 768) return 2;
+      return 1;
+    }
+    function getTestimonialMaxIndex() {
+      const total = document.querySelectorAll('.testimonial-slide').length;
+      return Math.max(0, total - getTestimonialVisibleCount());
+    }
+    function updateTestimonialSlider() {
+      const track = document.getElementById('testimonialTrack');
+      if (!track) return;
+      const pct = 100 / getTestimonialVisibleCount();
+      track.style.transform = 'translateX(-' + (testimonialIndex * pct) + '%)';
+      // Update dots
+      const dots = document.querySelectorAll('.testimonial-dot');
+      dots.forEach(function(dot, i) { dot.classList.toggle('active', i === testimonialIndex); });
+    }
+    function moveTestimonial(dir) {
+      const max = getTestimonialMaxIndex();
+      testimonialIndex = Math.min(max, Math.max(0, testimonialIndex + dir));
+      updateTestimonialSlider();
+      resetTestimonialAutoplay();
+    }
+    function goToTestimonial(i) {
+      testimonialIndex = i;
+      updateTestimonialSlider();
+      resetTestimonialAutoplay();
+    }
+    function initTestimonialDots() {
+      const container = document.getElementById('testimonialDots');
+      if (!container) return;
+      container.innerHTML = '';
+      const max = getTestimonialMaxIndex();
+      for (let i = 0; i <= max; i++) {
+        const dot = document.createElement('button');
+        dot.className = 'testimonial-dot' + (i === 0 ? ' active' : '');
+        dot.setAttribute('aria-label', 'Go to testimonial ' + (i + 1));
+        dot.onclick = function() { goToTestimonial(i); };
+        container.appendChild(dot);
+      }
+    }
+    function resetTestimonialAutoplay() {
+      clearInterval(testimonialAutoplay);
+      testimonialAutoplay = setInterval(function() {
+        const max = getTestimonialMaxIndex();
+        testimonialIndex = testimonialIndex >= max ? 0 : testimonialIndex + 1;
+        updateTestimonialSlider();
+      }, 5000);
+    }
+
     document.addEventListener('DOMContentLoaded', function() {
       lucide.createIcons();
       window.dispatchEvent(new Event('scroll'));
       navigateTo('home');
       setTimeout(initRevealAnimations, 100);
+      initTestimonialDots();
+      resetTestimonialAutoplay();
+      window.addEventListener('resize', function() {
+        const max = getTestimonialMaxIndex();
+        if (testimonialIndex > max) testimonialIndex = max;
+        initTestimonialDots();
+        updateTestimonialSlider();
+      });
 
       // Lazy-load hero YouTube video after page is ready
       var heroWrap = document.getElementById('heroVideoWrap');
