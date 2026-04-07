@@ -263,52 +263,59 @@
       <!-- Hero -->
       <section class="relative min-h-screen flex items-center justify-center text-center overflow-hidden">
         <div class="absolute inset-0 z-0">
+          <!-- Fallback image (behind video) -->
           <img src="images/skyoading.jpg" alt="Roshe Group Shipping" class="absolute inset-0 w-full h-full object-cover" style="z-index: 0;">
+          <!-- YouTube Background Video (lazy-loaded for performance) -->
           <div id="heroVideoWrap" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none" style="width: 177.78vh; height: 100vh; min-width: 100vw; min-height: 56.25vw; z-index: 1; opacity: 0;"></div>
           <div class="absolute inset-0 bg-brand-navy/50" style="z-index: 2;"></div>
         </div>
         <div class="relative z-10 px-6 animate-fade-in-up space-y-6">
           <h1 class="text-2xl sm:text-3xl md:text-5xl font-black text-slate-100 leading-tight tracking-tight drop-shadow-2xl" data-i18n="hero.title">
-            Source Products & Machinery Directly from <span class="text-brand-yellow">China</span>
+            Your Trusted Bridge from <span class="text-brand-yellow">China</span> to East Africa
           </h1>
           <p class="text-base sm:text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed font-medium" data-i18n="hero.subtitle">
-            At Roshe Group Company Ltd, we help businesses source high-quality products and manufacturing machinery directly from verified suppliers in China. From small orders to full factory setups, we handle everything professionally.
+            Seamless, reliable, and cost-effective logistics solutions. We handle everything from sourcing to your doorstep.
           </p>
           <div class="flex flex-wrap justify-center gap-3 sm:gap-4">
             <button onclick="navigateTo('quote')" class="bg-brand-yellow text-brand-navy px-6 py-3 sm:px-8 sm:py-4 rounded-full font-black text-base sm:text-lg shadow-2xl hover:scale-105 transition-transform flex items-center gap-2" data-i18n="hero.cta1">
-              Request a Quote Now <i data-lucide="arrow-right" class="w-5 h-5"></i>
+              Get a Free Quote <i data-lucide="arrow-right" class="w-5 h-5"></i>
             </button>
-            <a href="https://wa.me/8613416137544?text=Hello%20Roshe%20Group,%20I'd%20like%20to%20inquire%20about%20sourcing." target="_blank" class="bg-green-500 text-white px-6 py-3 sm:px-8 sm:py-4 rounded-full font-black text-base sm:text-lg hover:bg-green-600 transition-colors shadow-xl flex items-center gap-2" data-i18n="hero.cta2">
-              <i data-lucide="message-circle" class="w-5 h-5"></i> Chat with Us on WhatsApp
-            </a>
+            <button onclick="navigateTo('services')" class="bg-transparent text-white border-2 border-white px-6 py-3 sm:px-8 sm:py-4 rounded-full font-black text-base sm:text-lg hover:bg-white hover:text-brand-navy transition-colors shadow-xl" data-i18n="hero.cta2">
+              Explore Services
+            </button>
           </div>
         </div>
       </section>
 
-      <!-- About the Service -->
+      <!-- Who We Are -->
       <section class="pt-24 pb-12 bg-gradient-to-b from-white to-slate-50 overflow-hidden">
         <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           <div class="relative reveal reveal-left">
+            <!-- Decorative elements -->
             <div class="absolute -top-8 -left-8 w-64 h-64 bg-brand-yellow/10 rounded-3xl -z-10"></div>
             <div class="absolute -bottom-8 -right-8 w-40 h-40 bg-brand-navy/5 rounded-3xl -z-10"></div>
+            <!-- Main image -->
             <div class="relative rounded-3xl overflow-hidden shadow-2xl">
               <img src="images/Shipping Line near port.jpeg" alt="Roshe Group logistics operations" class="w-full h-[450px] object-cover hover:scale-105 transition-transform duration-700">
+              <!-- Gradient overlay at bottom for badge readability -->
               <div class="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-brand-navy/60 to-transparent"></div>
             </div>
+            <!-- Stats badge -->
             <div class="absolute -bottom-6 right-6 bg-brand-navy text-white px-8 py-4 rounded-2xl shadow-xl border-2 border-brand-yellow/30">
               <p class="text-3xl font-black text-brand-yellow leading-none">10+</p>
               <p class="text-xs font-semibold uppercase tracking-wider mt-1">Years of Trust</p>
             </div>
+
           </div>
           <div class="reveal reveal-right space-y-7 text-center">
-            <span class="inline-block bg-brand-yellow/15 text-brand-yellow font-bold text-sm px-4 py-1.5 rounded-full uppercase tracking-wider" data-i18n="who.tag">About the Service</span>
-            <h2 class="text-brand-navy text-xl md:text-2xl lg:text-3xl font-black leading-tight" data-i18n="who.title">End-to-End Sourcing Solutions from <span class="text-brand-yellow">China</span></h2>
-            <p class="text-slate-600 text-lg leading-relaxed" data-i18n="who.desc">In addition to shipping, we provide end-to-end sourcing solutions for businesses looking to import goods or set up production. We identify trusted suppliers, negotiate the best prices, ensure product quality, and manage logistics up to final delivery.</p>
-            <p class="text-slate-700 text-lg font-semibold leading-relaxed" data-i18n="who.goal">Our goal is simple: reduce your risk and maximize your business success.</p>
+            <span class="inline-block bg-brand-yellow/15 text-brand-yellow font-bold text-sm px-4 py-1.5 rounded-full uppercase tracking-wider" data-i18n="who.tag">Who We Are</span>
+            <h2 class="text-brand-navy text-xl md:text-2xl lg:text-3xl font-black leading-tight" data-i18n="who.title">Your Trusted Shipping & Logistics Experts Connecting <span class="text-brand-yellow">China & East Africa</span></h2>
+            <p class="text-slate-600 text-lg leading-relaxed" data-i18n="who.desc">Roshe Group is a full-service logistics company specializing in freight forwarding, customs clearance, product sourcing, and warehousing between China and East Africa. We simplify international trade so you can focus on growing your business.</p>
+            <!-- Trust badges inline -->
             <div class="flex flex-wrap gap-x-6 gap-y-2 pt-2 justify-center lg:justify-start text-sm font-semibold text-brand-navy">
-              <span class="flex items-center gap-1.5"><i data-lucide="check-circle" class="w-4 h-4 text-green-500"></i> <span data-i18n="who.badge1">Verified Suppliers</span></span>
-              <span class="flex items-center gap-1.5"><i data-lucide="check-circle" class="w-4 h-4 text-green-500"></i> <span data-i18n="who.badge2">Best Price Negotiation</span></span>
-              <span class="flex items-center gap-1.5"><i data-lucide="check-circle" class="w-4 h-4 text-green-500"></i> <span data-i18n="who.badge3">Quality Guaranteed</span></span>
+              <span class="flex items-center gap-1.5"><i data-lucide="check-circle" class="w-4 h-4 text-green-500"></i> <span data-i18n="who.badge1">Licensed & Insured</span></span>
+              <span class="flex items-center gap-1.5"><i data-lucide="check-circle" class="w-4 h-4 text-green-500"></i> <span data-i18n="who.badge2">End-to-End Service</span></span>
+              <span class="flex items-center gap-1.5"><i data-lucide="check-circle" class="w-4 h-4 text-green-500"></i> <span data-i18n="who.badge3">Competitive Rates</span></span>
             </div>
             <a onclick="navigateTo('about')" class="inline-flex items-center gap-1.5 text-brand-navy font-bold text-lg hover:text-brand-yellow transition-colors cursor-pointer group mx-auto lg:mx-0" data-i18n="who.cta">
               Discover More <i data-lucide="arrow-right" class="w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
@@ -317,228 +324,92 @@
         </div>
       </section>
 
-      <!-- What We Source -->
+      <!-- How It Works -->
       <section class="pt-12 pb-24 bg-slate-50">
         <div class="max-w-7xl mx-auto px-6">
           <div class="text-center max-w-3xl mx-auto mb-16 reveal reveal-up">
-            <span class="inline-block bg-brand-yellow/15 text-brand-yellow font-bold text-sm px-4 py-1.5 rounded-full uppercase tracking-wider mb-4" data-i18n="source.tag">What We Source</span>
-            <h2 class="text-brand-navy text-4xl md:text-5xl font-black" data-i18n="source.title">Products & Machinery We Source</h2>
-            <p class="text-slate-600 text-lg mt-4" data-i18n="source.subtitle">From everyday goods to complete factory setups, we source it all from verified Chinese manufacturers.</p>
+            <h2 class="text-brand-navy text-4xl md:text-5xl font-black" data-i18n="steps.title">Simple Shipping in 4 Steps</h2>
+            <p class="text-slate-600 text-lg mt-4" data-i18n="steps.subtitle">We've streamlined the entire process to make shipping from China effortless for you.</p>
           </div>
-          <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
-            <!-- General Products -->
-            <div class="reveal reveal-left">
-              <div class="rounded-2xl overflow-hidden shadow-xl mb-6">
-                <img src="images/We Ship Both Groupage.jpeg" alt="General products sourcing" class="w-full h-56 object-cover">
-              </div>
-              <div class="bg-white p-8 rounded-2xl shadow-lg border-t-4 border-brand-yellow">
-                <div class="flex items-center gap-3 mb-5">
-                  <i data-lucide="package" class="w-8 h-8 text-brand-yellow"></i>
-                  <h3 class="text-2xl font-black text-brand-navy" data-i18n="source.general">General Products</h3>
-                </div>
-                <ul class="space-y-3 text-slate-600">
-                  <li class="flex items-center gap-3"><i data-lucide="check" class="w-5 h-5 text-green-500 shrink-0"></i> <span data-i18n="source.g1">Electronics and accessories</span></li>
-                  <li class="flex items-center gap-3"><i data-lucide="check" class="w-5 h-5 text-green-500 shrink-0"></i> <span data-i18n="source.g2">Household and retail goods</span></li>
-                  <li class="flex items-center gap-3"><i data-lucide="check" class="w-5 h-5 text-green-500 shrink-0"></i> <span data-i18n="source.g3">Packaging materials</span></li>
-                  <li class="flex items-center gap-3"><i data-lucide="check" class="w-5 h-5 text-green-500 shrink-0"></i> <span data-i18n="source.g4">Customized branded products</span></li>
-                </ul>
-              </div>
-            </div>
-            <!-- Machinery & Equipment -->
-            <div class="reveal reveal-right">
-              <div class="rounded-2xl overflow-hidden shadow-xl mb-6">
-                <img src="images/Container Truck At Warehouse.jpeg" alt="Machinery and equipment" class="w-full h-56 object-cover">
-              </div>
-              <div class="bg-white p-8 rounded-2xl shadow-lg border-t-4 border-brand-navy relative overflow-hidden">
-                <div class="absolute top-4 right-4 bg-brand-yellow text-brand-navy text-xs font-black px-3 py-1 rounded-full uppercase">High Value</div>
-                <div class="flex items-center gap-3 mb-5">
-                  <i data-lucide="settings" class="w-8 h-8 text-brand-navy"></i>
-                  <h3 class="text-2xl font-black text-brand-navy" data-i18n="source.machinery">Machinery & Equipment</h3>
-                </div>
-                <ul class="space-y-3 text-slate-600">
-                  <li class="flex items-center gap-3"><i data-lucide="check" class="w-5 h-5 text-brand-yellow shrink-0"></i> <span data-i18n="source.m1">Food processing machines</span></li>
-                  <li class="flex items-center gap-3"><i data-lucide="check" class="w-5 h-5 text-brand-yellow shrink-0"></i> <span data-i18n="source.m2">Packaging and sealing machines</span></li>
-                  <li class="flex items-center gap-3"><i data-lucide="check" class="w-5 h-5 text-brand-yellow shrink-0"></i> <span data-i18n="source.m3">Textile and garment machinery</span></li>
-                  <li class="flex items-center gap-3"><i data-lucide="check" class="w-5 h-5 text-brand-yellow shrink-0"></i> <span data-i18n="source.m4">Plastic and recycling machines</span></li>
-                  <li class="flex items-center gap-3"><i data-lucide="check" class="w-5 h-5 text-brand-yellow shrink-0"></i> <span data-i18n="source.m5">Agricultural machinery</span></li>
-                  <li class="flex items-center gap-3"><i data-lucide="check" class="w-5 h-5 text-brand-yellow shrink-0"></i> <span data-i18n="source.m6">Construction equipment</span></li>
-                  <li class="flex items-center gap-3"><i data-lucide="check" class="w-5 h-5 text-brand-yellow shrink-0"></i> <span data-i18n="source.m7">Water bottling & beverage production lines</span></li>
-                  <li class="flex items-center gap-3"><i data-lucide="check" class="w-5 h-5 text-brand-yellow shrink-0"></i> <span data-i18n="source.m8">Complete factory setup equipment</span></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Our Process - 6 Steps -->
-      <section class="py-24 bg-white">
-        <div class="max-w-7xl mx-auto px-6">
-          <div class="text-center max-w-3xl mx-auto mb-16 reveal reveal-up">
-            <span class="inline-block bg-brand-yellow/15 text-brand-yellow font-bold text-sm px-4 py-1.5 rounded-full uppercase tracking-wider mb-4" data-i18n="steps.tag">Our Process</span>
-            <h2 class="text-brand-navy text-4xl md:text-5xl font-black" data-i18n="steps.title">How We Work in 6 Steps</h2>
-            <p class="text-slate-600 text-lg mt-4" data-i18n="steps.subtitle">From understanding your needs to after-sales support, we've got every step covered.</p>
-          </div>
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 lg:gap-8 stagger-children reveal">
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6 lg:gap-6 stagger-children reveal">
             <!-- Step 1 -->
             <div class="relative bg-white p-8 rounded-2xl shadow-lg border-t-4 border-brand-yellow step-card text-center" data-step="1">
-              <i data-lucide="clipboard-list" class="w-12 h-12 text-brand-yellow mb-4 mx-auto"></i>
-              <h3 class="text-xl font-black text-brand-navy mb-2" data-i18n="step1.title">Requirement Analysis</h3>
-              <p class="text-slate-600 text-sm" data-i18n="step1.desc">We understand your exact needs and specifications to deliver the right results.</p>
+              <i data-lucide="file-text" class="w-12 h-12 text-brand-yellow mb-4 mx-auto"></i>
+              <h3 class="text-xl font-black text-brand-navy mb-2" data-i18n="step1.title">Request a Quote</h3>
+              <p class="text-slate-600 text-sm" data-i18n="step1.desc">Tell us your shipment details, and we provide a clear, competitive quote fast.</p>
             </div>
             <!-- Step 2 -->
             <div class="relative bg-white p-8 rounded-2xl shadow-lg border-t-4 border-brand-yellow step-card text-center" data-step="2">
-              <i data-lucide="shield-check" class="w-12 h-12 text-brand-yellow mb-4 mx-auto"></i>
-              <h3 class="text-xl font-black text-brand-navy mb-2" data-i18n="step2.title">Supplier Verification</h3>
-              <p class="text-slate-600 text-sm" data-i18n="step2.desc">We identify and verify reliable manufacturers in China to ensure trustworthy sourcing.</p>
+              <i data-lucide="warehouse" class="w-12 h-12 text-brand-yellow mb-4 mx-auto"></i>
+              <h3 class="text-xl font-black text-brand-navy mb-2" data-i18n="step2.title">We Receive & Consolidate</h3>
+              <p class="text-slate-600 text-sm" data-i18n="step2.desc">Your supplier delivers to our China warehouse. We inspect, label, and consolidate for safe shipment.</p>
             </div>
             <!-- Step 3 -->
             <div class="relative bg-white p-8 rounded-2xl shadow-lg border-t-4 border-brand-yellow step-card text-center" data-step="3">
-              <i data-lucide="dollar-sign" class="w-12 h-12 text-brand-yellow mb-4 mx-auto"></i>
-              <h3 class="text-xl font-black text-brand-navy mb-2" data-i18n="step3.title">Price Negotiation</h3>
-              <p class="text-slate-600 text-sm" data-i18n="step3.desc">We secure the best prices and favorable terms so you get maximum value.</p>
+              <i data-lucide="ship" class="w-12 h-12 text-brand-yellow mb-4 mx-auto"></i>
+              <h3 class="text-xl font-black text-brand-navy mb-2" data-i18n="step3.title">Shipping & Customs</h3>
+              <p class="text-slate-600 text-sm" data-i18n="step3.desc">We handle all freight booking, documentation, and customs clearance for a smooth transit.</p>
             </div>
             <!-- Step 4 -->
             <div class="relative bg-white p-8 rounded-2xl shadow-lg border-t-4 border-brand-yellow step-card text-center" data-step="4">
-              <i data-lucide="search" class="w-12 h-12 text-brand-yellow mb-4 mx-auto"></i>
-              <h3 class="text-xl font-black text-brand-navy mb-2" data-i18n="step4.title">Quality Inspection</h3>
-              <p class="text-slate-600 text-sm" data-i18n="step4.desc">We ensure goods meet required standards before shipping — no surprises.</p>
-            </div>
-            <!-- Step 5 -->
-            <div class="relative bg-white p-8 rounded-2xl shadow-lg border-t-4 border-brand-yellow step-card text-center" data-step="5">
-              <i data-lucide="ship" class="w-12 h-12 text-brand-yellow mb-4 mx-auto"></i>
-              <h3 class="text-xl font-black text-brand-navy mb-2" data-i18n="step5.title">Shipping & Delivery</h3>
-              <p class="text-slate-600 text-sm" data-i18n="step5.desc">We handle all logistics from China to your destination, door to door.</p>
-            </div>
-            <!-- Step 6 -->
-            <div class="relative bg-white p-8 rounded-2xl shadow-lg border-t-4 border-brand-yellow step-card text-center" data-step="6">
-              <i data-lucide="headphones" class="w-12 h-12 text-brand-yellow mb-4 mx-auto"></i>
-              <h3 class="text-xl font-black text-brand-navy mb-2" data-i18n="step6.title">After-Sales Support</h3>
-              <p class="text-slate-600 text-sm" data-i18n="step6.desc">We guide you even after delivery, ensuring complete satisfaction with your order.</p>
+              <i data-lucide="home" class="w-12 h-12 text-brand-yellow mb-4 mx-auto"></i>
+              <h3 class="text-xl font-black text-brand-navy mb-2" data-i18n="step4.title">Delivery to Your Doorstep</h3>
+              <p class="text-slate-600 text-sm" data-i18n="step4.desc">Once cleared, your cargo is delivered to your designated pickup point or final destination.</p>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- Why Choose Roshe Group -->
-      <section class="py-24 bg-slate-50">
-        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <div class="reveal reveal-left">
-            <div class="grid grid-cols-2 gap-4">
-              <img src="images/Fork lifter loading container from warehouse.jpeg" alt="Warehouse operations" class="rounded-2xl shadow-xl w-full h-48 object-cover">
-              <img src="images/Lifted Container.jpeg" alt="Container loading" class="rounded-2xl shadow-xl w-full h-48 object-cover">
-              <img src="images/Loaded Conatiner at Clearance.jpeg" alt="Clearance" class="rounded-2xl shadow-xl w-full h-48 object-cover">
-              <img src="images/Fork Lifter Packing Stuff In Container.jpeg" alt="Packing container" class="rounded-2xl shadow-xl w-full h-48 object-cover">
-            </div>
-          </div>
-          <div class="space-y-8 reveal reveal-right">
-            <span class="inline-block bg-brand-yellow/15 text-brand-yellow font-bold text-sm px-4 py-1.5 rounded-full uppercase tracking-wider" data-i18n="why.tag">Why Us</span>
-            <h2 class="text-brand-navy text-4xl md:text-5xl font-black text-center lg:text-left" data-i18n="why.title">Why Choose Roshe Group</h2>
-            <div class="space-y-5">
-              <div class="flex items-start gap-4">
-                <div class="w-10 h-10 bg-brand-yellow/10 rounded-full flex items-center justify-center shrink-0"><i data-lucide="check-circle" class="w-5 h-5 text-brand-yellow"></i></div>
-                <p class="text-slate-700 font-medium" data-i18n="why1.desc">Direct sourcing from verified Chinese suppliers</p>
-              </div>
-              <div class="flex items-start gap-4">
-                <div class="w-10 h-10 bg-brand-yellow/10 rounded-full flex items-center justify-center shrink-0"><i data-lucide="check-circle" class="w-5 h-5 text-brand-yellow"></i></div>
-                <p class="text-slate-700 font-medium" data-i18n="why2.desc">Strong negotiation for better pricing</p>
-              </div>
-              <div class="flex items-start gap-4">
-                <div class="w-10 h-10 bg-brand-yellow/10 rounded-full flex items-center justify-center shrink-0"><i data-lucide="check-circle" class="w-5 h-5 text-brand-yellow"></i></div>
-                <p class="text-slate-700 font-medium" data-i18n="why3.desc">Quality inspection before shipment</p>
-              </div>
-              <div class="flex items-start gap-4">
-                <div class="w-10 h-10 bg-brand-yellow/10 rounded-full flex items-center justify-center shrink-0"><i data-lucide="check-circle" class="w-5 h-5 text-brand-yellow"></i></div>
-                <p class="text-slate-700 font-medium" data-i18n="why4.desc">Reliable logistics and delivery network</p>
-              </div>
-              <div class="flex items-start gap-4">
-                <div class="w-10 h-10 bg-brand-yellow/10 rounded-full flex items-center justify-center shrink-0"><i data-lucide="check-circle" class="w-5 h-5 text-brand-yellow"></i></div>
-                <p class="text-slate-700 font-medium" data-i18n="why5.desc">Experience in handling both small and large orders</p>
-              </div>
-              <div class="flex items-start gap-4">
-                <div class="w-10 h-10 bg-brand-yellow/10 rounded-full flex items-center justify-center shrink-0"><i data-lucide="check-circle" class="w-5 h-5 text-brand-yellow"></i></div>
-                <p class="text-slate-700 font-medium" data-i18n="why6.desc">Trusted partner for business growth</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Who We Serve -->
+      <!-- Why Ship With Us -->
       <section class="py-24 bg-white">
-        <div class="max-w-7xl mx-auto px-6">
-          <div class="text-center max-w-3xl mx-auto mb-16 reveal reveal-up">
-            <span class="inline-block bg-brand-yellow/15 text-brand-yellow font-bold text-sm px-4 py-1.5 rounded-full uppercase tracking-wider mb-4" data-i18n="serve.tag">Who We Serve</span>
-            <h2 class="text-brand-navy text-4xl md:text-5xl font-black" data-i18n="serve.title">Businesses We Work With</h2>
-          </div>
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 stagger-children reveal">
-            <div class="bg-slate-50 p-8 rounded-2xl text-center shadow-md hover:-translate-y-2 transition-transform">
-              <div class="w-16 h-16 bg-brand-yellow/10 rounded-full flex items-center justify-center mx-auto mb-4"><i data-lucide="rocket" class="w-8 h-8 text-brand-yellow"></i></div>
-              <h3 class="text-lg font-black text-brand-navy mb-2" data-i18n="serve.s1">Entrepreneurs</h3>
-              <p class="text-slate-600 text-sm" data-i18n="serve.s1d">Starting new businesses with sourced products</p>
-            </div>
-            <div class="bg-slate-50 p-8 rounded-2xl text-center shadow-md hover:-translate-y-2 transition-transform">
-              <div class="w-16 h-16 bg-brand-yellow/10 rounded-full flex items-center justify-center mx-auto mb-4"><i data-lucide="factory" class="w-8 h-8 text-brand-yellow"></i></div>
-              <h3 class="text-lg font-black text-brand-navy mb-2" data-i18n="serve.s2">Companies</h3>
-              <p class="text-slate-600 text-sm" data-i18n="serve.s2d">Expanding production capacity</p>
-            </div>
-            <div class="bg-slate-50 p-8 rounded-2xl text-center shadow-md hover:-translate-y-2 transition-transform">
-              <div class="w-16 h-16 bg-brand-yellow/10 rounded-full flex items-center justify-center mx-auto mb-4"><i data-lucide="package" class="w-8 h-8 text-brand-yellow"></i></div>
-              <h3 class="text-lg font-black text-brand-navy mb-2" data-i18n="serve.s3">Importers & Wholesalers</h3>
-              <p class="text-slate-600 text-sm" data-i18n="serve.s3d">Sourcing goods in bulk from China</p>
-            </div>
-            <div class="bg-slate-50 p-8 rounded-2xl text-center shadow-md hover:-translate-y-2 transition-transform">
-              <div class="w-16 h-16 bg-brand-yellow/10 rounded-full flex items-center justify-center mx-auto mb-4"><i data-lucide="building-2" class="w-8 h-8 text-brand-yellow"></i></div>
-              <h3 class="text-lg font-black text-brand-navy mb-2" data-i18n="serve.s4">Investors</h3>
-              <p class="text-slate-600 text-sm" data-i18n="serve.s4d">Setting up factories and production lines</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Our Experience -->
-      <section class="py-24 bg-slate-50">
         <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <div class="space-y-8 reveal reveal-left">
-            <span class="inline-block bg-brand-yellow/15 text-brand-yellow font-bold text-sm px-4 py-1.5 rounded-full uppercase tracking-wider" data-i18n="exp.tag">Our Experience</span>
-            <h2 class="text-brand-navy text-4xl md:text-5xl font-black" data-i18n="exp.title">Proven Track Record</h2>
-            <div class="space-y-5">
-              <div class="flex items-start gap-4">
-                <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center shrink-0"><i data-lucide="trophy" class="w-5 h-5 text-green-600"></i></div>
-                <p class="text-slate-700 font-medium" data-i18n="exp.e1">Successfully sourced and delivered goods for multiple clients</p>
-              </div>
-              <div class="flex items-start gap-4">
-                <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center shrink-0"><i data-lucide="trending-up" class="w-5 h-5 text-green-600"></i></div>
-                <p class="text-slate-700 font-medium" data-i18n="exp.e2">Supported SMEs with affordable product sourcing</p>
-              </div>
-              <div class="flex items-start gap-4">
-                <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center shrink-0"><i data-lucide="container" class="w-5 h-5 text-green-600"></i></div>
-                <p class="text-slate-700 font-medium" data-i18n="exp.e3">Facilitated bulk shipments and container logistics</p>
-              </div>
-              <div class="flex items-start gap-4">
-                <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center shrink-0"><i data-lucide="cog" class="w-5 h-5 text-green-600"></i></div>
-                <p class="text-slate-700 font-medium" data-i18n="exp.e4">Assisted in sourcing machinery for business operation</p>
-              </div>
-            </div>
+          <div>
+            <img src="images/Fork lifter loading container from warehouse.jpeg" alt="Warehouse operations" class="rounded-2xl shadow-2xl w-full h-auto object-cover">
           </div>
-          <div class="reveal reveal-right">
-            <div class="grid grid-cols-2 gap-4">
-              <img src="images/Closing the loaded Container after loading.jpeg" alt="Loaded container" class="rounded-2xl shadow-xl w-full h-48 object-cover">
-              <img src="images/Ship From Guanghzou to kampala.jpeg" alt="Shipping route" class="rounded-2xl shadow-xl w-full h-48 object-cover">
-              <img src="images/Forklifter two loading goods to container.jpeg" alt="Loading goods" class="rounded-2xl shadow-xl w-full h-48 object-cover col-span-2">
+          <div class="space-y-8">
+            <h2 class="text-brand-navy text-4xl md:text-5xl font-black text-center lg:text-left" data-i18n="why.title">Why Choose Us for Your Logistics Needs?</h2>
+            <div class="space-y-6">
+              <div class="flex items-start gap-4">
+                <div class="w-12 h-12 bg-brand-yellow/10 rounded-full flex items-center justify-center shrink-0"><i data-lucide="dollar-sign" class="w-6 h-6 text-brand-yellow"></i></div>
+                <div>
+                  <h4 class="font-bold text-brand-navy text-lg" data-i18n="why1.title">Cost-Effective Shipping Solutions</h4>
+                  <p class="text-slate-600" data-i18n="why1.desc">We deliver high-quality logistics services at competitive rates, helping your business reduce operational costs while maintaining efficiency. Get in touch today for a customized quote that fits your budget.</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-4">
+                <div class="w-12 h-12 bg-brand-yellow/10 rounded-full flex items-center justify-center shrink-0"><i data-lucide="clock" class="w-6 h-6 text-brand-yellow"></i></div>
+                <div>
+                  <h4 class="font-bold text-brand-navy text-lg" data-i18n="why2.title">Dependable & Timely Delivery</h4>
+                  <p class="text-slate-600" data-i18n="why2.desc">We understand that time is critical. Our streamlined processes and experienced team ensure your goods are delivered safely and on schedule - every time.</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-4">
+                <div class="w-12 h-12 bg-brand-yellow/10 rounded-full flex items-center justify-center shrink-0"><i data-lucide="smartphone" class="w-6 h-6 text-brand-yellow"></i></div>
+                <div>
+                  <h4 class="font-bold text-brand-navy text-lg" data-i18n="why3.title">Real-Time Tracking & Full Visibility</h4>
+                  <p class="text-slate-600" data-i18n="why3.desc">With our advanced tracking systems, you stay informed at every stage. Monitor shipments and inventory in real time, giving you complete control and peace of mind.</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-4">
+                <div class="w-12 h-12 bg-brand-yellow/10 rounded-full flex items-center justify-center shrink-0"><i data-lucide="users" class="w-6 h-6 text-brand-yellow"></i></div>
+                <div>
+                  <h4 class="font-bold text-brand-navy text-lg" data-i18n="why4.title">Dedicated 24/7 Customer Support</h4>
+                  <p class="text-slate-600" data-i18n="why4.desc">Our professional support team is available around the clock to assist you. Whether you have a question or need urgent help, we are always ready to respond quickly and effectively.</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       <!-- Testimonials -->
-      <section class="py-24 bg-white">
+      <section class="py-24 bg-slate-50">
         <div class="max-w-7xl mx-auto px-6">
           <div class="text-center max-w-3xl mx-auto mb-12">
             <h2 class="text-brand-navy text-4xl md:text-5xl font-black" data-i18n="test.title">What Our Clients Say</h2>
           </div>
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 stagger-children reveal">
-            <div class="bg-slate-50 p-8 rounded-xl shadow-md">
+            <div class="bg-white p-8 rounded-xl shadow-md">
               <div class="flex items-center mb-4">
                 <div class="w-12 h-12 rounded-full mr-4 bg-brand-navy flex items-center justify-center text-white font-black text-lg">JD</div>
                 <div>
@@ -549,7 +420,7 @@
               <div class="flex gap-1 mb-3 text-brand-yellow"><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i></div>
               <p class="text-slate-600 italic" data-i18n="test1.quote">"The best shipping company from China to Uganda. Roshe Group handled everything perfectly. My goods arrived on time and in perfect condition. Look no further!"</p>
             </div>
-            <div class="bg-slate-50 p-8 rounded-xl shadow-md">
+            <div class="bg-white p-8 rounded-xl shadow-md">
               <div class="flex items-center mb-4">
                 <div class="w-12 h-12 rounded-full mr-4 bg-brand-yellow flex items-center justify-center text-brand-navy font-black text-lg">GN</div>
                 <div>
@@ -560,7 +431,7 @@
               <div class="flex gap-1 mb-3 text-brand-yellow"><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i></div>
               <p class="text-slate-600 italic" data-i18n="test2.quote">"Reliable and professional. Their customs clearing service is top-notch. They saved me a lot of time and headache at the Mombasa port."</p>
             </div>
-            <div class="bg-slate-50 p-8 rounded-xl shadow-md">
+            <div class="bg-white p-8 rounded-xl shadow-md">
               <div class="flex items-center mb-4">
                 <div class="w-12 h-12 rounded-full mr-4 bg-teal-600 flex items-center justify-center text-white font-black text-lg">DK</div>
                 <div>
@@ -576,17 +447,17 @@
       </section>
 
       <!-- CTA -->
-      <section class="py-24 bg-slate-50">
+      <section class="py-24 bg-white">
         <div class="max-w-7xl mx-auto px-6">
           <div class="navy-gradient p-12 md:p-20 text-center space-y-8 relative overflow-hidden rounded-3xl">
             <img src="images/Containers on the loading line.jpeg" alt="Scale Your Trade" class="absolute inset-0 w-full h-full object-cover opacity-20">
             <div class="absolute top-0 right-0 w-64 h-64 bg-brand-yellow/10 rounded-full -mr-32 -mt-32 blur-3xl"></div>
             <div class="absolute bottom-0 left-0 w-64 h-64 bg-brand-yellow/10 rounded-full -ml-32 -mb-32 blur-3xl"></div>
-            <h2 class="text-2xl sm:text-4xl md:text-6xl font-black text-white relative z-10" data-i18n="cta.title">Ready to Source from China?</h2>
-            <p class="text-base sm:text-xl text-slate-300 max-w-2xl mx-auto relative z-10" data-i18n="cta.subtitle">Join hundreds of businesses relying on Roshe Group for sourcing, logistics, and factory setup solutions.</p>
+            <h2 class="text-2xl sm:text-4xl md:text-6xl font-black text-white relative z-10" data-i18n="cta.title">Ready to Scale Your Trade?</h2>
+            <p class="text-base sm:text-xl text-slate-300 max-w-2xl mx-auto relative z-10" data-i18n="cta.subtitle">Join hundreds of businesses relying on Roshe Group for seamless China-East Africa logistics.</p>
             <div class="flex flex-col sm:flex-row flex-wrap justify-center gap-4 relative z-10">
               <button onclick="navigateTo('quote')" class="bg-brand-yellow text-brand-navy px-8 py-4 sm:px-10 sm:py-5 rounded-full font-bold text-base sm:text-xl shadow-xl hover:scale-105 transition-transform" data-i18n="cta.btn">Get Your Free Quote</button>
-              <a href="https://wa.me/8613416137544?text=Hello%20Roshe%20Group,%20I'd%20like%20to%20inquire%20about%20sourcing." target="_blank" class="bg-white/10 text-white border border-white/20 px-8 py-4 sm:px-10 sm:py-5 rounded-full font-bold text-base sm:text-xl hover:bg-white/20 transition-colors flex items-center justify-center gap-2" data-i18n="cta.btn2"><i data-lucide="message-circle" class="w-5 h-5"></i> Chat on WhatsApp</a>
+              <button onclick="openContactModal()" class="bg-white/10 text-white border border-white/20 px-8 py-4 sm:px-10 sm:py-5 rounded-full font-bold text-base sm:text-xl hover:bg-white/20 transition-colors" data-i18n="cta.btn2">Contact Sales</button>
             </div>
           </div>
         </div>
@@ -1875,49 +1746,30 @@
         'nav.home': 'Home', 'nav.about': 'About Us', 'nav.services': 'Services',
         'nav.tracking': 'Track Shipment', 'nav.contact': 'Contact Us', 'nav.faq': 'FAQ',
         'nav.hubs': 'Regional Hubs', 'nav.quote': 'Request a Quote',
-        'hero.title': 'Source Products & Machinery Directly from <span class="text-brand-yellow">China</span>',
-        'hero.subtitle': 'At Roshe Group Company Ltd, we help businesses source high-quality products and manufacturing machinery directly from verified suppliers in China. From small orders to full factory setups, we handle everything professionally.',
-        'hero.cta1': 'Request a Quote Now', 'hero.cta2': 'Chat with Us on WhatsApp',
-        'who.tag': 'About the Service', 'who.title': 'End-to-End Sourcing Solutions from <span class="text-brand-yellow">China</span>',
-        'who.desc': 'In addition to shipping, we provide end-to-end sourcing solutions for businesses looking to import goods or set up production. We identify trusted suppliers, negotiate the best prices, ensure product quality, and manage logistics up to final delivery.',
-        'who.goal': 'Our goal is simple: reduce your risk and maximize your business success.',
+        'hero.title': 'Your Trusted Bridge from <span class="text-brand-yellow">China</span> to East Africa',
+        'hero.subtitle': 'Seamless, reliable, and cost-effective logistics solutions. We handle everything from sourcing to your doorstep.',
+        'hero.cta1': 'Get a Free Quote', 'hero.cta2': 'Explore Services',
+        'who.tag': 'Who We Are', 'who.title': 'Your Trusted Shipping & Logistics Solutions Connecting, <span class="text-brand-yellow">China & East Africa</span>',
+        'who.desc': 'Roshe Group is a full-service logistics company specializing in freight forwarding, customs clearance, product sourcing, and warehousing between China and East Africa. We simplify international trade so you can focus on growing your business.',
         'who.cta': 'Discover More',
-        'who.badge1': 'Verified Suppliers', 'who.badge2': 'Best Price Negotiation', 'who.badge3': 'Quality Guaranteed',
-        'source.tag': 'What We Source', 'source.title': 'Products & Machinery We Source',
-        'source.subtitle': 'From everyday goods to complete factory setups, we source it all from verified Chinese manufacturers.',
-        'source.general': 'General Products', 'source.g1': 'Electronics and accessories', 'source.g2': 'Household and retail goods', 'source.g3': 'Packaging materials', 'source.g4': 'Customized branded products',
-        'source.machinery': 'Machinery & Equipment', 'source.m1': 'Food processing machines', 'source.m2': 'Packaging and sealing machines', 'source.m3': 'Textile and garment machinery', 'source.m4': 'Plastic and recycling machines', 'source.m5': 'Agricultural machinery', 'source.m6': 'Construction equipment', 'source.m7': 'Water bottling & beverage production lines', 'source.m8': 'Complete factory setup equipment',
-        'steps.tag': 'Our Process', 'steps.title': 'How We Work in 6 Steps',
-        'steps.subtitle': "From understanding your needs to after-sales support, we've got every step covered.",
-        'step1.title': 'Requirement Analysis', 'step1.desc': 'We understand your exact needs and specifications to deliver the right results.',
-        'step2.title': 'Supplier Verification', 'step2.desc': 'We identify and verify reliable manufacturers in China to ensure trustworthy sourcing.',
-        'step3.title': 'Price Negotiation', 'step3.desc': 'We secure the best prices and favorable terms so you get maximum value.',
-        'step4.title': 'Quality Inspection', 'step4.desc': 'We ensure goods meet required standards before shipping — no surprises.',
-        'step5.title': 'Shipping & Delivery', 'step5.desc': 'We handle all logistics from China to your destination, door to door.',
-        'step6.title': 'After-Sales Support', 'step6.desc': 'We guide you even after delivery, ensuring complete satisfaction with your order.',
-        'why.tag': 'Why Us', 'why.title': 'Why Choose Roshe Group',
-        'why1.desc': 'Direct sourcing from verified Chinese suppliers',
-        'why2.desc': 'Strong negotiation for better pricing',
-        'why3.desc': 'Quality inspection before shipment',
-        'why4.desc': 'Reliable logistics and delivery network',
-        'why5.desc': 'Experience in handling both small and large orders',
-        'why6.desc': 'Trusted partner for business growth',
-        'serve.tag': 'Who We Serve', 'serve.title': 'Businesses We Work With',
-        'serve.s1': 'Entrepreneurs', 'serve.s1d': 'Starting new businesses with sourced products',
-        'serve.s2': 'Companies', 'serve.s2d': 'Expanding production capacity',
-        'serve.s3': 'Importers & Wholesalers', 'serve.s3d': 'Sourcing goods in bulk from China',
-        'serve.s4': 'Investors', 'serve.s4d': 'Setting up factories and production lines',
-        'exp.tag': 'Our Experience', 'exp.title': 'Proven Track Record',
-        'exp.e1': 'Successfully sourced and delivered goods for multiple clients',
-        'exp.e2': 'Supported SMEs with affordable product sourcing',
-        'exp.e3': 'Facilitated bulk shipments and container logistics',
-        'exp.e4': 'Assisted in sourcing machinery for business operation',
+        'who.badge1': 'Licensed & Insured', 'who.badge2': 'End-to-End Service', 'who.badge3': 'Competitive Rates',
+        'steps.title': 'Simple Shipping in 4 Steps',
+        'steps.subtitle': "We've streamlined the entire process to make shipping from China effortless for you.",
+        'step1.title': 'Request a Quote', 'step1.desc': 'Tell us your shipment details, and we provide a clear, competitive quote fast.',
+        'step2.title': 'We Receive & Consolidate', 'step2.desc': 'Your supplier delivers to our China warehouse. We inspect, label, and consolidate for safe shipment.',
+        'step3.title': 'Shipping & Customs', 'step3.desc': 'We handle all freight booking, documentation, and customs clearance for a smooth transit.',
+        'step4.title': 'Delivery to Your Doorstep', 'step4.desc': 'Once cleared, your cargo is delivered to your designated pickup point or final destination.',
+        'why.title': 'Why Choose Us for Your Logistics Needs?',
+        'why1.title': 'Cost-Effective Shipping Solutions', 'why1.desc': 'We deliver high-quality logistics services at competitive rates, helping your business reduce operational costs while maintaining efficiency. Get in touch today for a customized quote that fits your budget.',
+        'why2.title': 'Dependable & Timely Delivery', 'why2.desc': 'We understand that time is critical. Our streamlined processes and experienced team ensure your goods are delivered safely and on schedule - every time.',
+        'why3.title': 'Real-Time Tracking & Full Visibility', 'why3.desc': 'With our advanced tracking systems, you stay informed at every stage. Monitor shipments and inventory in real time, giving you complete control and peace of mind.',
+        'why4.title': 'Dedicated 24/7 Customer Support', 'why4.desc': 'Our professional support team is available around the clock to assist you. Whether you have a question or need urgent help, we are always ready to respond quickly and effectively.',
         'test.title': 'What Our Clients Say',
         'test1.quote': '"The best shipping company from China to Uganda. Roshe Group handled everything perfectly. My goods arrived on time and in perfect condition. Look no further!"',
         'test2.quote': '"Reliable and professional. Their customs clearing service is top-notch. They saved me a lot of time and headache at the Mombasa port."',
         'test3.quote': '"I used their sourcing service to find a new supplier in China. The team was incredibly helpful and found a great manufacturer for me. Highly recommended!"',
-        'cta.title': 'Ready to Source from China?', 'cta.subtitle': 'Join hundreds of businesses relying on Roshe Group for sourcing, logistics, and factory setup solutions.',
-        'cta.btn': 'Get Your Free Quote', 'cta.btn2': 'Chat on WhatsApp',
+        'cta.title': 'Ready to Scale Your Trade?', 'cta.subtitle': 'Join hundreds of businesses relying on Roshe Group for seamless China-East Africa logistics.',
+        'cta.btn': 'Get Your Free Quote', 'cta.btn2': 'Contact Sales',
         'about.hero.title': 'About Roshe Group', 'about.hero.sub': 'Bridging Markets, Building Futures  -  Your Trusted Logistics Partner Between China & East Africa',
         'about.tag': 'The Roshe Story', 'about.title': 'Simplifying Trade Between <br />China & East Africa',
         'about.p1': 'Founded with a vision to simplify the complex trade routes between China and the East African Community, Roshe Group has grown into a leading logistics powerhouse.',
@@ -1997,49 +1849,30 @@
         'nav.home': '首页', 'nav.about': '关于我们', 'nav.services': '服务',
         'nav.tracking': '货物追踪', 'nav.contact': '联系我们', 'nav.faq': '常见问题',
         'nav.hubs': '区域枢纽', 'nav.quote': '获取报价',
-        'hero.title': '从<span class="text-brand-yellow">中国</span>直接采购产品和机械',
-        'hero.subtitle': '在Roshe Group有限公司，我们帮助企业直接从中国经过验证的供应商采购优质产品和制造机械。从小额订单到完整工厂设置，我们专业处理一切。',
-        'hero.cta1': '立即获取报价', 'hero.cta2': '在WhatsApp上联系我们',
-        'who.tag': '关于服务', 'who.title': '来自<span class="text-brand-yellow">中国</span>的端到端采购解决方案',
-        'who.desc': '除了运输之外，我们为希望进口商品或建立生产线的企业提供端到端采购解决方案。我们识别可信赖的供应商、谈判最优价格、确保产品质量，并管理物流直至最终交付。',
-        'who.goal': '我们的目标很简单：降低您的风险，最大化您的商业成功。',
+        'hero.title': '您值得信赖的<span class="text-brand-yellow">中国</span>至东非桥梁',
+        'hero.subtitle': '无缝、可靠且经济的物流解决方案。从采购到送货上门，我们全程为您服务。',
+        'hero.cta1': '获取免费报价', 'hero.cta2': '探索服务',
+        'who.tag': '关于我们', 'who.title': '您值得信赖的航运与物流方案，连接<span class="text-brand-yellow">中国与东非</span>',
+        'who.desc': 'Roshe Group是一家全方位物流公司，专业从事中国与东非之间的货运代理、清关、产品采购和仓储服务。我们简化国际贸易，让您专注于业务发展。',
         'who.cta': '了解更多',
-        'who.badge1': '经验证的供应商', 'who.badge2': '最优价格谈判', 'who.badge3': '质量有保障',
-        'source.tag': '我们采购什么', 'source.title': '我们采购的产品和机械',
-        'source.subtitle': '从日常用品到完整的工厂设置，我们从经过验证的中国制造商采购一切。',
-        'source.general': '一般产品', 'source.g1': '电子产品及配件', 'source.g2': '家居及零售商品', 'source.g3': '包装材料', 'source.g4': '定制品牌产品',
-        'source.machinery': '机械与设备', 'source.m1': '食品加工机械', 'source.m2': '包装和封口机械', 'source.m3': '纺织和服装机械', 'source.m4': '塑料和回收机械', 'source.m5': '农业机械', 'source.m6': '建筑设备', 'source.m7': '饮用水灌装和饮料生产线', 'source.m8': '完整工厂设置设备',
-        'steps.tag': '我们的流程', 'steps.title': '六步工作流程',
-        'steps.subtitle': '从了解您的需求到售后支持，我们覆盖每一个步骤。',
-        'step1.title': '需求分析', 'step1.desc': '我们了解您的确切需求和规格，以提供正确的结果。',
-        'step2.title': '供应商验证', 'step2.desc': '我们识别和验证中国可靠的制造商，确保值得信赖的采购。',
-        'step3.title': '价格谈判', 'step3.desc': '我们争取最优价格和有利条件，让您获得最大价值。',
-        'step4.title': '质量检验', 'step4.desc': '我们确保货物在发货前符合要求的标准——没有意外。',
-        'step5.title': '运输与交付', 'step5.desc': '我们处理从中国到目的地的所有物流，门到门服务。',
-        'step6.title': '售后支持', 'step6.desc': '我们在交付后继续指导您，确保您对订单完全满意。',
-        'why.tag': '为什么选择我们', 'why.title': '为什么选择Roshe Group',
-        'why1.desc': '直接从经验证的中国供应商采购',
-        'why2.desc': '强有力的谈判争取更优价格',
-        'why3.desc': '发货前质量检验',
-        'why4.desc': '可靠的物流和配送网络',
-        'why5.desc': '处理大小订单的丰富经验',
-        'why6.desc': '值得信赖的商业增长伙伴',
-        'serve.tag': '我们服务的对象', 'serve.title': '我们合作的企业',
-        'serve.s1': '创业者', 'serve.s1d': '用采购产品创办新业务',
-        'serve.s2': '企业', 'serve.s2d': '扩大生产能力',
-        'serve.s3': '进口商和批发商', 'serve.s3d': '从中国批量采购商品',
-        'serve.s4': '投资者', 'serve.s4d': '建立工厂和生产线',
-        'exp.tag': '我们的经验', 'exp.title': '经过验证的业绩',
-        'exp.e1': '成功为多个客户采购和交付商品',
-        'exp.e2': '以实惠的产品采购支持中小企业',
-        'exp.e3': '协助批量运输和集装箱物流',
-        'exp.e4': '协助采购企业运营所需的机械',
+        'who.badge1': '持牌且有保险', 'who.badge2': '端到端服务', 'who.badge3': '价格有竞争力',
+        'steps.title': '简单四步发货',
+        'steps.subtitle': '我们简化了整个流程，让从中国发货变得轻松简便。',
+        'step1.title': '获取报价', 'step1.desc': '告诉我们您的货运详情，我们快速提供清晰有竞争力的报价。',
+        'step2.title': '接收与整合', 'step2.desc': '您的供应商将货物送到我们的中国仓库。我们进行检查、标记和整合以确保安全运输。',
+        'step3.title': '运输与清关', 'step3.desc': '我们处理所有货运预订、文件和清关手续，确保顺利运输。',
+        'step4.title': '送货上门', 'step4.desc': '清关后，您的货物将被送到指定的取货点或最终目的地。',
+        'why.title': '为什么选择我们的物流服务？',
+        'why1.title': '经济实惠的运输方案', 'why1.desc': '我们以极具竞争力的价格提供高质量的物流服务，帮助您的企业降低运营成本，同时保持高效运转。',
+        'why2.title': '可靠准时的交付', 'why2.desc': '我们深知时间的重要性。我们的精简流程和经验丰富的团队确保您的货物安全准时送达。',
+        'why3.title': '实时追踪与全程可见', 'why3.desc': '通过我们先进的追踪系统，您可以在每个阶段了解货物状态，实时监控运输和库存。',
+        'why4.title': '全天候专属客服', 'why4.desc': '我们的专业客服团队全天候为您服务。无论您有任何疑问或需要紧急帮助，我们随时准备快速、有效地响应。',
         'test.title': '客户评价',
         'test1.quote': '"从中国到乌干达最好的物流公司。Roshe Group完美处理了一切。我的货物准时且完好无损地送达。强烈推荐！"',
         'test2.quote': '"可靠且专业。他们的清关服务一流。在蒙巴萨港为我节省了大量时间和精力。"',
         'test3.quote': '"我使用了他们的采购服务在中国找到了新的供应商。团队非常贴心，为我找到了优秀的制造商。强烈推荐！"',
-        'cta.title': '准备好从中国采购了吗？', 'cta.subtitle': '加入数百家依赖Roshe Group进行采购、物流和工厂设置解决方案的企业。',
-        'cta.btn': '获取免费报价', 'cta.btn2': '在WhatsApp上聊天',
+        'cta.title': '准备好扩大您的贸易了吗？', 'cta.subtitle': '加入数百家依赖Roshe Group实现中国-东非无缝物流的企业。',
+        'cta.btn': '获取免费报价', 'cta.btn2': '联系销售',
         'about.hero.title': '关于Roshe Group', 'about.hero.sub': '连接市场，创造未来 - 您值得信赖的中国与东非物流伙伴',
         'about.tag': 'Roshe的故事', 'about.title': '简化<br />中国与东非之间的贸易',
         'about.p1': 'Roshe Group怀着简化中国与东非共同体之间复杂贸易路线的愿景而创立，现已发展成为领先的物流公司。',
@@ -2119,49 +1952,30 @@
         'nav.home': 'Nyumbani', 'nav.about': 'Kuhusu Sisi', 'nav.services': 'Huduma',
         'nav.tracking': 'Fuatilia Mizigo', 'nav.contact': 'Wasiliana Nasi', 'nav.faq': 'Maswali',
         'nav.hubs': 'Vituo vya Kanda', 'nav.quote': 'Omba Bei',
-        'hero.title': 'Nunua Bidhaa na Mashine Moja kwa Moja kutoka <span class="text-brand-yellow">China</span>',
-        'hero.subtitle': 'Katika Roshe Group Company Ltd, tunasaidia biashara kupata bidhaa bora na mashine za utengenezaji moja kwa moja kutoka kwa wasambazaji walioidhinishwa nchini China. Kutoka oda ndogo hadi usanidi kamili wa kiwanda, tunashughulikia kila kitu kitaalamu.',
-        'hero.cta1': 'Omba Bei Sasa', 'hero.cta2': 'Zungumza Nasi WhatsApp',
-        'who.tag': 'Kuhusu Huduma', 'who.title': 'Suluhisho Kamili za Ununuzi kutoka <span class="text-brand-yellow">China</span>',
-        'who.desc': 'Mbali na usafirishaji, tunatoa suluhisho kamili za ununuzi kwa biashara zinazotaka kuagiza bidhaa au kuanzisha uzalishaji. Tunatambua wasambazaji waaminifu, kujadiliana bei bora, kuhakikisha ubora wa bidhaa, na kusimamia usafirishaji hadi uwasilishaji wa mwisho.',
-        'who.goal': 'Lengo letu ni rahisi: kupunguza hatari yako na kuongeza mafanikio ya biashara yako.',
+        'hero.title': 'Daraja Lako la Kuaminika kutoka <span class="text-brand-yellow">China</span> hadi Afrika Mashariki',
+        'hero.subtitle': 'Huduma za usafirishaji zenye ufanisi, za kuaminika na za bei nafuu. Tunashughulikia kila kitu kutoka kwa vyanzo hadi mlangoni kwako.',
+        'hero.cta1': 'Pata Bei Bure', 'hero.cta2': 'Gundua Huduma',
+        'who.tag': 'Sisi Ni Nani', 'who.title': 'Suluhisho Zako za Usafirishaji na Vifurushi Zinazounganisha <span class="text-brand-yellow">China na Afrika Mashariki</span>',
+        'who.desc': 'Roshe Group ni kampuni kamili ya usafirishaji inayobobea katika usafirishaji wa mizigo, utoaji forodha, ununuzi wa bidhaa, na uhifadhi kati ya China na Afrika Mashariki. Tunasimplisha biashara ya kimataifa ili uweze kuzingatia kukuza biashara yako.',
         'who.cta': 'Gundua Zaidi',
-        'who.badge1': 'Wasambazaji Walioidhinishwa', 'who.badge2': 'Mazungumzo ya Bei Bora', 'who.badge3': 'Ubora Umehakikishiwa',
-        'source.tag': 'Tunachonunua', 'source.title': 'Bidhaa na Mashine Tunazozinunua',
-        'source.subtitle': 'Kutoka bidhaa za kila siku hadi usanidi kamili wa kiwanda, tunanunua kila kitu kutoka kwa watengenezaji wa China walioidhinishwa.',
-        'source.general': 'Bidhaa za Kawaida', 'source.g1': 'Vifaa vya kielektroniki na vifuasi', 'source.g2': 'Bidhaa za nyumbani na rejareja', 'source.g3': 'Vifaa vya ufungaji', 'source.g4': 'Bidhaa za chapa zilizobinafsishwa',
-        'source.machinery': 'Mashine na Vifaa', 'source.m1': 'Mashine za usindikaji chakula', 'source.m2': 'Mashine za ufungaji na kufunga', 'source.m3': 'Mashine za nguo na mavazi', 'source.m4': 'Mashine za plastiki na kuchakata tena', 'source.m5': 'Mashine za kilimo', 'source.m6': 'Vifaa vya ujenzi', 'source.m7': 'Mistari ya uzalishaji wa maji na vinywaji', 'source.m8': 'Vifaa vya usanidi kamili wa kiwanda',
-        'steps.tag': 'Mchakato Wetu', 'steps.title': 'Jinsi Tunavyofanya Kazi kwa Hatua 6',
-        'steps.subtitle': 'Kutoka kuelewa mahitaji yako hadi msaada wa baada ya mauzo, tumefikia kila hatua.',
-        'step1.title': 'Uchambuzi wa Mahitaji', 'step1.desc': 'Tunaelewa mahitaji na vipimo vyako halisi ili kutoa matokeo sahihi.',
-        'step2.title': 'Uthibitishaji wa Wasambazaji', 'step2.desc': 'Tunatambua na kuthibitisha watengenezaji wa kuaminika nchini China kwa ununuzi wa kuaminiwa.',
-        'step3.title': 'Mazungumzo ya Bei', 'step3.desc': 'Tunapata bei bora na masharti mazuri ili upate thamani ya juu zaidi.',
-        'step4.title': 'Ukaguzi wa Ubora', 'step4.desc': 'Tunahakikisha bidhaa zinakidhi viwango vinavyohitajika kabla ya kusafirishwa — hakuna mshangao.',
-        'step5.title': 'Usafirishaji na Uwasilishaji', 'step5.desc': 'Tunashughulikia usafirishaji wote kutoka China hadi eneo lako, mlango hadi mlango.',
-        'step6.title': 'Msaada Baada ya Mauzo', 'step6.desc': 'Tunakuongoza hata baada ya uwasilishaji, kuhakikisha kuridhika kamili na oda yako.',
-        'why.tag': 'Kwa Nini Sisi', 'why.title': 'Kwa Nini Uchague Roshe Group',
-        'why1.desc': 'Ununuzi wa moja kwa moja kutoka kwa wasambazaji wa China walioidhinishwa',
-        'why2.desc': 'Mazungumzo imara kwa bei bora zaidi',
-        'why3.desc': 'Ukaguzi wa ubora kabla ya usafirishaji',
-        'why4.desc': 'Mtandao wa usafirishaji na uwasilishaji wa kuaminika',
-        'why5.desc': 'Uzoefu wa kushughulikia oda ndogo na kubwa',
-        'why6.desc': 'Mshirika wa kuaminiwa kwa ukuaji wa biashara',
-        'serve.tag': 'Tunaowahudumia', 'serve.title': 'Biashara Tunazofanya Nazo Kazi',
-        'serve.s1': 'Wajasiriamali', 'serve.s1d': 'Kuanzisha biashara mpya na bidhaa zilizununuliwa',
-        'serve.s2': 'Makampuni', 'serve.s2d': 'Kupanua uwezo wa uzalishaji',
-        'serve.s3': 'Waagizaji na Wauzaji wa Jumla', 'serve.s3d': 'Kununua bidhaa kwa wingi kutoka China',
-        'serve.s4': 'Wawekezaji', 'serve.s4d': 'Kuanzisha viwanda na mistari ya uzalishaji',
-        'exp.tag': 'Uzoefu Wetu', 'exp.title': 'Rekodi ya Utendaji Iliyothibitishwa',
-        'exp.e1': 'Kwa mafanikio tulinunua na kusambaza bidhaa kwa wateja wengi',
-        'exp.e2': 'Tulisaidia biashara ndogo na za kati kwa ununuzi wa bei nafuu',
-        'exp.e3': 'Tuliwezesha usafirishaji wa wingi na usafirishaji wa makontena',
-        'exp.e4': 'Tulisaidia katika kununua mashine za uendeshaji wa biashara',
+        'who.badge1': 'Imeidhinishwa na Bima', 'who.badge2': 'Huduma Kamili', 'who.badge3': 'Bei Nafuu',
+        'steps.title': 'Usafirishaji Rahisi kwa Hatua 4',
+        'steps.subtitle': 'Tumeboresha mchakato wote ili kusafirisha kutoka China kuwe rahisi kwako.',
+        'step1.title': 'Omba Bei', 'step1.desc': 'Tuambie maelezo ya mizigo yako, nasi tutakupa bei wazi na ya ushindani haraka.',
+        'step2.title': 'Tunapokea na Kuunganisha', 'step2.desc': 'Msambazaji wako analeta kwenye ghala letu nchini China. Tunakagua, kuweka lebo, na kuunganisha kwa usafirishaji salama.',
+        'step3.title': 'Usafirishaji na Forodha', 'step3.desc': 'Tunashughulikia uhifadhi wote wa mizigo, nyaraka, na utoaji forodha kwa usafiri laini.',
+        'step4.title': 'Uwasilishaji Mlangoni', 'step4.desc': 'Baada ya kutolewa forodhani, mizigo yako inawasilishwa kwenye sehemu yako ya kuchukua au mahali pa mwisho.',
+        'why.title': 'Kwa Nini Utuchague kwa Mahitaji Yako ya Usafirishaji?',
+        'why1.title': 'Suluhisho za Usafirishaji za Bei Nafuu', 'why1.desc': 'Tunatoa huduma za usafirishaji za hali ya juu kwa bei shindani, kusaidia biashara yako kupunguza gharama za uendeshaji huku ukidumisha ufanisi.',
+        'why2.title': 'Utoaji wa Kuaminika na wa Wakati', 'why2.desc': 'Tunaelewa kuwa muda ni muhimu. Michakato yetu iliyoboreshwa na timu yenye uzoefu inahakikisha bidhaa zako zinawasilishwa kwa usalama na kwa wakati.',
+        'why3.title': 'Ufuatiliaji wa Papo kwa Papo na Uwazi Kamili', 'why3.desc': 'Kwa mifumo yetu ya kisasa ya ufuatiliaji, unajulishwa katika kila hatua. Fuatilia mizigo na hifadhi kwa wakati halisi.',
+        'why4.title': 'Msaada wa Wateja 24/7', 'why4.desc': 'Timu yetu ya kitaalamu ya msaada inapatikana saa 24 kukusaidia. Iwe una swali au unahitaji msaada wa haraka, sisi tuko tayari kujibu haraka.',
         'test.title': 'Wateja Wetu Wanasema Nini',
         'test1.quote': '"Kampuni bora zaidi ya usafirishaji kutoka China hadi Uganda. Roshe Group walifanya kila kitu vizuri. Bidhaa zangu zilifika kwa wakati na katika hali nzuri. Usitafute zaidi!"',
         'test2.quote': '"Waaminifu na wataalamu. Huduma yao ya utoaji forodha ni bora sana. Walinisaidia kuokoa muda mwingi katika bandari ya Mombasa."',
         'test3.quote': '"Nilitumia huduma yao ya ununuzi kupata msambazaji mpya nchini China. Timu ilikuwa na msaada mkubwa na kupata mtengenezaji mzuri kwangu. Ninapendekeza sana!"',
-        'cta.title': 'Uko Tayari Kununua kutoka China?', 'cta.subtitle': 'Jiunge na mamia ya biashara zinazotegemea Roshe Group kwa ununuzi, usafirishaji, na suluhisho za usanidi wa kiwanda.',
-        'cta.btn': 'Pata Bei Yako Bure', 'cta.btn2': 'Zungumza WhatsApp',
+        'cta.title': 'Uko Tayari Kupanua Biashara Yako?', 'cta.subtitle': 'Jiunge na mamia ya biashara zinazotegemea Roshe Group kwa usafirishaji bora wa China-Afrika Mashariki.',
+        'cta.btn': 'Pata Bei Yako Bure', 'cta.btn2': 'Wasiliana na Mauzo',
         'about.hero.title': 'Kuhusu Roshe Group', 'about.hero.sub': 'Kuunganisha Masoko, Kujenga Mustakabali - Mshirika Wako wa Kuaminika wa Usafirishaji Kati ya China na Afrika Mashariki',
         'about.tag': 'Hadithi ya Roshe', 'about.title': 'Kurahisisha Biashara Kati ya <br />China na Afrika Mashariki',
         'about.p1': 'Ilianzishwa na maono ya kurahisisha njia changamano za biashara kati ya China na Jumuiya ya Afrika Mashariki, Roshe Group imeongezeka kuwa kampuni inayoongoza katika usafirishaji.',
