@@ -30,6 +30,9 @@
   </script>
   <style>
     body { font-family: 'Inter', ui-sans-serif, system-ui, sans-serif; }
+    /* Hide YouTube iframe loading spinner and branding */
+    #heroVideoWrap { overflow: hidden; background: #0a2a43; }
+    #heroYT { opacity: 1; }
     .glass-card {
       background: rgba(255,255,255,0.8);
       backdrop-filter: blur(12px);
@@ -300,10 +303,16 @@
       <!-- Hero -->
       <section class="relative min-h-screen flex items-center justify-center text-center overflow-hidden bg-brand-navy">
         <div class="absolute inset-0 z-0">
-          <!-- Background Video -->
-          <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover" style="z-index: 1;">
-            <source src="videos/Roshe-header-video.mp4" type="video/mp4">
-          </video>
+          <!-- YouTube Background Video -->
+          <div id="heroVideoWrap" class="absolute inset-0" style="z-index: 1;">
+            <iframe id="heroYT"
+              src="https://www.youtube-nocookie.com/embed/wQMx7wc4jh8?autoplay=1&mute=1&loop=1&playlist=wQMx7wc4jh8&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&enablejsapi=1&iv_load_policy=3&disablekb=1&fs=0&cc_load_policy=0&origin=https://roshegroup.com"
+              class="absolute top-1/2 left-1/2 pointer-events-none"
+              style="width: 300vw; height: 300vh; transform: translate(-50%, -50%); border: none;"
+              allow="autoplay; encrypted-media"
+              loading="eager"
+              title="Hero background video"></iframe>
+          </div>
           <div class="absolute inset-0 bg-brand-navy/50" style="z-index: 2;"></div>
         </div>
         <div class="relative z-10 px-6 animate-fade-in-up space-y-6">
