@@ -2561,11 +2561,7 @@
         events: {
           onReady: function(e) { e.target.playVideo(); },
           onStateChange: function(e) {
-            // If paused or buffering ended without playing, force play
-            if (e.data === YT.PlayerState.PAUSED || e.data === YT.PlayerState.CUED) {
-              e.target.playVideo();
-            }
-            // Re-loop when video ends (belt-and-suspenders)
+            // Only restart when the video has fully ended
             if (e.data === YT.PlayerState.ENDED) {
               e.target.seekTo(0); e.target.playVideo();
             }
