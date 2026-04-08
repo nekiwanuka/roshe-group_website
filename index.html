@@ -9,6 +9,8 @@
   <link rel="apple-touch-icon" href="images/favicon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://www.youtube-nocookie.com" />
+  <link rel="preconnect" href="https://i.ytimg.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://unpkg.com/lucide@latest"></script>
@@ -30,9 +32,9 @@
   </script>
   <style>
     body { font-family: 'Inter', ui-sans-serif, system-ui, sans-serif; }
-    /* Hide YouTube iframe loading spinner and branding */
+    /* YouTube hero background */
     #heroVideoWrap { overflow: hidden; background: #0a2a43; }
-    #heroYT { opacity: 1; }
+    #heroVideoWrap iframe { position: absolute; top: 50%; left: 50%; width: 300vw; height: 300vh; transform: translate(-50%, -50%); pointer-events: none; border: none; }
     .glass-card {
       background: rgba(255,255,255,0.8);
       backdrop-filter: blur(12px);
@@ -303,15 +305,9 @@
       <!-- Hero -->
       <section class="relative min-h-screen flex items-center justify-center text-center overflow-hidden bg-brand-navy">
         <div class="absolute inset-0 z-0">
-          <!-- YouTube Background Video -->
+          <!-- YouTube Background Video (API-controlled) -->
           <div id="heroVideoWrap" class="absolute inset-0" style="z-index: 1;">
-            <iframe id="heroYT"
-              src="https://www.youtube-nocookie.com/embed/wQMx7wc4jh8?autoplay=1&mute=1&loop=1&playlist=wQMx7wc4jh8&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&enablejsapi=1&iv_load_policy=3&disablekb=1&fs=0&cc_load_policy=0&origin=https://roshegroup.com"
-              class="absolute top-1/2 left-1/2 pointer-events-none"
-              style="width: 300vw; height: 300vh; transform: translate(-50%, -50%); border: none;"
-              allow="autoplay; encrypted-media"
-              loading="eager"
-              title="Hero background video"></iframe>
+            <div id="heroYTPlayer"></div>
           </div>
           <div class="absolute inset-0 bg-brand-navy/50" style="z-index: 2;"></div>
         </div>
@@ -2549,6 +2545,40 @@
         updateTestimonialSlider();
       }, 5000);
     }
+
+    /* ── YouTube IFrame Player API ── */
+    var heroPlayer;
+    function onYouTubeIframeAPIReady() {
+      heroPlayer = new YT.Player('heroYTPlayer', {
+        videoId: 'wQMx7wc4jh8',
+        host: 'https://www.youtube-nocookie.com',
+        playerVars: {
+          autoplay: 1, mute: 1, controls: 0, loop: 1,
+          playlist: 'wQMx7wc4jh8', playsinline: 1, rel: 0,
+          showinfo: 0, modestbranding: 1, iv_load_policy: 3,
+          disablekb: 1, fs: 0, cc_load_policy: 0, start: 0
+        },
+        events: {
+          onReady: function(e) { e.target.playVideo(); },
+          onStateChange: function(e) {
+            // If paused or buffering ended without playing, force play
+            if (e.data === YT.PlayerState.PAUSED || e.data === YT.PlayerState.CUED) {
+              e.target.playVideo();
+            }
+            // Re-loop when video ends (belt-and-suspenders)
+            if (e.data === YT.PlayerState.ENDED) {
+              e.target.seekTo(0); e.target.playVideo();
+            }
+          }
+        }
+      });
+    }
+    // Load the API script early
+    (function() {
+      var s = document.createElement('script');
+      s.src = 'https://www.youtube.com/iframe_api';
+      document.head.appendChild(s);
+    })();
 
     document.addEventListener('DOMContentLoaded', function() {
       lucide.createIcons();
